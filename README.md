@@ -1,114 +1,286 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Your Wish List Maker
+Full-Stack Toolkit Portfolio Project - Code Institute
 
-Welcome USER_NAME,
+View the deployed site [here.]()<br>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+ *Your Wish List Maker* is . 
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **May 28, 2024**
+![Screenshot of the preview of application](documentation/readme/)<br>
 
-## Gitpod Reminders
+## Table of contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- [User Experience (UX)](#user-experience-(ux))
+- [Design](#design)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
 
-`python3 -m http.server`
+## User Experience (UX)
 
-A blue button should appear to click: _Make Public_,
+### User stories/Epics
 
-Another blue button should appear to click: _Open Browser_.
+*Your Wish List Maker* is for those who are interested in . 
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
 
-A blue button should appear to click: _Make Public_,
+## Design
 
-Another blue button should appear to click: _Open Browser_.
+- **Imagery:**<br>
+ 
+background image
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+Logo
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+  ![Logo for Your Life in Numbers](documentation/readme_features/)<br>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+ 
+- **Colour Scheme:**<br>
+  
+Why those colors?
 
-------
+<details>
+<summary> Click here to see the colour palette </summary>
+<br>
 
-## Release History
+I created the colour palette with [coloors](https://coolors.co/).<br>
+![Colour palette ](documentation/readme/)<br>
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+</details>
 
-**May 28 2024:** Fix Mongo and Links installs
+### Structure 
 
-**April 26 2024:** Update node version to 16
+The flowchart was crafted during the planning phase of the project and was created with [Lucid](https://lucid.app/). It still displays a third topic (Food/Drinks), that I would love to implement in the future. Furthermore, it has some additional input (smoking/alcohol) that I didn't use in the end. This could be a future enhancement.
+<details>
+<summary> Site Map </summary>
+<br>
 
-**September 20 2023:** Update Python version to 3.9.17.
+![Flowchart](documentation/readme/)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+</details>
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+details>
+<summary> Database Schema  </summary>
+<br>
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+![Flowchart](documentation/readme/)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+</details>
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Wireframes
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+<details>
+<summary> Home page </summary>
+<br>
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+![Mobile wireframe](documentation/wireframes/)
+![Desktop wireframe](documentation/wireframes/)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+</details>
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+<details>
+<summary> Wish list Dashboard </summary>
+<br>
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![Mobile wireframe](documentation/wireframes/)
+![Desktop wireframe](documentation/wireframes/)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+</details>
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Features
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Existing Features
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+To learn more about each feature, please click on the respective headline
 
-------
+<details>
+<summary> Logo </summary>
+<br>
 
-## FAQ about the uptime script
+![Screenshot Logo](documentation/readme_features/)<br>
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+</details>
 
-**How will this affect me?**
+<details>
+<summary> Login </summary>
+<br>
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+xxx <br>
+![Screenshot of the Login](documentation/readme_features/)<br>
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+</details>
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
+### Features, which I would like to implement in the future
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- xxx
 
-**Can I opt out?**
+## Technologies Used
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)/ [CSS](https://en.wikipedia.org/wiki/CSS)
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+- [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
+- [Git](https://git-scm.com/) was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+- [GitHub](https://github.com/) was used to save and store the files for the website.
+- [Heroku](https://www.heroku.com) was used to deploy the application.
+- [VS Code](https://code.visualstudio.com/) was used as IDE. 
+- [Lucid](https://lucid.app/) was used to create the Flowchart.
+- [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) to beautify the code
+- [LanguageTool](https://languagetool.org/) was used to check the grammar and spelling in the README and the Code. 
+- [Coloors](https://coolors.co/image-picker) was used to create the color scheme.
+- [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) was used to convert jpg images into wepb images.
+- [Tinypng](https://tinypng.com/) was used to compress the webp background-image.
+- [Pixabay](https://www.pixabay.com/de-de/) was used to search and load the background image.
+- [QuickTime Player](https://support.apple.com/en_GB/downloads/quicktime) was used to create for recording the screen.
+- [xconvert](https://www.xconvert.com/) was used to convert the screen recording from mov into gif.
+- [Browserling](https://www.browserling.com/) was used to test the application on different browsers.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+**Libraries and modules used:** <br>
+- [sys](https://docs.python.org/3/library/sys.html) was used to get system-specific functions like exit(). It was also necessary for the typing-print effect. 
+- [time](https://docs.python.org/3/library/time.html) was used to access the sleep() function for the time delay.
+- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/master/reference/google.oauth2.service_account.html) was used to get access to Google authentication. 
+- [gspread](https://docs.gspread.org/en/v5.10.0/) was used for the Google sheets functionality 
+- [datetime](https://docs.python.org/3/library/time.html) was used to get the current year and give the copied worksheets a time stamp in the name to make it unique. 
+- [colorama](https://pypi.org/project/colorama/) was used to color the text in the terminal.
 
-**Anything more?**
+## Testing
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+1. **Validator Testing**
 
----
+- **[HTML Validator](https://validator.w3.org/)**
+ 
+  - result for index.html<br>
+    xxx
+    1. result with error<br>
+    ![HTML results index with errors](documentation/readme/)
+    2. final result<br>
+    ![HTML results index](documentation/readme/)<br>
+  - result for 404.html<br>
+  ![HTML results 404 page](documentation/readme/html-validator-404.png)
+  <br>
 
-Happy coding!
+
+
+- **[CSS Validator](https://jigsaw.w3.org/css-validator/)**
+   - result for styles.css <br>
+     
+     ![CSS result](documentation/readme/)
+     The warning is due to import of the Google fonts.
+
+
+  - **[CI Python Linter](https://pep8ci.herokuapp.com/#)**
+
+  - result for xx.py<br>
+  text 
+    ![Python linter result for xx.py](documentation/readme/)<br>
+
+
+
+
+2. **Lighthouse Test** <br>
+   To measure the website against performance, accessibility, SEO and best practice, I used [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=de).<br>
+   - result <br>
+  
+   ![Lighthouse](documentation/readme/)
+
+3. **Manual testing** <br>
+
+| **Test** | **Test Description** | **Expected Outcome** | **Result** |
+|:---|:---|:---|:---|
+| Header - Logo | Click on the logo to return to main page | Clicking on the logo on each page will return you to the main page | Pass |
+| Header - Navbar toggler in mobile view | Click in mobile view on the burger icon to open the navigation | When the burger icon in mobile view is clicked, the navigation should open | Pass |
+| Header - Navigation underline | The page you are currently on should be underlined in the menu | After reaching "Home", "About", "Gallery" or "Contact" the corresponding navigation item should be underlined | Pass |
+| Header - Navigation link | Click on a term in the navigation bar to go to the corresponding page | Clicking "Home", "About", "Gallery" or "Contact" should take the user to the corresponding page | Pass |
+
+
+
+4. **Browser Compatibility**<br>
+  The tests were conducted using the following browsers:
+
+- Google Chrome Version 121.0.6167.160 <br>
+The following tests were conducted by using [browserling](https://www.browserling.com/) <br>
+- Edge Version 118
+- Firefox 119
+- Opera 104
+
+I have tested the website on Safari on macOS Sonoma 14.3, but unfortunately, it just opens the website and starts the program, but I can’t enter any input.
+
+5. **Bugs**
+
+**BUG 1:**<br>
+
+
+
+**Bug 2::** <br>
+
+
+**Bug 3** <br>
+
+
+## Deployment NEEDS UPDATE
+
+### Heroku
+This site is deployed using Heroku. To deploy it from its GitHub repository to Heroku, I took the following steps:
+
+1. Create a list of requirements in the requirements.txt file by using the command _pip3 freeze > requirements.txt_
+2. Log in (or sign up) to Heroku
+3. Click on the _New_ button and select _Create new app_
+4. Give it a unique name and choose the region _Europe_
+5. Click the *Settings* tab, go to the _Config Vars_ section and click on the _Reveal Config Vars_ button
+6. Copy the content of the creds.json file() and paste it into the value field, then name the _Key_ CREDS, like the variable that holds the json file in the run.py file
+7. Click the _Add_ button
+8. Add a second key _PORT_ and set the value to _8000_
+9. Go to the _Buildpacks_ section and click the _Add Buildpacks_ button
+10. Select _python_ and click the _Save changes_ button
+11. Add a second buildpack: _nodejs_
+12. Click the *Deploy* tab, go to the _Deployment method_ section, select _GitHub_ and confirm this selection by clicking on the _Connect to Github_ button
+13. Search for the repository name on github _life-in-numbers_ and click the _Connect_ button 
+14. Enable the automatic deploy or manually deploy the code from the main branch.<br>
+
+To see the [view of the live site]() click on the _Open app_ button on the top right corner or, if you enabled automatic deploy(step 14), log in to GitHub, navigate to the repository for this project by selecting [*queenisabaer/wishlist*](https://github.com/queenisabaer/wishlist), click on _Deployment_ and choose in the _Environments_ section _life-in-numbers_. On top of the latest deployment is the link to the [live site]().
+
+### Forking this GitHub repository
+1.  Log in to GitHub.
+2.  Navigate to the repository for this project by selecting [*queenisabaer/wishlist*](https://github.com/queenisabaer/wishlist)
+3. Click at the top of the repository on the **Fork** button on the right side
+
+### Clone this repository
+1.  Log in to GitHub.
+2.  Navigate to the repository for this project by selecting [*queenisabaer/wishlist*](https://github.com/queenisabaer/wishlist)
+3. In the top right corner, click on the green *Code* button
+4. Copy the HTTPS URL in the tab *Local*
+5. Go to the code editor of your choice and open the terminal
+5. Type `git clone` and paste the URL you copied into your terminal
+6. Press the enter key
+
+
+## Credits
+
+### Content
+
+- 
+
+### Code
+
+- 
+- The following websites were used as a source of knowledge: <br>
+  - [Google](www.google.com)
+  - [mdn](https://developer.mozilla.org/en-US/)
+  - [W3C](https://www.w3.org/)
+  - [W3schools](https://www.w3schools.com/)
+  - [DevDocs](https://devdocs.io/)
+  - [Stack Overflow](https://stackoverflow.com/)
+  - Slack Community
+
+### ReadMe
+
+- Still, a big thank you to [Kera Cudmore](https://github.com/kera-cudmore) and all of her tips on what makes a good README.
+
+### Acknowledgments
+
+- I would like to thank my amazing mentor Brian Macheria for his numerous tips and wonderful assistance during the creation of this project. 
+- 
+
+**This is for educational use.**
