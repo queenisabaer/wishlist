@@ -77,6 +77,71 @@ User Stories with their id:  <br>
 
 ## Design
 
+- **Wireframes** <br>
+
+<details>
+<summary> Home </summary>
+<br>
+
+![Mobile wireframe](documentation/wireframes/wish-list-home-mobil.png)
+![Desktop wireframe](documentation/wireframes/wish-list-home-desktop.png)
+
+</details>
+
+<details>
+<summary> About </summary>
+<br>
+
+![Mobile wireframe](documentation/wireframes/wish-list-about-mobil.png)
+![Desktop wireframe](documentation/wireframes/wish-list-about-desktop.png)
+
+</details>
+
+<details>
+<summary> Create New Wish List </summary>
+<br>
+
+![Mobile wireframe](documentation/wireframes/wish-list-new-wish-list-mobil-admin.png)
+![Desktop wireframe](documentation/wireframes/wish-list-new-wish-list-desktop-admin.png)
+
+</details>
+
+<details>
+<summary> Add Item </summary>
+<br>
+
+![Mobile wireframe](documentation/wireframes/wish-list-add-item-mobil-admin.png)
+![Desktop wireframe](documentation/wireframes/wish-list-add-item-desktop-admin.png)
+
+</details>
+
+<details>
+<summary> User Dashboard </summary>
+<br>
+
+![Mobile wireframe](documentation/wireframes/wish-list-dashboard-mobil.png)
+![Desktop wireframe](documentation/wireframes/wish-list-dashboard-desktop.png)
+
+</details>
+
+<details>
+<summary> Sign Up </summary>
+<br>
+
+![Mobile wireframe](documentation/wireframes/wish-list-signUp-mobil.png)
+![Desktop wireframe](documentation/wireframes/wish-list-signUp-desktop.png)
+
+</details>
+
+<details>
+<summary> Sample Wish List </summary>
+<br>
+
+![Mobile wireframe](documentation/wireframes/wish-list-sample-wish-list-mobil-user.png)
+![Desktop wireframe](documentation/wireframes/wish-list-sample-wish-list-desktop-user.png)
+
+</details>
+
 - **Imagery:**<br>
  
 background image
