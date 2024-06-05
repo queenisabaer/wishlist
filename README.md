@@ -13,6 +13,7 @@ View the deployed site [here.]()<br>
 - [User Experience (UX)](#user-experience-(ux))
 - [Design](#design)
 - [Features](#features)
+- [Bugs](#bugs)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
 - [Deployment](#deployment)
@@ -83,8 +84,8 @@ User Stories with their id:  <br>
 <summary> Home </summary>
 <br>
 
-![Mobile wireframe](documentation/wireframes/wish-list-home-mobil.png)
-![Desktop wireframe](documentation/wireframes/wish-list-home-desktop.png)
+![Mobile wireframe](/documentation/wireframes/wish-list-home-mobil.png)
+![Desktop wireframe](/documentation/wireframes/wish-list-home-desktop.png)
 
 </details>
 
@@ -92,8 +93,8 @@ User Stories with their id:  <br>
 <summary> About </summary>
 <br>
 
-![Mobile wireframe](documentation/wireframes/wish-list-about-mobil.png)
-![Desktop wireframe](documentation/wireframes/wish-list-about-desktop.png)
+![Mobile wireframe](/documentation/wireframes/wish-list-about-mobil.png)
+![Desktop wireframe](/documentation/wireframes/wish-list-about-desktop.png)
 
 </details>
 
@@ -101,8 +102,8 @@ User Stories with their id:  <br>
 <summary> Create New Wish List </summary>
 <br>
 
-![Mobile wireframe](documentation/wireframes/wish-list-new-wish-list-mobil-admin.png)
-![Desktop wireframe](documentation/wireframes/wish-list-new-wish-list-desktop-admin.png)
+![Mobile wireframe](/documentation/wireframes/wish-list-new-wish-list-mobil-admin.png)
+![Desktop wireframe](/documentation/wireframes/wish-list-new-wish-list-desktop-admin.png)
 
 </details>
 
@@ -110,8 +111,8 @@ User Stories with their id:  <br>
 <summary> Add Item </summary>
 <br>
 
-![Mobile wireframe](documentation/wireframes/wish-list-add-item-mobil-admin.png)
-![Desktop wireframe](documentation/wireframes/wish-list-add-item-desktop-admin.png)
+![Mobile wireframe](/documentation/wireframes/wish-list-add-item-mobil-admin.png)
+![Desktop wireframe](/documentation/wireframes/wish-list-add-item-desktop-admin.png)
 
 </details>
 
@@ -119,8 +120,8 @@ User Stories with their id:  <br>
 <summary> User Dashboard </summary>
 <br>
 
-![Mobile wireframe](documentation/wireframes/wish-list-dashboard-mobil.png)
-![Desktop wireframe](documentation/wireframes/wish-list-dashboard-desktop.png)
+![Mobile wireframe](/documentation/wireframes/wish-list-dashboard-mobil.png)
+![Desktop wireframe](/documentation/wireframes/wish-list-dashboard-desktop.png)
 
 </details>
 
@@ -128,8 +129,8 @@ User Stories with their id:  <br>
 <summary> Sign Up </summary>
 <br>
 
-![Mobile wireframe](documentation/wireframes/wish-list-signUp-mobil.png)
-![Desktop wireframe](documentation/wireframes/wish-list-signUp-desktop.png)
+![Mobile wireframe](/documentation/wireframes/wish-list-signUp-mobil.png)
+![Desktop wireframe](/documentation/wireframes/wish-list-signUp-desktop.png)
 
 </details>
 
@@ -137,8 +138,8 @@ User Stories with their id:  <br>
 <summary> Sample Wish List </summary>
 <br>
 
-![Mobile wireframe](documentation/wireframes/wish-list-sample-wish-list-mobil-user.png)
-![Desktop wireframe](documentation/wireframes/wish-list-sample-wish-list-desktop-user.png)
+![Mobile wireframe](/documentation/wireframes/wish-list-sample-wish-list-mobil-user.png)
+![Desktop wireframe](/documentation/wireframes/wish-list-sample-wish-list-desktop-user.png)
 
 </details>
 
@@ -149,7 +150,7 @@ background image
 Logo
 
 
-  ![Logo for Your Life in Numbers](documentation/readme_features/)<br>
+  ![Logo for Your Wish List Maker](documentation/readme_features/)<br>
 
  
 - **Colour Scheme:**<br>
@@ -214,7 +215,7 @@ To learn more about each feature, please click on the respective headline
 <summary> Logo </summary>
 <br>
 
-![Screenshot Logo](documentation/readme_features/)<br>
+![Screenshot Logo](/documentation/readme_features/)<br>
 
 
 </details>
@@ -224,7 +225,7 @@ To learn more about each feature, please click on the respective headline
 <br>
 
 xxx <br>
-![Screenshot of the Login](documentation/readme_features/)<br>
+![Screenshot of the Login](/documentation/readme_features/)<br>
 
 </details>
 
@@ -232,6 +233,18 @@ xxx <br>
 ### Features, which I would like to implement in the future
 
 - xxx
+
+## Bugs
+
+<details>
+<summary> TEMPLATES_DIR </summary>
+<br>
+After I tried to load the home app, I was shown that the template base.html does not exist due to the fact that I recalled the TEMPLATES_DIRS as string. After removing the quotation mark, everything worked.
+  <br>
+![Screenshot of the error message in Browser](/documentation/bugs/bug_templates_dir.png)<br>
+![Screenshot of the error message in Browser](/documentation/bugs/bug_templates_dir2.png)
+
+</details>
 
 ## Technologies Used
 
@@ -322,17 +335,6 @@ The following tests were conducted by using [browserling](https://www.browserlin
 - Opera 104
 
 I have tested the website on Safari on macOS Sonoma 14.3, but unfortunately, it just opens the website and starts the program, but I can’t enter any input.
-
-5. **Bugs**
-
-**BUG 1:**<br>
-
-
-
-**Bug 2::** <br>
-
-
-**Bug 3** <br>
 
 
 ## Deployment NEEDS UPDATE
