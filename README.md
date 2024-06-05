@@ -380,7 +380,7 @@ To see the [view of the live site]() click on the _Open app_ button on the top r
 
 ### Code
 
-- 
+- A great help and inspiration was the [*Django Recipe Sharing Tutorial*](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) by Daisy Mc Girr.
 - The following websites were used as a source of knowledge: <br>
   - [Google](www.google.com)
   - [mdn](https://developer.mozilla.org/en-US/)
@@ -396,7 +396,7 @@ To see the [view of the live site]() click on the _Open app_ button on the top r
 
 ### Acknowledgments
 
-- I would like to thank my amazing mentor Brian Macheria for his numerous tips and wonderful assistance during the creation of this project. 
+- I would like to thank my amazing mentor Brian Macharia for his numerous tips and wonderful assistance during the creation of this project. 
 - 
 
 **This is for educational use.**
