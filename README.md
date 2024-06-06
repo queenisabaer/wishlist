@@ -240,9 +240,10 @@ xxx <br>
 <summary> TEMPLATES_DIR </summary>
 <br>
 After I tried to load the home app, I was shown that the template base.html does not exist due to the fact that I recalled the TEMPLATES_DIRS as string. After removing the quotation mark, everything worked.
-  <br>
+<br>
+<br>
 ![Screenshot of the error message in Browser](/documentation/bugs/bug_templates_dir.png)<br>
-![Screenshot of the error message in Browser](/documentation/bugs/bug_templates_dir2.png)
+![Screenshot of the settings file section](/documentation/bugs/bug_templates_dir2.png)<br>
 
 </details>
 
