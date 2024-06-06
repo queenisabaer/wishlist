@@ -78,7 +78,7 @@ User Stories with their id:  <br>
 
 ## Design
 
-- **Wireframes** <br>
+### Wireframes
 
 <details>
 <summary> Home </summary>
@@ -147,22 +147,27 @@ User Stories with their id:  <br>
  
 background image
 
-Logo
+### Logo
 
 
   ![Logo for Your Wish List Maker](documentation/readme_features/)<br>
 
- 
+### Favicon
+
+The favicon was created with [Favicon.io](https://favicon.io/favicon-generator/)
+
+  ![Favicon for Your Wish List Maker](documentation/images/favicon_readme.png)
+
 - **Colour Scheme:**<br>
   
-Why those colors?
+The color palette was generated using the pipette function on the photo with the presents, which was also used for the favicon and logo. The main colors are glaucous, snow, pink and magenta.  
 
 <details>
 <summary> Click here to see the colour palette </summary>
 <br>
 
 I created the colour palette with [coloors](https://coolors.co/).<br>
-![Colour palette ](documentation/readme/)<br>
+![Colour palette ](documentation/images/wish_list_palette_coolors.png)<br>
 
 </details>
 
@@ -185,25 +190,6 @@ details>
 
 </details>
 
-### Wireframes
-
-<details>
-<summary> Home page </summary>
-<br>
-
-![Mobile wireframe](documentation/wireframes/)
-![Desktop wireframe](documentation/wireframes/)
-
-</details>
-
-<details>
-<summary> Wish list Dashboard </summary>
-<br>
-
-![Mobile wireframe](documentation/wireframes/)
-![Desktop wireframe](documentation/wireframes/)
-
-</details>
 
 ## Features
 
@@ -215,17 +201,19 @@ To learn more about each feature, please click on the respective headline
 <summary> Logo </summary>
 <br>
 
-![Screenshot Logo](/documentation/readme_features/)<br>
+![Screenshot Logo](/documentation/features/)<br>
 
 
 </details>
+
+
 
 <details>
 <summary> Login </summary>
 <br>
 
 xxx <br>
-![Screenshot of the Login](/documentation/readme_features/)<br>
+![Screenshot of the Login](/documentation/features/)<br>
 
 </details>
 
