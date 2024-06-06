@@ -1,3 +1,6 @@
+/* Google Fonts import URL */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 /* Root VARS */
 
 :root {
@@ -7,6 +10,10 @@
     --color-snow: #fef5f8;
     --color-lavender-pink: #fdb4eb;
     --color-magenta: #dd3a8d;
+
+    /* Project fonts */
+    --heading: "Indie Flower", serif;
+    --main-text: "Rubik", sans-serif;
 }
 body {
     background-color: var(--color-snow);
@@ -14,4 +21,5 @@ body {
 
 h1 {
     color: var(--color-glaucous);
+    font: 50px var(--heading);
 }
