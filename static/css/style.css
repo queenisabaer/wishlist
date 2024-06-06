@@ -1,0 +1,17 @@
+/* Root VARS */
+
+:root {
+    /* Color palette*/
+    --color-alice-blue: #e4f0fc;
+    --color-glaucous: #7484dc;
+    --color-snow: #fef5f8;
+    --color-lavender-pink: #fdb4eb;
+    --color-magenta: #dd3a8d;
+}
+body {
+    background-color: var(--color-snow);
+}
+
+h1 {
+    color: var(--color-glaucous);
+}
