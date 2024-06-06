@@ -5,6 +5,6 @@ from django.shortcuts import render
 
 def home_page(request):
     '''
-    Display home page to start a new wishlist, login or signup
+    Display index.html to start a new wishlist, login or signup
     '''
     return render(request, 'home/index.html')
