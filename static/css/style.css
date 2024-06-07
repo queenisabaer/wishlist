@@ -30,7 +30,7 @@ body {
 
 h1 {
     color: var(--color-glaucous);
-    font: 50px var(--heading);
+    font: 3.5rem var(--heading);
 }
 
 
@@ -62,8 +62,20 @@ h1 {
     color: var(--color-magenta);
 }
 
-.navbar {
-    
-} 
 
+/* Footer */
 
+footer{
+    background-color: var(--white);
+    color: var(--color-glaucous);
+}
+
+.icon {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: var(--color-magenta);
+}
+
+.footer-row {
+    padding-top: 15px;
+}

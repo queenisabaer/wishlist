@@ -15,7 +15,6 @@
     />
     <title>Your Wish List Maker - {% block title %} {% endblock %}</title>
 
-    
     <!-- Favicon -->
     <link
       href="{% static 'favicon/apple-touch-icon.png' %}"
@@ -51,19 +50,21 @@
     {% block extra_styles %}{% endblock %}
   </head>
   <body>
-    {% include 'header.html' %}
-     
-
-    {% block content %}
+    {% include 'header.html' %} {% block content %}
     <!-- Content goes here -->
-    {% endblock content %}
-
+    {% endblock content %} {% include 'footer.html' %}
     <!-- Bootstrap JS -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
       integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Font awesome kit-->
+    <script
+      src="https://kit.fontawesome.com/3b20d96fa9.js"
+      crossorigin="anonymous"
     ></script>
 
     <!-- Block for extra JavaScript -->
