@@ -10,11 +10,19 @@
     --color-snow: #fef5f8;
     --color-lavender-pink: #fdb4eb;
     --color-magenta: #dd3a8d;
+    --white: #fff;
 
     /* Project fonts */
     --heading: "Indie Flower", serif;
     --main-text: "Rubik", sans-serif;
 }
+
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+  }
+
 body {
     background-color: var(--color-snow);
     font-family: var(--main-text);
@@ -24,3 +32,38 @@ h1 {
     color: var(--color-glaucous);
     font: 50px var(--heading);
 }
+
+
+/* Navigation Bar */
+
+.navbar{
+    padding-top: 0;
+    padding-bottom: 0 ;
+    background-color: var(--white) !important;
+    --bs-navbar-hover-color: var(--color-lavender-pink);
+}
+
+.logo{
+    height: 100px;
+    margin: 0;
+}
+
+#navbarNav{
+    position: absolute;
+    right: 0;
+}
+
+.nav-item a{
+    color:var(--color-glaucous);
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--color-magenta);
+}
+
+.navbar {
+    
+} 
+
+

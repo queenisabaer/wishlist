@@ -13,7 +13,7 @@
       name="keywords"
       content="wish, wish list, birthday, wedding, bridal shower, baby shower, gift, present, list"
     />
-    <title>{% block title %} {% endblock %}</title>
+    <title>Your Wish List Maker - {% block title %} {% endblock %}</title>
 
     
     <!-- Favicon -->
@@ -51,6 +51,7 @@
     {% block extra_styles %}{% endblock %}
   </head>
   <body>
+    {% include 'header.html' %}
      
 
     {% block content %}
