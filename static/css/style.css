@@ -26,11 +26,17 @@
 body {
     background-color: var(--color-snow);
     font-family: var(--main-text);
+    display: flex;
+    flex-direction: column;
+    /* Limit how much body can grow for 4K+ screens */
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
     color: var(--color-glaucous);
-    font: 3.5rem var(--heading);
+    font: 4rem var(--heading);
 }
 
 
@@ -78,4 +84,28 @@ footer{
 
 .footer-row {
     padding-top: 15px;
+}
+
+/* Main */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Optional: Setzt die Höhe auf die volle Bildschirmhöhe */
+    text-align: center;
+  }
+  
+
+.btn {
+    border: var(--color-magenta) 1px solid;
+    background-color: var(--color-lavender-pink);
+    font-family: var(--heading);
+    font-size: 120%;
+}
+
+.btn:hover{
+    border: var(--color-glaucous) 1px solid;
+    background-color: var(--color-alice-blue);
+    font-family: var(--heading);
+    font-size: 120%;
 }
