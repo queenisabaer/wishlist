@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from wishlists.views import wish_list
+from profilemanagement.views import profile
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("home.urls"), name = 'home'),
-    path('wishlists/', wish_list, name="wishlists")
+    path('', include("home.urls"), name='home'),
+    path('wishlists/', wish_list, name="wishlists"),
+    path('profile/', profile, name='profile'),
 ]

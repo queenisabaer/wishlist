@@ -36,4 +36,3 @@ class WishList(models.Model):
             self.list_name = self.wish_list_id
         super().save(*args, **kwargs)
 
-
