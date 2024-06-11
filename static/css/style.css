@@ -64,8 +64,10 @@ h1 {
     font-size: 1.5rem;
 }
 
-.navbar-nav .nav-link.active {
+.active {
     color: var(--color-magenta);
+    border-bottom: var(--color-magenta);
+    font-weight: 500;
 }
 
 
@@ -91,7 +93,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Optional: Setzt die Höhe auf die volle Bildschirmhöhe */
+    min-height: 100vh; 
     text-align: center;
   }
   
