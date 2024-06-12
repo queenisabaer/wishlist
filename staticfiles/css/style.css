@@ -34,11 +34,22 @@ body {
     margin-right: auto;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
     color: var(--color-glaucous);
-    font: 4rem var(--heading);
+    font-family: var(--heading);
 }
 
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+a {
+    color: var(--color-magenta);
+}
 
 /* Navigation Bar */
 
@@ -64,10 +75,11 @@ h1 {
     font-size: 1.5rem;
 }
 
-.navbar-nav .nav-link.active {
-    color: var(--color-magenta);
+.active {
+    font-weight: 500;
+    color: var(--color-magenta) !important;
+    border-bottom: 2px solid var(--color-magenta);
 }
-
 
 /* Footer */
 
@@ -87,11 +99,12 @@ footer{
 }
 
 /* Main */
+
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Optional: Setzt die Höhe auf die volle Bildschirmhöhe */
+    min-height: 100vh; 
     text-align: center;
   }
   
@@ -100,12 +113,36 @@ main {
     border: var(--color-magenta) 1px solid;
     background-color: var(--color-lavender-pink);
     font-family: var(--heading);
-    font-size: 120%;
+    font-size: 140%;
+    color: var(--color-snow);
+    margin-bottom: 5px;
 }
 
 .btn:hover{
     border: var(--color-glaucous) 1px solid;
     background-color: var(--color-alice-blue);
     font-family: var(--heading);
-    font-size: 120%;
+    font-size: 140%;
+    color: var(--color-magenta);
+}
+
+/* Sign up, Log In */
+
+#id_password1_helptext > ul {
+    list-style: none;
+    color: var(--color-glaucous);
+}
+
+.helptext {
+    font-size: 80%;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#id_remember{
+    margin-right: 10px;
 }
