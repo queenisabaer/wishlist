@@ -230,8 +230,19 @@ xxx <br>
 After I tried to load the home app, I was shown that the template base.html does not exist due to the fact that I recalled the TEMPLATES_DIRS as string. After removing the quotation mark, everything worked.
 <br>
 <br>
-![Screenshot of the error message in Browser](/documentation/bugs/bug_templates_dir.png)<br>
+![Screenshot of the error message in browser](/documentation/bugs/bug_templates_dir.png)<br>
 ![Screenshot of the settings file section](/documentation/bugs/bug_templates_dir2.png)<br>
+
+</details>
+
+<details>
+<summary> Log In </summary>
+<br>
+After I tried to log in, I was shown that the current path does not exist. I could fix this bug by adding the url directly to the action attribute. 
+<br>
+<br>
+![Screenshot of the error message in browser of failed login](/documentation/bugs/bug_login.png)<br>
+![Screenshot of the login html file section](/documentation/bugs/bug_login_html.png)<br>
 
 </details>
 
@@ -371,7 +382,7 @@ To see the [view of the live site]() click on the _Open app_ button on the top r
 
 ### Code
 
-- A great help and inspiration was the [*Django Recipe Sharing Tutorial*](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) by Daisy Mc Girr.
+- A great help and inspiration was the [*Django Recipe Sharing Tutorial*](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) by Daisy Mc Girr. I used espacially her help with the autentification. 
 - How to base field on another field by overwriting the save method, was found in an article in [Medium by Marco](https://marcolcl.medium.com/custom-django-model-field-based-on-default-primary-key-d5d13dd61a1c)
 - To override important css from bootstrap, I found a great article at [Slack](https://stackoverflow.com/questions/70315624/how-to-add-remove-important-css-with-new-css)
 - The following websites were used as a source of knowledge: <br>
