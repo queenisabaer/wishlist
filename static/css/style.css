@@ -34,9 +34,17 @@ body {
     margin-right: auto;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
     color: var(--color-glaucous);
-    font: 4rem var(--heading);
+    font-family: var(--heading);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
 }
 
 
@@ -103,6 +111,7 @@ main {
     background-color: var(--color-lavender-pink);
     font-family: var(--heading);
     font-size: 120%;
+    color: var(--color-snow);
 }
 
 .btn:hover{
@@ -110,4 +119,5 @@ main {
     background-color: var(--color-alice-blue);
     font-family: var(--heading);
     font-size: 120%;
+    color: var(--color-magenta);
 }
