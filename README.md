@@ -246,6 +246,19 @@ After I tried to log in, I was shown that the current path does not exist. I cou
 
 </details>
 
+<details>
+<summary> Links in Navbar </summary>
+<br>
+If I clicked on the links in the navigation bar (for example for login or logout), a wrong URL was created resulting in the error shown in the screenshot. After setting the url paths in a different way, I could fix this error. 
+<br>
+<br>
+![Screenshot of the error message in browser](/documentation/bugs/bug_navbar_links.png)<br>
+![Screenshot of the browser address bar](/documentation/bugs/bug_navbar_links_browser.png)<br>
+Solved: <br>
+![Screenshot of the section inside the header html page](/documentation/bugs/bug_navbar_links_header.png)<br>
+
+</details>
+
 ## Technologies Used
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)/ [CSS](https://en.wikipedia.org/wiki/CSS)
