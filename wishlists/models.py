@@ -13,10 +13,10 @@ def random_string(length=10):
     '''
     letters = string.ascii_letters
     numbers = string.digits
-    random_str = ''.join((random.choice(letters + numbers)) for i in range(length))
+    random_str = ''.join((random.choice(letters + numbers)) for _ in range(length))
     return random_str
 
-
+OCCASSION = ((0, "Anniversary"), (1, "Baby Shower"), (2, "Birthday"), (3, "Bridal shower"), (4, "Christmas"), (5, "Wedding"), (6, "Any other celebration"))
 PRIORITY = ((0, "high"), (1, "medium"), (2, "low"), (3, "no-priority"))
 
 class WishList(models.Model):
@@ -32,6 +32,7 @@ class WishList(models.Model):
     )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    occassion = models.IntegerField(choices=OCCASSION, default=0)
 
     class Meta:
         ordering = ["-created_on", "created_by", "list_name"]

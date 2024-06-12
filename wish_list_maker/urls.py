@@ -22,7 +22,8 @@ from profilemanagement.views import profile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('', include("home.urls"), name='home'),
-    path('wishlists/', wish_list, name="wishlists"),
     path('profile/', profile, name='profile'),
+    path('wishlists/', wish_list, name="wishlists"),
 ]
