@@ -2,6 +2,7 @@
 {% url 'home' as home_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as sign_up_url %}
+{% url 'account_logout' as logout_url%}
 
 <!-- Header sticks to the top at all time-->
 <header class="sticky-top">
@@ -24,7 +25,10 @@
               </li>
               {% if request.user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="accounts/logout">Logout </a>
+                <a class="nav-link {% if request.path == profile_url %}active{% endif %} " href="#">My Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="accounts/logout">Logout </a>
               </li>
               {% else %}
               <li class="nav-item">

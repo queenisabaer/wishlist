@@ -73,9 +73,9 @@ h2 {
 }
 
 .active {
-    color: var(--color-magenta);
-    border-bottom: var(--color-magenta);
     font-weight: 500;
+    color: var(--color-magenta) !important;
+    border-bottom: 1px solid var(--color-magenta);
 }
 
 
@@ -110,7 +110,7 @@ main {
     border: var(--color-magenta) 1px solid;
     background-color: var(--color-lavender-pink);
     font-family: var(--heading);
-    font-size: 120%;
+    font-size: 140%;
     color: var(--color-snow);
 }
 
@@ -118,6 +118,6 @@ main {
     border: var(--color-glaucous) 1px solid;
     background-color: var(--color-alice-blue);
     font-family: var(--heading);
-    font-size: 120%;
+    font-size: 140%;
     color: var(--color-magenta);
 }
