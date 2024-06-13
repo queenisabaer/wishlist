@@ -16,14 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from wishlists.views import wish_list
 from profilemanagement.views import profile
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('', include("home.urls"), name='home'),
+    path('admin/', admin.site.urls),
     path('profile/', profile, name='profile'),
-    path('wishlists/', wish_list, name="wishlists"),
+    path('summernote/', include('django_summernote.urls')),
+    path('wishlists/', include('wishlists.urls')),
+    path('', include('home.urls'), name='home'),
 ]

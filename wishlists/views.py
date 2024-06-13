@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import WishList
 
-def wish_list(request):
-    return HttpResponse("Hello, Wish List")
+class WishListOverview(generic.ListView):
+    model = WishList

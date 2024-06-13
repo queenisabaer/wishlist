@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Wish List Overview</h1>
+    {% for wishlist in object_list %}
+    <h2>{{wishlist.list_name}}</h2>
+    <p>Date of Expiry: {{wishlist.due_date}}</p>
+    <p>Created by: {{wishlist.created_by}}</p>
+    {% endfor %}
+
+{% endblock %}

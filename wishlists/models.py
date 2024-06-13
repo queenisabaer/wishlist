@@ -40,7 +40,6 @@ class WishList(models.Model):
     def __str__(self):
         return str(self.list_name)
     
-
     # How to base a field on another field by overwriting the save method, was found in an article in medium
     def save(self, *args, **kwargs):
         if not self.list_name:
