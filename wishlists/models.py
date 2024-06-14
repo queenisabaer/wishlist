@@ -25,10 +25,10 @@ class WishList(models.Model):
     """
     wish_list_id = models.CharField(max_length=255, default= random_string, editable=False, unique=True)
     list_name = models.CharField(max_length=255, blank=False)
-    due_date = models.DateTimeField(null=True, blank=True)
+    due_date = models.DateField(null=True, blank=True)
     description = models.TextField()
     created_by = models.ForeignKey(
-        User, on_delete=models.CASCADE, null=True, related_name= 'wish_list_owner'
+        User, on_delete=models.CASCADE, null=True, related_name='wish_list_owner'
     )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

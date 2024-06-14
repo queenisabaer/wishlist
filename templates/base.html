@@ -55,6 +55,7 @@
     {% include 'header.html' %}
 
     <main>
+
       {% block content %}
       <!-- Content goes here -->
       {% endblock content %}
@@ -76,6 +77,9 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Custom JS file -->
+    <script
+    src="{% static './js/script.js' %}"></script>
     <!-- Block for extra JavaScript -->
     {% block load_js %}{% endblock %}
   </body>

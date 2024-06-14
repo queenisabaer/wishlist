@@ -126,6 +126,11 @@ main {
     color: var(--color-magenta);
 }
 
+#msg{
+    color: var(--color-magenta);
+    font-size: 90%;
+    border: 2px solid var(--color-glaucous);
+}
 /* Sign up, Log In */
 
 #id_password1_helptext > ul {
