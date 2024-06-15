@@ -118,12 +118,29 @@ main {
     margin-bottom: 5px;
 }
 
-.btn:hover{
+.btn-reverse {
     border: var(--color-glaucous) 1px solid;
     background-color: var(--color-alice-blue);
     font-family: var(--heading);
     font-size: 140%;
     color: var(--color-magenta);
+    margin-bottom: 5px;
+}
+
+.btn:hover{
+    border: var(--color-glaucous) 1px solid;
+    background-color: var(--color-alice-blue);
+    font-family: var(--heading);
+    font-size: 140%;
+    color: var(--color-glaucous);
+}
+
+.btn-reverse:hover{
+    border: var(--color-magenta) 1px solid;
+    background-color: var(--color-lavender-pink);
+    font-family: var(--heading);
+    font-size: 140%;
+    color: var(--color-glaucous);
 }
 
 #msg{

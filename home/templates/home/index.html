@@ -9,11 +9,30 @@
       <div class="col-lg-8 align-items-center">
         <h1>Your Wish List Maker</h1>
       </div>
+      {% if request.user.is_authenticated %}
       <div class="col-lg-8 align-items-center">
-        <p>In pursuit of all the things your heart desires.</p>
-        <a class="btn" role="button" aria-disabled="true" href="">Start a new wish list</a>
+        <p>Welcome back {{ user }}!</p>
+        <p>Continue creating and managing your wish lists effortlessly. Dive in 
+          and make your dreams a reality!
+        </p>
+        <a class="btn" role="button" aria-disabled="true" href="{% url 'add_wishlist' %}">New Wish List &raquo;</a>
+        <a class="btn btn-reverse" role="button" aria-disabled="true" href="">My Profile &raquo;</a>
       </div>
+      {% else %}
+      <div class="col-lg-8 align-items-center">
+        <p>In pursuit of all the things your heart desires, discover the 
+          ultimate tool to organize your dreams with our Wish List Maker. 
+          Create and manage personalized wish lists for every occasion, from 
+          birthdays to holidays, and everything in between. Our platform offers 
+          an intuitive and elegant solution to keep track of your aspirations 
+          and desires.<p>
+        <p>Please sign up or log in to embark on your journey 
+          towards realizing your dreams. Join our community today and take the 
+          first step towards making your wishes come true!</p>
+        <a class="btn" role="button" aria-disabled="true" href="{% url 'account_signup' %}">Sign Up &raquo;</a>
+        <a class="btn btn-reverse" role="button" aria-disabled="true" href="{% url 'account_login' %}">Log In &raquo;</a>
+      </div>
+      {% endif %}
     </div>
   </div>
-
 {% endblock %}
