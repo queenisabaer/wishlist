@@ -66,8 +66,7 @@ a {
 }
 
 #navbarNav{
-    position: absolute;
-    right: 0;
+    text-align: center;
 }
 
 .nav-item a{

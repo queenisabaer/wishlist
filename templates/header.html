@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} 
 {% url 'home' as home_url %} 
 {% url 'account_login' as login_url %} 
 {% url 'account_signup' as sign_up_url %} 
@@ -39,7 +39,12 @@
           </li>
           {% if request.user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link {% if request.path == add_wishlist %}active{% endif %}" aria-current="page" href="{% url 'add_wishlist' %}">New List</a>
+            <a
+              class="nav-link {% if request.path == add_wishlist %}active{% endif %}"
+              aria-current="page"
+              href="{% url 'add_wishlist' %}"
+              >New List</a
+            >
           </li>
           <li class="nav-item">
             <a
