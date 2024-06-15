@@ -37,10 +37,10 @@
               >Home</a
             >
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">New List</a>
-          </li>
           {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == add_wishlist %}active{% endif %}" aria-current="page" href="{% url 'add_wishlist' %}">New List</a>
+          </li>
           <li class="nav-item">
             <a
               class="nav-link {% if request.path == profile_url %}active{% endif %}"

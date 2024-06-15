@@ -163,7 +163,7 @@ USE_TZ = True
 
 # Account Setup (used Tuturoial by Daisy Mc Girr to set up)
 
-ACCOUNT_AUTHENTITICATION_METHOD = 'username_email'
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
