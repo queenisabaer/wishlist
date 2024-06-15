@@ -13,7 +13,7 @@ class AddWishList(LoginRequiredMixin, generic.CreateView):
     template_name = 'wishlists/add_wishlist.html'
     model = WishList
     form_class = WishListForm
-    success_url = ''
+    success_url = '/'
 
     def form_valid(self, form):
         'Update instance of user'
