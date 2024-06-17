@@ -21,3 +21,11 @@ class AddWishList(LoginRequiredMixin, generic.CreateView):
         'Update instance of user'
         form.instance.created_by = self.request.user
         return super(AddWishList, self).form_valid(form)
+    
+class WishListDetail(generic.DetailView):
+    """ View a single wish list """
+    model = WishList
+    template_name = "wishlists/wishlist_detail.html"
+    context_object_name = "wishlist"
+    slug_field = 'wish_list_id'  
+    slug_url_kwarg = 'wish_list_id' 

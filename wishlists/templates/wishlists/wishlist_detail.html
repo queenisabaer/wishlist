@@ -1,0 +1,38 @@
+{% extends "base.html" %} 
+{% block title %} Wishlist Detail - {{wishlist.list_name}} {% endblock %} 
+
+{% block content %}
+
+<div class="container ">
+    <div class="row justify-content-center">
+      <div class="col md-3">
+        <h1>{{ wishlist.list_name }}</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+          <p>
+            Date of Expiry: {{wishlist.due_date}}
+          </p>
+          <p>
+            Details: {{wishlist.description}}
+          </p>
+          <p>
+            Occassion: {{wishlist.occassion}}
+          </p>
+          <p>
+            Last update on: {{wishlist.updated_at}}
+          </p>
+          {% if request.user == wishlist.created_by %}
+            <a href="" class="btn btn-edit">Edit <i class="fa-solid fa-pen helptext"></i></a>
+            <a href="" class="btn btn-delete">Delete <i class="fa-solid fa-trash helptext"></i></a>
+          {% endif %}
+      </div>
+    </div>
+    <div class="row justify-content-center">
+        
+    </div>
+  </div>
+
+
+{%endblock %}
