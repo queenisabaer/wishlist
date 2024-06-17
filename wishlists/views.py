@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import WishList
 from .forms import WishListForm
-from django.contrib.auth. mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 class WishListOverview(generic.ListView):
@@ -31,4 +31,17 @@ class WishListDetail(generic.DetailView):
     template_name = "wishlists/wishlist_detail.html"
     context_object_name = 'wishlist'
     slug_field = 'wish_list_id'  
-    slug_url_kwarg = 'wish_list_id' 
+    slug_url_kwarg = 'wish_list_id'
+
+
+class DeleteWishList(generic.DeleteView):
+    """ Delete a wish list """
+    model = WishList
+    template_name = 'wishlists/delete_wish_list.html'
+    success_url = '/wishlists/wishlist_list'
+    slug_field = 'wish_list_id'  
+    slug_url_kwarg = 'wish_list_id'
+
+    def delete(self, request,  *args, **kwargs):
+        messages.success(self.request, "Your wish list has been deleted")
+        return super(DeleteWishList, self).delete(request, *args, **kwargs)

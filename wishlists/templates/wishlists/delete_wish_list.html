@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Delete wish list
+{% endblock %}
+
+{%block content %}
+
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col md-3">
+          <h1>Confirm Wish List Deletion:</h1>
+          <h2>{{ wishlist.list_name }}</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" class="text-center">
+                {% csrf_token %}
+            <p>Are you sure you want to delete:<br>
+                <em>{{ wishlist.list_name }}</em>?<br> This action cannot be undone.
+            </p>
+            <input type="submit" value="Confirm &raquo;" class="btn btn-delete">
+        </form>
+        </div>
+    </div>
+    
+
+</div>
+
+{% endblock %}

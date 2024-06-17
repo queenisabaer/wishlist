@@ -22,7 +22,7 @@
                     </p>
                     <a href="{% url 'wishlist_detail' wishlist.wish_list_id %}" class="btn"> Show Wish List &raquo;</a><br>
                     <a href="" class="btn btn-edit mt-2"><i class="fa-solid fa-pen helptext"></i></a>
-                    <a href="" class="btn btn-delete mt-2"><i class="fa-solid fa-trash helptext"></i></a>
+                    <a href={% url 'delete_wishlist' wishlist.wish_list_id %} class="btn btn-delete mt-2"><i class="fa-solid fa-trash helptext"></i></a>
                 </div>
             </div>
             {% endif %}

@@ -25,7 +25,7 @@
           </p>
           {% if request.user == wishlist.created_by %}
             <a href="" class="btn btn-edit">Edit <i class="fa-solid fa-pen helptext"></i></a>
-            <a href="" class="btn btn-delete">Delete <i class="fa-solid fa-trash helptext"></i></a>
+            <a href={% url 'delete_wishlist' wishlist.wish_list_id %} class="btn btn-delete">Delete <i class="fa-solid fa-trash helptext"></i></a>
           {% endif %}
       </div>
     </div>
