@@ -1,12 +1,27 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
+{% block title %} Wishlist Overview {% endblock %} 
 
 {% block content %}
 
-<h1>Wish List Overview</h1>
-    {% for wishlist in object_list %}
-    <h2>{{wishlist.list_name}}</h2>
-    <p>Date of Expiry: {{wishlist.due_date}}</p>
-    <p>Created by: {{wishlist.created_by}}</p>
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Wish List Overview</h1>
+    </div>
+  <div class="d-flex flex-row flex-wrap justify-content-center m3">
+    {% for wishlist in wishlists %}
+    <div class="card m-2" style="width: 18rem">
+      <div class="card-body">
+        <h2 class="card-title">{{wishlist.list_name}}</h2>
+        <p class="card-text">Date of Expiry: {{wishlist.due_date}}</p>
+        <p class="card-text">
+          <small class="text-body-secondary">
+            Details: {{wishlist.description}}
+          </small>
+        </p>
+        <a href="" class="btn"> Show Wish List &raquo;</a>
+      </div>
+    </div>
     {% endfor %}
-
+  </div>
+</div>
 {% endblock %}

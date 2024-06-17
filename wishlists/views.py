@@ -7,6 +7,8 @@ from django.contrib.auth. mixins import LoginRequiredMixin
 
 class WishListOverview(generic.ListView):
     model = WishList
+    template_name = "wishlists/wishlist_list.html"
+    context_object_name = "wishlists"
 
 class AddWishList(LoginRequiredMixin, generic.CreateView):
     """ Add Wishlist view """
@@ -19,4 +21,3 @@ class AddWishList(LoginRequiredMixin, generic.CreateView):
         'Update instance of user'
         form.instance.created_by = self.request.user
         return super(AddWishList, self).form_valid(form)
-    
