@@ -1,6 +1,7 @@
-from django.views import generic
-from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib import messages
+from django.shortcuts import redirect
+from django.views import generic
 from .models import WishList
 from .forms import WishListForm
 from django.contrib.auth.decorators import login_required
@@ -44,6 +45,12 @@ class DeleteWishList(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
 
     def test_func(self):
         return self.request.user == self.get_object().created_by
+    
+    def handle_no_permission(self):
+        if not self.request.user.is_authenticated:
+            messages.info(self.request, "You need to log in first to delete a wish list.")
+            return redirect('account_login') 
+        return super().handle_no_permission()
 
     def delete(self, request,  *args, **kwargs):
         messages.success(self.request, "Your wish list has been deleted")
