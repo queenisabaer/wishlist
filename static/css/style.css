@@ -51,6 +51,12 @@ a {
     color: var(--color-magenta);
 }
 
+.txt-highlight{
+    color: var(--color-magenta);
+    font-size: 140%;
+    font-family: var(--heading);
+}
+
 /* Navigation Bar */
 
 .navbar{
@@ -191,9 +197,4 @@ main {
     color: var(--color-snow);
 }
 
-/* Confirm Deletion */
-.txt-highlight{
-    color: var(--color-magenta);
-    font-size: 140%;
-    font-family: var(--heading);
-}
+

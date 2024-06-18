@@ -22,7 +22,7 @@ def random_string(length=10):
     random_str = ''.join((random.choice(letters + numbers)) for _ in range(length))
     return random_str
 
-OCCASSION = ((0, "Anniversary"), (1, "Baby Shower"), (2, "Birthday"), (3, "Bridal shower"), (4, "Christmas"), (5, "Wedding"), (6, "Any other celebration"))
+OCCASSION = ((0, "Anniversary"), (1, "Baby Shower"), (2, "Birthday"), (3, "Bridal shower"), (4, "Christmas"), (5, "Wedding"), (6, "Celebration"))
 PRIORITY = ((0, "high"), (1, "medium"), (2, "low"), (3, "no-priority"))
 
 class WishList(models.Model):
@@ -68,7 +68,7 @@ class WishList(models.Model):
         if not self.list_name:
             self.list_name = self.wish_list_id
         super().save(*args, **kwargs)
-
+    
 class Item(models.Model):
     """
     A model representing an Item in a wish list.

@@ -1,7 +1,13 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import redirect
 
-# Create your views here.
+def profile_page(request):
+    """
+    View to render the profile page.
 
-def profile(request):
-    return HttpResponse("Profile Page")
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered profile page.
+    """
+    return redirect('/wishlists/wishlist_list')
