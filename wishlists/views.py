@@ -1,6 +1,6 @@
 from django.views import generic
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import WishList
 from .forms import WishListForm
 from django.contrib.auth.decorators import login_required
@@ -34,13 +34,16 @@ class WishListDetail(generic.DetailView):
     slug_url_kwarg = 'wish_list_id'
 
 
-class DeleteWishList(generic.DeleteView):
+class DeleteWishList(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     """ Delete a wish list """
     model = WishList
     template_name = 'wishlists/delete_wish_list.html'
     success_url = '/wishlists/wishlist_list'
     slug_field = 'wish_list_id'  
     slug_url_kwarg = 'wish_list_id'
+
+    def test_func(self):
+        return self.request.user == self.get_object().created_by
 
     def delete(self, request,  *args, **kwargs):
         messages.success(self.request, "Your wish list has been deleted")
