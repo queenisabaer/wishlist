@@ -1,36 +1,45 @@
 {% extends "base.html" %} 
-{% block title %} Wishlist Detail - {{wishlist.list_name}} {% endblock %} 
-
+{% block title %} Wishlist Detail - {{wishlist.list_name}} 
+{% endblock %} 
 {% block content %}
 
-<div class="container ">
-    <div class="row justify-content-center">
-      <div class="col md-3">
-        <h1>{{ wishlist.list_name }}</h1>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-          <p>
-            Date of Expiry: {{wishlist.due_date}}
-          </p>
-          <p>
-            Details: {{wishlist.description}}
-          </p>
-          <p>
-            Occassion: {{wishlist.get_occassion_display}}
-          </p>
-          <p>
-            Last update on: {{wishlist.updated_at}}
-          </p>
-          {% if request.user == wishlist.created_by %}
-            <a href="{% url 'edit_wishlist' wishlist.wish_list_id %}" class="btn btn-edit">Edit <i class="fa-solid fa-pen helptext"></i></a>
-            <a href={% url 'delete_wishlist' wishlist.wish_list_id %} class="btn btn-delete">Delete <i class="fa-solid fa-trash helptext"></i></a>
-          {% endif %} <br>
-          <a href="{% url 'wishlist_list' %}">&laquo; Back to Wish List Overview</a><br>
-      </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col md-3">
+      <h1>{{ wishlist.list_name }}</h1>
     </div>
   </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <p>Date of Expiry: {{wishlist.due_date}}</p>
+      <p>Details: {{wishlist.description}}</p>
+      <p>Occassion: {{wishlist.get_occassion_display}}</p>
+      <p class="helptext">Last update on: {{wishlist.updated_at}}</p>
+      {% if request.user == wishlist.created_by %}
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <a
+            href="{% url 'edit_wishlist' wishlist.wish_list_id %}"
+            class="btn btn-edit"
+            >Edit <i class="fa-solid fa-pen helptext"></i
+          ></a>
+          <a
+            href="{% url 'delete_wishlist' wishlist.wish_list_id %}"
+            class="btn btn-delete"
+            >Delete <i class="fa-solid fa-trash helptext"></i
+          ></a>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8 mt-3">
+          <a href="{% url 'wishlist_list' %}"
+            >&laquo; Back to Wish List Overview</a
+          >
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
 
-
-{%endblock %}
+{% endblock %}
