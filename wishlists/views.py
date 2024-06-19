@@ -43,7 +43,7 @@ class WishListDetail(generic.DetailView):
     slug_url_kwarg = 'wish_list_id'
 
 
-class EditWishList(generic.UpdateView):
+class EditWishList(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     """
     View for editing a wish list. Requires the user to be logged in and to own the wish list.
     
