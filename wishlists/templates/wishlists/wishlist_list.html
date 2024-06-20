@@ -15,12 +15,7 @@
             <div class="card m-2" style="width: 18rem">
                 <div class="card-body">
                     <h2 class="card-title">{{wishlist.list_name}}</h2>
-                    <p class="card-text">Date of Expiry: {{wishlist.due_date}}</p>
-                    <p class="card-text">
-                        <small class="text-body-secondary">
-                            Details: {{wishlist.description}}
-                        </small>
-                    </p>
+                    <p class="card-text"><i class="fa-regular fa-calendar"></i> {{wishlist.due_date}}</p>
                     <a href="{% url 'wishlist_detail' wishlist.wish_list_id %}" class="btn btn-pink"> Show Wish List &raquo;</a><br>
                     <a href="{% url 'edit_wishlist' wishlist.wish_list_id %} " class="btn btn-edit mt-2"><i class="fa-solid fa-pen helptext"></i></a>
                     <a href={% url 'delete_wishlist' wishlist.wish_list_id %} class="btn btn-delete mt-2"><i class="fa-solid fa-trash helptext"></i></a>

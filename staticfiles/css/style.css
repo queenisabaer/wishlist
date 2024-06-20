@@ -114,6 +114,37 @@ main {
   }
   
 
+#msg{
+    color: var(--color-glaucous);
+    font-size: 90%;
+    border: 1px solid var(--color-magenta);
+    background-color: aquamarine;
+}
+
+
+/* Sign up, Log In */
+
+#id_password1_helptext > ul {
+    list-style: none;
+    color: var(--color-glaucous);
+}
+
+.helptext {
+    font-size: 80%;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#id_remember{
+    margin-right: 10px;
+}
+
+/* Buttons */
+
 .btn-pink {
     border: var(--color-magenta) 1px solid;
     background-color: var(--color-lavender-pink);
@@ -148,39 +179,10 @@ main {
     color: var(--color-glaucous);
 }
 
-#msg{
-    color: var(--color-glaucous);
-    font-size: 90%;
-    border: 1px solid var(--color-magenta);
-    background-color: aquamarine;
-}
-
-
-/* Sign up, Log In */
-
-#id_password1_helptext > ul {
-    list-style: none;
-    color: var(--color-glaucous);
-}
-
-.helptext {
-    font-size: 80%;
-}
-
-.form-check {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#id_remember{
-    margin-right: 10px;
-}
-
-/* Wish List details */
 
 .btn-delete{
     background-color: var(--color-magenta);
+    color: var(--white);
 }
 
 .btn-edit{
@@ -192,9 +194,13 @@ main {
 .btn-delete:hover{
     border: var(--color-magenta) 1px solid;
     background-color: var(--color-magenta);
-    font-family: var(--heading);
-    font-size: 140%;
     color: var(--color-snow);
+}
+
+.btn-edit:hover{
+    background-color: var(--color-alice-blue);
+    color: var(--color-glaucous);
+    border: var(--color-glaucous) 1px solid;;
 }
 
 
