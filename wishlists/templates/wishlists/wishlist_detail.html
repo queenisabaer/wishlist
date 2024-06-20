@@ -1,5 +1,8 @@
-{% extends "base.html" %} {% block title %} Wishlist Detail -
-{{wishlist.list_name}} {% endblock %} {% block content %}
+{% extends "base.html" %} 
+{% block title %} Wishlist Detail - {{wishlist.list_name}} 
+{% endblock %} 
+
+{% block content %}
 
 <div class="container">
   <div class="row justify-content-center">
@@ -9,6 +12,7 @@
   </div>
   <div class="row justify-content-center mb-3">
     <div class="col md-3">
+      {% if request.user == wishlist.created_by %}
       <!-- Link to trigger the modal -->
       <button
         type="button"
@@ -49,19 +53,18 @@
                   value="{{ request.build_absolute_uri }}"
                   readonly
                 />
-                <button
-                  class="btn btn-delete"
-                  type="button"
-                  id="shareButton"
-                >
-                Copy <i class="fa-solid fa-copy"></i> 
+                <button class="btn btn-delete" type="button" id="shareButton">
+                  Copy <i class="fa-solid fa-copy"></i>
                 </button>
               </div>
-              <div class="input-group mb-3 justify-content-center"><p id="share-message"></p></div>
+              <div class="input-group mb-3 justify-content-center">
+                <p id="share-message"></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      {% endif %}
     </div>
   </div>
   <div class="row justify-content-center">
