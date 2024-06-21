@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views import generic
 from .models import WishList
 from .forms import WishListForm
@@ -9,15 +10,15 @@ from .forms import WishListForm
 class WishListOverview(generic.ListView):
     """ View for displaying an overview of all wish lists. """
     model = WishList
-    template_name = "wishlists/wishlist_list.html"
-    context_object_name = "wishlists"
+    template_name = 'wishlists/wishlist_list.html'
+    context_object_name = 'wishlists'
 
 class AddWishList(LoginRequiredMixin, generic.CreateView):
     """ View for adding a new wish list. Requires the user to be logged in. """
     template_name = 'wishlists/add_wishlist.html'
     model = WishList
     form_class = WishListForm
-    success_url = '/'
+    success_url = reverse_lazy('wishlist_detail')
 
     def form_valid(self, form):
         """
@@ -32,6 +33,9 @@ class AddWishList(LoginRequiredMixin, generic.CreateView):
         form.instance.created_by = self.request.user
         messages.success(self.request, "Your wish list has been created and can be seen in your profile")
         return super(AddWishList, self).form_valid(form)
+    
+    def get_success_url(self):
+        return reverse_lazy('wishlist_detail', args=[str(self.object.wish_list_id)])
     
 
 class WishListDetail(generic.DetailView):
@@ -138,3 +142,4 @@ class DeleteWishList(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
         """
         messages.success(self.request, "Your wish list has been deleted")
         return super(DeleteWishList, self).delete(request, *args, **kwargs)
+

@@ -1,23 +1,22 @@
-{% extends 'base.html' %}
-
-{% block title %} Add Wish List {% endblock %}
-
+{% extends 'base.html' %} 
+{% block title %} Add Wish List {% endblock %} 
 {% block content %}
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8">
-            <form method="POST">
-                <h1 class="text-center">Add a new wish list</h1>
-                {% csrf_token %}
-                {{ form.media }}
-                {{ form|crispy}}
-                <div class="text-center">
-                <button type="submit" class="btn btn-pink">Add Wish List &raquo;</button>
-                </div>
-            </form>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <form method="POST">
+        <h1 class="text-center">Add a new wish list</h1>
+        {% csrf_token %} {{ form.media }} {{ form|crispy}}
+        <div class="text-center">
+          <button type="submit" class="btn btn-pink">
+            Save Wish List &raquo;
+          </button>
+          <p class="helptext">You can add items to your wish list in the next step</p>
         </div>
+      </form>
     </div>
+  </div>
 </div>
 
 {% endblock %}
