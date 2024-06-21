@@ -1,11 +1,10 @@
-from django.urls import path, include
+from django.urls import path 
 from .views import (
     AddWishList,
     WishListOverview,
     WishListDetail,
     DeleteWishList,
     EditWishList,
-    add_wishlist_item,
 )
 
 

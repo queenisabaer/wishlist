@@ -8,6 +8,7 @@
   <div class="row justify-content-center">
     <div class="col md-3">
       <h1>{{ wishlist.list_name }}</h1>
+      <p class="helptext">Last update on: {{wishlist.updated_at}}</p>
     </div>
   </div>
   <div class="row justify-content-center mb-3">
@@ -16,7 +17,7 @@
       <!-- Link to trigger the modal -->
       <button
         type="button"
-        class="btn btn-pink"
+        class="btn btn-outline-dark"
         data-bs-toggle="modal"
         data-bs-target="#shareModal"
       >
@@ -57,24 +58,15 @@
                   Copy <i class="fa-solid fa-copy"></i>
                 </button>
               </div>
-              <div class="input-group mb-3 justify-content-center">
+            <div class="input-group mb-3 justify-content-center">
                 <p id="share-message"></p>
-              </div>
+            </div>
             </div>
           </div>
         </div>
       </div>
-      {% endif %}
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <p><i class="fa-regular fa-calendar"></i> {{wishlist.due_date}}</p>
-      <p>Details: {{wishlist.description}}</p>
-      <p>Occassion: {{wishlist.get_occassion_display}}</p>
-      <p class="helptext">Last update on: {{wishlist.updated_at}}</p>
-      {% if request.user == wishlist.created_by %}
-      <div class="row justify-content-center">
+
+      <div class="row justify-content-center mt-2">
         <div class="col-md-8">
           <a
             href="{% url 'edit_wishlist' wishlist.wish_list_id %}"
@@ -88,7 +80,62 @@
           ></a>
         </div>
       </div>
-      <div class="row justify-content-center">
+      {% endif %}
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <p><i class="fa-regular fa-calendar"></i> {{wishlist.due_date}}</p>
+      <p>Details: {{wishlist.description}}</p>
+      <p>Occassion: {{wishlist.get_occassion_display}}</p>
+
+      <div>
+        <!-- Button trigger modal -->
+        {% if request.user == wishlist.created_by %}
+        <button
+          type="button"
+          class="btn btn-dark mb-3"
+          data-bs-toggle="modal"
+          data-bs-target="#itemModal"
+        >
+        <i class="fa-solid fa-plus"></i> Add item
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="itemModal"
+          tabindex="-1"
+          aria-labelledby="itemModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="itemModalLabel">
+                  Add an item
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                  <form id="addItemForm" method="POST">
+                      {% csrf_token %} {{ itemForm.media }} {{ itemForm|crispy}}
+                      <button class="btn btn-pink" type="submit" name="add_item">Add Item</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      
+      {% if request.user == wishlist.created_by %}
+        <div class="row justify-content-center">
         <div class="col-md-8 mt-3">
           <a href="{% url 'wishlist_list' %}"
             >&laquo; Back to Wish List Overview</a
