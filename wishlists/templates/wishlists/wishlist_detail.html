@@ -1,4 +1,5 @@
 {% extends "base.html" %} 
+
 {% block title %} Wishlist Detail - {{wishlist.list_name}} 
 {% endblock %} 
 
@@ -14,6 +15,7 @@
   <div class="row justify-content-center mb-3">
     <div class="col md-3">
       {% if request.user == wishlist.created_by %}
+      <!-- Modal to share a wish list-->
       <!-- Link to trigger the modal -->
       <button
         type="button"
@@ -58,9 +60,9 @@
                   Copy <i class="fa-solid fa-copy"></i>
                 </button>
               </div>
-            <div class="input-group mb-3 justify-content-center">
+              <div class="input-group mb-3 justify-content-center">
                 <p id="share-message"></p>
-            </div>
+              </div>
             </div>
           </div>
         </div>
@@ -90,6 +92,7 @@
       <p>Occassion: {{wishlist.get_occassion_display}}</p>
 
       <div>
+        <!-- Modal to add items -->
         <!-- Button trigger modal -->
         {% if request.user == wishlist.created_by %}
         <button
@@ -98,7 +101,7 @@
           data-bs-toggle="modal"
           data-bs-target="#itemModal"
         >
-        <i class="fa-solid fa-plus"></i> Add item
+          <i class="fa-solid fa-plus"></i> Add item
         </button>
 
         <!-- Modal -->
@@ -123,19 +126,18 @@
                 ></button>
               </div>
               <div class="modal-body">
-                  <form id="addItemForm" method="POST">
-                      {% csrf_token %} {{ itemForm.media }} {{ itemForm|crispy}}
-                      <button class="btn btn-pink" type="submit" name="add_item">Add Item</button>
-                  </form>
+                <form id="addItemForm" method="POST">
+                  {% csrf_token %} {{ itemForm.media }} {{ itemForm|crispy}}
+                  <button class="btn btn-pink" type="submit" name="add_item">
+                    Add Item
+                  </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
-        {% endif %}
       </div>
-      
-      {% if request.user == wishlist.created_by %}
-        <div class="row justify-content-center">
+      <div class="row justify-content-center">
         <div class="col-md-8 mt-3">
           <a href="{% url 'wishlist_list' %}"
             >&laquo; Back to Wish List Overview</a

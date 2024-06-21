@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 from .models import WishList
-from .forms import WishListForm
+from .forms import WishListForm, ItemForm
 
 
 class WishListOverview(generic.ListView):
@@ -38,13 +38,32 @@ class AddWishList(LoginRequiredMixin, generic.CreateView):
         return reverse_lazy('wishlist_detail', args=[str(self.object.wish_list_id)])
     
 
-class WishListDetail(generic.DetailView):
+class WishListDetail(LoginRequiredMixin, generic.DetailView):
     """ View for displaying details of a single wish list. """
     model = WishList
     template_name = "wishlists/wishlist_detail.html"
     context_object_name = 'wishlist'
     slug_field = 'wish_list_id'  
     slug_url_kwarg = 'wish_list_id'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if 'itemForm' not in context:
+            context['itemForm'] = ItemForm()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        itemForm = ItemForm(request.POST)
+        if itemForm.is_valid():
+            item = itemForm.save(commit=False)
+            item.wish_list = self.object
+            item.save()
+            messages.success(request, "Item has been added to your wish list.")
+            return redirect('wishlist_detail', wish_list_id=self.object.wish_list_id)
+        else:
+            context = self.get_context_data(itemForm=itemForm)
+            return self.render_to_response(context)
 
 
 class EditWishList(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):

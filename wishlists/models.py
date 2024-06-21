@@ -86,7 +86,7 @@ class Item(models.Model):
     item_id = models.AutoField(primary_key=True)
     item_name = models.CharField(max_length=250, blank=False, null=False)
     item_link = models.URLField(blank=True)
-    price = models.DecimalField(max_digits=19, decimal_places=2)
+    price = models.DecimalField(max_digits=19, decimal_places=2, blank=True)
     quantity = models.IntegerField()
     priority = models.IntegerField(choices=PRIORITY, default=3)
     wish_list = models.ForeignKey(
