@@ -37,11 +37,11 @@ class ItemForm(forms.ModelForm):
         ]
         labels = {
             "item_name": "Item Name",
-            "item_link": "Link",
-            "price": "Price",
-            "quantity": "Quantity",
-            "priority": "Priority",
-            "image": "Image",
+            "item_link": "Purchase link",
+            "price": "Price (approx.)",
+            "quantity": "How many do you wish for?",
+            "priority": "Priority of this wish",
+            "image": "Image (Default image will be provided)",
             "image_alt": "Image Description(for screen readers)",
         }
 
