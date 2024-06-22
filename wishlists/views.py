@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
-from .models import WishList
+from .models import WishList, Item
 from .forms import WishListForm, ItemForm
 
 
@@ -38,7 +38,7 @@ class AddWishList(LoginRequiredMixin, generic.CreateView):
         return reverse_lazy('wishlist_detail', args=[str(self.object.wish_list_id)])
     
 
-class WishListDetail(LoginRequiredMixin, generic.DetailView):
+class WishListDetail(generic.DetailView):
     """ View for displaying details of a single wish list. """
     model = WishList
     template_name = "wishlists/wishlist_detail.html"
@@ -48,6 +48,7 @@ class WishListDetail(LoginRequiredMixin, generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['items'] = Item.objects.filter(wish_list=self.object)
         if 'itemForm' not in context:
             context['itemForm'] = ItemForm()
         return context

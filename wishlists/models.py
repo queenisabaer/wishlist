@@ -86,7 +86,7 @@ class Item(models.Model):
     item_id = models.AutoField(primary_key=True)
     item_name = models.CharField(max_length=250, blank=False, null=False)
     item_link = models.URLField(blank=True)
-    price = models.DecimalField(max_digits=19, decimal_places=2, blank=True)
+    price = models.DecimalField(max_digits=19, decimal_places=2)
     quantity = models.IntegerField()
     priority = models.IntegerField(choices=PRIORITY, default=3)
     wish_list = models.ForeignKey(
@@ -95,7 +95,7 @@ class Item(models.Model):
         )
     # To create, store & use images in models, used a tutorial by Daisy Mc Girr
     image = ResizedImageField(
-        size=[200, None], quality=100, upload_to='items/', force_format='WEBP',
+        size=[300, None], quality=100, upload_to='items/', force_format='WEBP',
         blank=False, null=False, default="items/placeholder_item.webp"
     )
     image_alt = models.CharField(max_length=100, null=False, blank=False, default="item image")
