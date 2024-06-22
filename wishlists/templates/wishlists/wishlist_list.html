@@ -9,8 +9,9 @@
   </div>
   {% if request.user.is_authenticated %}
   <div class="d-flex flex-row flex-wrap justify-content-center m3">
-    {% if wishlists|length > 0 %} {% for wishlist in wishlists %} {% if
-    request.user == wishlist.created_by %}
+    {% if wishlists|length > 0 %} 
+    {% for wishlist in wishlists %} 
+    {% if request.user == wishlist.created_by %}
 
     <div class="card m-2" style="width: 18rem">
       <div class="card-body">
