@@ -15,8 +15,8 @@
         <p>Continue creating and managing your wish lists effortlessly. Dive in 
           and make your dreams a reality!
         </p>
-        <a class="btn btn-pink" role="button" aria-disabled="true" href="{% url 'add_wishlist' %}">New Wish List &raquo;</a>
-        <a class="btn btn-reverse" role="button" aria-disabled="true" href="{% url 'profile' %}">My Profile &raquo;</a>
+        <a class="btn btn-pink" role="button" href="{% url 'add_wishlist' %}">New Wish List &raquo;</a>
+        <a class="btn btn-reverse" role="button" href="{% url 'profile' %}">My Profile &raquo;</a>
       </div>
       {% else %}
       <div class="col-lg-8 align-items-center">
@@ -29,8 +29,8 @@
         <p>Please sign up or log in to embark on your journey 
           towards realizing your dreams. Join our community today and take the 
           first step towards making your wishes come true!</p>
-        <a class="btn btn-pink" role="button" aria-disabled="true" href="{% url 'account_signup' %}">Sign Up &raquo;</a>
-        <a class="btn btn-reverse" role="button" aria-disabled="true" href="{% url 'account_login' %}">Log In &raquo;</a>
+        <a class="btn btn-pink" role="button" href="{% url 'account_signup' %}">Sign Up &raquo;</a>
+        <a class="btn btn-reverse" role="button" href="{% url 'account_login' %}">Log In &raquo;</a>
       </div>
       {% endif %}
     </div>
