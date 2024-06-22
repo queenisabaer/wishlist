@@ -200,7 +200,26 @@ main {
 .btn-edit:hover{
     background-color: var(--color-alice-blue);
     color: var(--color-glaucous);
-    border: var(--color-glaucous) 1px solid;;
+    border: var(--color-glaucous) 1px solid;
 }
 
-
+.priority-button {
+    padding: 2px 5px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    display: inline-block;
+    text-align: center;
+}
+.priority-low {
+    background-color: #caffbf;
+}
+.priority-medium {
+    background-color: #ffd6a5;
+}
+.priority-high {
+    background-color: var(--color-magenta);
+}
+.priority-no-priority {
+    background-color: grey;
+}
