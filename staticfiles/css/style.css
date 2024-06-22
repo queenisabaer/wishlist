@@ -212,10 +212,10 @@ main {
     text-align: center;
 }
 .priority-low {
-    background-color: #caffbf;
+    background-color: rgb(132, 235, 132);
 }
 .priority-medium {
-    background-color: #ffd6a5;
+    background-color: rgb(255, 207, 117);
 }
 .priority-high {
     background-color: var(--color-magenta);

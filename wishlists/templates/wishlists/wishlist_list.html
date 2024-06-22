@@ -4,30 +4,52 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
-        <h1 class="text-center">Wish List Overview</h1>
-    </div>
+  <div class="row">
+    <h1 class="text-center">Wish List Overview</h1>
+  </div>
+  {% if request.user.is_authenticated %}
   <div class="d-flex flex-row flex-wrap justify-content-center m3">
-    {% if wishlists|length > 0 %}
-        {% for wishlist in wishlists %}
-            {% if request.user == wishlist.created_by %}
-            
-            <div class="card m-2" style="width: 18rem">
-                <div class="card-body">
-                    <h2 class="card-title">{{wishlist.list_name}}</h2>
-                    <p class="card-text"><i class="fa-regular fa-calendar"></i> {{wishlist.due_date}}</p>
-                    <a href="{% url 'wishlist_detail' wishlist.wish_list_id %}" class="btn btn-pink"> Show Wish List &raquo;</a><br>
-                    <a href="{% url 'edit_wishlist' wishlist.wish_list_id %} " class="btn btn-edit mt-2"><i class="fa-solid fa-pen helptext"></i></a>
-                    <a href={% url 'delete_wishlist' wishlist.wish_list_id %} class="btn btn-delete mt-2"><i class="fa-solid fa-trash helptext"></i></a>
-                </div>
-            </div>
-            {% endif %}
-        {% endfor %}
-    {% else %}
-        <div>
-            <p>Seems like you don't have a wish list yet. Click <a href="{% url 'add_wishlist' %}">here</a> to create your first one.</p>
-        </div>
+    {% if wishlists|length > 0 %} {% for wishlist in wishlists %} {% if
+    request.user == wishlist.created_by %}
+
+    <div class="card m-2" style="width: 18rem">
+      <div class="card-body">
+        <h2 class="card-title">{{wishlist.list_name}}</h2>
+        <p class="card-text">
+          <i class="fa-regular fa-calendar"></i> {{wishlist.due_date}}
+        </p>
+        <a
+          href="{% url 'wishlist_detail' wishlist.wish_list_id %}"
+          class="btn btn-pink"
+        >
+          Show Wish List &raquo;</a
+        ><br />
+        <a
+          href="{% url 'edit_wishlist' wishlist.wish_list_id %} "
+          class="btn btn-edit mt-2"
+          ><i class="fa-solid fa-pen helptext"></i
+        ></a>
+        <a
+          href="{% url 'delete_wishlist' wishlist.wish_list_id %}"
+          class="btn btn-delete mt-2"
+          ><i class="fa-solid fa-trash helptext"></i
+        ></a>
+      </div>
+    </div>
+    {% endif %} {% endfor %} {% else %}
+    <div>
+      <p>
+        Seems like you don't have a wish list yet. Click
+        <a href="{% url 'add_wishlist' %}">here</a> to create your first one.
+      </p>
+    </div>
     {% endif %}
   </div>
+  {% else %}
+  <p>
+    To see a wishlist overview you need to
+    <a href="{% url 'account_login' %}">log in</a> first.
+  </p>
+  {% endif %}
 </div>
 {% endblock %}

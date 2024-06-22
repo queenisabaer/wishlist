@@ -1,5 +1,4 @@
 {% extends "base.html" %} 
-
 {% block title %} Wishlist Detail - {{wishlist.list_name}} 
 {% endblock %} 
 
@@ -9,21 +8,20 @@
   <div class="row justify-content-center">
     <div class="col md-3">
       <h1>{{ wishlist.list_name }}</h1>
-      
     </div>
   </div>
   <div class="row justify-content-center mb-3">
     <div class="col md-3">
       {% if request.user == wishlist.created_by %}
       <!-- Modal to share a wish list-->
-      <!-- Link to trigger the modal -->
+      <!-- Button to trigger the modal -->
       <button
         type="button"
         class="btn btn-outline-dark"
         data-bs-toggle="modal"
         data-bs-target="#shareModal"
       >
-      Share your Wish List <i class="fa-solid fa-link"></i> 
+        Share your Wish List <i class="fa-solid fa-link"></i>
       </button>
       <!-- Modal -->
       <div
@@ -67,7 +65,7 @@
           </div>
         </div>
       </div>
-
+      <!-- Edit & Delete Button -->
       <div class="row justify-content-center mt-2">
         <div class="col-md-8">
           <a
@@ -91,49 +89,69 @@
       <p>Details: {{wishlist.description}}</p>
       <p>Occassion: {{wishlist.get_occassion_display}}</p>
       <h2>Wishes:</h2>
-      
       <div class="container justify-content-center">
         <div class="row">
           {% if items %}
           <!-- Displaying Items -->
-            {% for item in items %}
-            <div class="col-md-4">
-              <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4 p-2">
-                    <img src="{{ item.image.url }}" class="img-fluid rounded" alt="{{ item.image_alt }}">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title text-start">{{ item.item_name }}</h5>
-                      <p class="card-text text-start helptext">Priority: <span class="priority-button 
-                        {% if item.get_priority_display == 'low' %}priority-low{% endif %}
-                        {% if item.get_priority_display == 'medium' %}priority-medium{% endif %}
-                        {% if item.get_priority_display == 'high' %}priority-high{% endif %}
-                        {% if item.get_priority_display == 'no-priority' %}priority-no-priority{% endif %}
-                    ">
+          {% for item in items %}
+          <div class="col-md-4">
+            <div class="card mb-3" style="max-width: 540px">
+              <div class="row g-0">
+                <div class="col-md-4 p-2">
+                  <img
+                    src="{{ item.image.url }}"
+                    class="img-fluid rounded"
+                    alt="{{ item.image_alt }}"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title text-start">{{ item.item_name }}</h5>
+                    <p class="card-text text-start helptext">
+                      Priority:
+                      <span
+                        class="priority-button {% if item.get_priority_display == 'low' %}priority-low{% endif %} {% if item.get_priority_display == 'medium' %}priority-medium{% endif %} {% if item.get_priority_display == 'high' %}priority-high{% endif %} {% if item.get_priority_display == 'no-priority' %}priority-no-priority{% endif %}"
+                      >
                         {{ item.get_priority_display }}
-                    </span></p>
-                      <p class="card-text text-start">Price: {{ item.price }} €</p>
-                      <p class="card-text text-start">Desired quantity: {{ item.quantity }}</p>
-                      {% if item.item_link %}
-                      <p class="card-text text-start">Purchase here: <a href="{{ item.item_link }}" class="helptext">{{ item.item_link }}</a></p>
-                      {% endif %}
-                    </div>
+                      </span>
+                    </p>
+                    <p class="card-text text-start">
+                      Price: {{ item.price }} €
+                    </p>
+                    <p class="card-text text-start">
+                      Desired quantity: {{ item.quantity }}
+                    </p>
+                    {% if item.item_link %}
+                    <p class="card-text text-start">
+                      Purchase here:
+                      <a href="{{ item.item_link }}" class="helptext"
+                        >{{ item.item_link }}</a
+                      >
+                    </p>
+                    {% endif %}
                   </div>
                 </div>
               </div>
             </div>
-            {% endfor %}
+          </div>
+          {% endfor %} 
           {%else %}
           <!-- Displaying message to add items, if no items-->
           <div class="col">
-            <p>Seems like you don't have a wish in your wish list yet. Start now by clicking the button:</p>
+            {% if request.user == wishlist.created_by %}
+            <p>
+              Seems like you don't have a wish in your wish list yet. Start now
+              by clicking the button:
+            </p>
+            {% else %}
+            <p>
+              Apparently no wishes have been added yet, please try again later.
+            </p>
+            {% endif %}
           </div>
           {% endif %}
         </div>
-    </div>
-
+      </div>
 
       <div>
         <!-- Modal to add items -->
