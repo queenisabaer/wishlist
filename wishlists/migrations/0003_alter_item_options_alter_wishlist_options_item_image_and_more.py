@@ -9,52 +9,72 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wishlists', '0002_item'),
+        ("wishlists", "0002_item"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='item',
-            options={'ordering': ['priority']},
+            name="item",
+            options={"ordering": ["priority"]},
         ),
         migrations.AlterModelOptions(
-            name='wishlist',
-            options={'ordering': ['-created_on', 'created_by', 'list_name']},
+            name="wishlist",
+            options={"ordering": ["-created_on", "created_by", "list_name"]},
         ),
         migrations.AddField(
-            model_name='item',
-            name='image',
-            field=django_resized.forms.ResizedImageField(crop=None, default='items/placeholder_item.webp', force_format='WEBP', keep_meta=True, quality=100, scale=None, size=[200, None], upload_to='items/'),
+            model_name="item",
+            name="image",
+            field=django_resized.forms.ResizedImageField(
+                crop=None,
+                default="items/placeholder_item.webp",
+                force_format="WEBP",
+                keep_meta=True,
+                quality=100,
+                scale=None,
+                size=[200, None],
+                upload_to="items/",
+            ),
         ),
         migrations.AddField(
-            model_name='item',
-            name='image_alt',
-            field=models.CharField(default='item image', max_length=100),
+            model_name="item",
+            name="image_alt",
+            field=models.CharField(default="item image", max_length=100),
         ),
         migrations.AlterField(
-            model_name='item',
-            name='item_link',
+            model_name="item",
+            name="item_link",
             field=models.URLField(blank=True),
         ),
         migrations.AlterField(
-            model_name='item',
-            name='item_name',
+            model_name="item",
+            name="item_name",
             field=models.CharField(max_length=250),
         ),
         migrations.AlterField(
-            model_name='item',
-            name='wish_list',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='wishlist_item', to='wishlists.wishlist'),
+            model_name="item",
+            name="wish_list",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="wishlist_item",
+                to="wishlists.wishlist",
+            ),
         ),
         migrations.AlterField(
-            model_name='wishlist',
-            name='created_by',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='wish_list_owner', to=settings.AUTH_USER_MODEL),
+            model_name="wishlist",
+            name="created_by",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="wish_list_owner",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='wishlist',
-            name='list_name',
+            model_name="wishlist",
+            name="list_name",
             field=models.CharField(max_length=255),
         ),
     ]

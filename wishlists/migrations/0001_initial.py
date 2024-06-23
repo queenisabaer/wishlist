@@ -16,16 +16,40 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='WishList',
+            name="WishList",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('wish_list_id', models.CharField(default=wishlists.models.random_string, editable=False, max_length=255, unique=True)),
-                ('list_name', models.CharField(blank=True, max_length=255)),
-                ('due_date', models.DateTimeField(blank=True, null=True)),
-                ('description', models.TextField()),
-                ('created_on', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('created_by', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "wish_list_id",
+                    models.CharField(
+                        default=wishlists.models.random_string,
+                        editable=False,
+                        max_length=255,
+                        unique=True,
+                    ),
+                ),
+                ("list_name", models.CharField(blank=True, max_length=255)),
+                ("due_date", models.DateTimeField(blank=True, null=True)),
+                ("description", models.TextField()),
+                ("created_on", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "created_by",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

@@ -8,17 +8,20 @@ from .forms import WishListForm, ItemForm
 
 
 class WishListOverview(generic.ListView):
-    """ View for displaying an overview of all wish lists. """
+    """View for displaying an overview of all wish lists."""
+
     model = WishList
-    template_name = 'wishlists/wishlist_list.html'
-    context_object_name = 'wishlists'
+    template_name = "wishlists/wishlist_list.html"
+    context_object_name = "wishlists"
+
 
 class AddWishList(LoginRequiredMixin, generic.CreateView):
-    """ View for adding a new wish list. Requires the user to be logged in. """
-    template_name = 'wishlists/add_wishlist.html'
+    """View for adding a new wish list. Requires the user to be logged in."""
+
+    template_name = "wishlists/add_wishlist.html"
     model = WishList
     form_class = WishListForm
-    success_url = reverse_lazy('wishlist_detail')
+    success_url = reverse_lazy("wishlist_detail")
 
     def form_valid(self, form):
         """
@@ -31,26 +34,30 @@ class AddWishList(LoginRequiredMixin, generic.CreateView):
             HttpResponse: The HTTP response for a valid form.
         """
         form.instance.created_by = self.request.user
-        messages.success(self.request, "Your wish list has been created and can be seen in your profile")
+        messages.success(
+            self.request,
+            "Your wish list has been created and can be seen in your profile",
+        )
         return super(AddWishList, self).form_valid(form)
-    
+
     def get_success_url(self):
-        return reverse_lazy('wishlist_detail', args=[str(self.object.wish_list_id)])
-    
+        return reverse_lazy("wishlist_detail", args=[str(self.object.wish_list_id)])
+
 
 class WishListDetail(generic.DetailView):
-    """ View for displaying details of a single wish list. """
+    """View for displaying details of a single wish list."""
+
     model = WishList
     template_name = "wishlists/wishlist_detail.html"
-    context_object_name = 'wishlist'
-    slug_field = 'wish_list_id'  
-    slug_url_kwarg = 'wish_list_id'
+    context_object_name = "wishlist"
+    slug_field = "wish_list_id"
+    slug_url_kwarg = "wish_list_id"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['items'] = Item.objects.filter(wish_list=self.object)
-        if 'itemForm' not in context:
-            context['itemForm'] = ItemForm()
+        context["items"] = Item.objects.filter(wish_list=self.object)
+        if "itemForm" not in context:
+            context["itemForm"] = ItemForm()
         return context
 
     def post(self, request, *args, **kwargs):
@@ -61,7 +68,7 @@ class WishListDetail(generic.DetailView):
             item.wish_list = self.object
             item.save()
             messages.success(request, "Item has been added to your wish list.")
-            return redirect('wishlist_detail', wish_list_id=self.object.wish_list_id)
+            return redirect("wishlist_detail", wish_list_id=self.object.wish_list_id)
         else:
             context = self.get_context_data(itemForm=itemForm)
             return self.render_to_response(context)
@@ -70,7 +77,7 @@ class WishListDetail(generic.DetailView):
 class EditWishList(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     """
     View for editing a wish list. Requires the user to be logged in and to own the wish list.
-    
+
     Attributes:
         model (Model): The model associated with this view (WishList).
         template_name (str): The template used to render the edit form.
@@ -79,12 +86,13 @@ class EditWishList(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
         slug_field (str): The field used for slug-based URL matching.
         slug_url_kwarg (str): The name of the URLConf keyword argument containing the slug.
     """
-    model= WishList
-    template_name='wishlists/edit_wishlist.html'
-    success_url = '/wishlists/wishlist_list'
+
+    model = WishList
+    template_name = "wishlists/edit_wishlist.html"
+    success_url = "/wishlists/wishlist_list"
     form_class = WishListForm
-    slug_field = 'wish_list_id'  
-    slug_url_kwarg = 'wish_list_id'
+    slug_field = "wish_list_id"
+    slug_url_kwarg = "wish_list_id"
 
     def test_func(self):
         """
@@ -94,7 +102,7 @@ class EditWishList(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
             bool: True if the user is the creator, False otherwise.
         """
         return self.request.user == self.get_object().created_by
-    
+
     def handle_no_permission(self):
         """
         Handle the case where the user does not have permission to edit the wish list.
@@ -104,7 +112,7 @@ class EditWishList(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
         """
         if not self.request.user.is_authenticated:
             messages.info(self.request, "You need to log in first to edit a wish list.")
-            return redirect('account_login') 
+            return redirect("account_login")
         return super().handle_no_permission()
 
     def form_valid(self, form):
@@ -122,12 +130,13 @@ class EditWishList(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
 
 
 class DeleteWishList(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
-    """ View for deleting a wish list. Requires the user to be logged in and to be the creator of the wish list. """
+    """View for deleting a wish list. Requires the user to be logged in and to be the creator of the wish list."""
+
     model = WishList
-    template_name = 'wishlists/delete_wish_list.html'
-    success_url = '/wishlists/wishlist_list'
-    slug_field = 'wish_list_id'  
-    slug_url_kwarg = 'wish_list_id'
+    template_name = "wishlists/delete_wish_list.html"
+    success_url = "/wishlists/wishlist_list"
+    slug_field = "wish_list_id"
+    slug_url_kwarg = "wish_list_id"
 
     def test_func(self):
         """
@@ -137,7 +146,7 @@ class DeleteWishList(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
             bool: True if the user is the creator, False otherwise.
         """
         return self.request.user == self.get_object().created_by
-    
+
     def handle_no_permission(self):
         """
         Handle the case where the user does not have permission to delete the wish list.
@@ -146,11 +155,13 @@ class DeleteWishList(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
             HttpResponse: The response for a user without permission.
         """
         if not self.request.user.is_authenticated:
-            messages.info(self.request, "You need to log in first to delete a wish list.")
-            return redirect('account_login') 
+            messages.info(
+                self.request, "You need to log in first to delete a wish list."
+            )
+            return redirect("account_login")
         return super().handle_no_permission()
 
-    def delete(self, request,  *args, **kwargs):
+    def delete(self, request, *args, **kwargs):
         """
         Delete the wish list and display a success message.
 
@@ -162,4 +173,3 @@ class DeleteWishList(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
         """
         messages.success(self.request, "Your wish list has been deleted")
         return super(DeleteWishList, self).delete(request, *args, **kwargs)
-

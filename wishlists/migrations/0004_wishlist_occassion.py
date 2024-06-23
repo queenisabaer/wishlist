@@ -6,13 +6,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wishlists', '0003_alter_item_options_alter_wishlist_options_item_image_and_more'),
+        (
+            "wishlists",
+            "0003_alter_item_options_alter_wishlist_options_item_image_and_more",
+        ),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='wishlist',
-            name='occassion',
-            field=models.IntegerField(choices=[(0, 'Anniversary'), (1, 'Baby Shower'), (2, 'Birthday'), (3, 'Bridal shower'), (4, 'Christmas'), (5, 'Wedding'), (6, 'Any other celebration')], default=0),
+            model_name="wishlist",
+            name="occassion",
+            field=models.IntegerField(
+                choices=[
+                    (0, "Anniversary"),
+                    (1, "Baby Shower"),
+                    (2, "Birthday"),
+                    (3, "Bridal shower"),
+                    (4, "Christmas"),
+                    (5, "Wedding"),
+                    (6, "Any other celebration"),
+                ],
+                default=0,
+            ),
         ),
     ]

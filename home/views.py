@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 def home_page(request):
     """
-    View to render the index.html template, which allows users to start a 
+    View to render the index.html template, which allows users to start a
     new wish list, log in, or sign up.
 
     Args:
@@ -14,4 +14,4 @@ def home_page(request):
     Returns:
         HttpResponse: The rendered home page.
     """
-    return render(request, 'home/index.html')
+    return render(request, "home/index.html")

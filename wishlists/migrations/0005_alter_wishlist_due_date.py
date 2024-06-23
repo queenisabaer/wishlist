@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('wishlists', '0004_wishlist_occassion'),
+        ("wishlists", "0004_wishlist_occassion"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='wishlist',
-            name='due_date',
+            model_name="wishlist",
+            name="due_date",
             field=models.DateField(blank=True, null=True),
         ),
     ]

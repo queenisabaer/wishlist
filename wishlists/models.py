@@ -6,6 +6,7 @@ import string
 
 # Helper function
 
+
 def random_string(length=10):
     """
     Generate a random string with letters and numbers.
@@ -18,11 +19,21 @@ def random_string(length=10):
     """
     letters = string.ascii_letters
     numbers = string.digits
-    random_str = ''.join((random.choice(letters + numbers)) for _ in range(length))
+    random_str = "".join((random.choice(letters + numbers)) for _ in range(length))
     return random_str
 
-OCCASSION = ((0, "Anniversary"), (1, "Baby Shower"), (2, "Birthday"), (3, "Bridal shower"), (4, "Christmas"), (5, "Wedding"), (6, "Celebration"))
+
+OCCASSION = (
+    (0, "Anniversary"),
+    (1, "Baby Shower"),
+    (2, "Birthday"),
+    (3, "Bridal shower"),
+    (4, "Christmas"),
+    (5, "Wedding"),
+    (6, "Celebration"),
+)
 PRIORITY = ((0, "high"), (1, "medium"), (2, "low"), (3, "no-priority"))
+
 
 class WishList(models.Model):
     """
@@ -38,12 +49,15 @@ class WishList(models.Model):
         updated_at (DateTimeField): Timestamp when the wish list was last updated.
         occassion (IntegerField): Occasion for the wish list.
     """
-    wish_list_id = models.CharField(max_length=255, default= random_string, editable=False, unique=True)
+
+    wish_list_id = models.CharField(
+        max_length=255, default=random_string, editable=False, unique=True
+    )
     list_name = models.CharField(max_length=255, blank=False)
     due_date = models.DateField(null=True, blank=True)
     description = models.TextField()
     created_by = models.ForeignKey(
-        User, on_delete=models.CASCADE, null=True, related_name='wish_list_owner'
+        User, on_delete=models.CASCADE, null=True, related_name="wish_list_owner"
     )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -54,7 +68,7 @@ class WishList(models.Model):
 
     def __str__(self):
         return str(self.list_name)
-    
+
     # How to base a field on another field by overwriting the save method, was found in an article in medium
     def save(self, *args, **kwargs):
         """
@@ -67,7 +81,8 @@ class WishList(models.Model):
         if not self.list_name:
             self.list_name = self.wish_list_id
         super().save(*args, **kwargs)
-    
+
+
 class Item(models.Model):
     """
     A model representing an Item in a wish list.
@@ -83,6 +98,7 @@ class Item(models.Model):
         image (ResizedImageField): Image of the item.
         image_alt (CharField): Alt text for the image.
     """
+
     item_id = models.AutoField(primary_key=True)
     item_name = models.CharField(max_length=250, blank=False, null=False)
     item_link = models.URLField(blank=True)
@@ -90,16 +106,25 @@ class Item(models.Model):
     quantity = models.IntegerField(default=1)
     priority = models.IntegerField(choices=PRIORITY, default=3)
     wish_list = models.ForeignKey(
-        WishList, on_delete=models.CASCADE, blank=True, null=True, 
-        related_name="wishlist_item"
-        )
+        WishList,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="wishlist_item",
+    )
     # To create, store & use images in models, used a tutorial by Daisy Mc Girr
     image = ResizedImageField(
-        size=[200, None], quality=100, upload_to='items/', force_format='WEBP',
-        blank=False, null=False, default="items/placeholder_item.webp"
+        size=[200, None],
+        quality=100,
+        upload_to="items/",
+        force_format="WEBP",
+        blank=False,
+        null=False,
+        default="items/placeholder_item.webp",
     )
-    image_alt = models.CharField(max_length=100, null=False, blank=False, default="item image")
-
+    image_alt = models.CharField(
+        max_length=100, null=False, blank=False, default="item image"
+    )
 
     class Meta:
         ordering = ["priority"]
