@@ -9,7 +9,6 @@
         <div class="col-12 col-md-8">
             <form method="POST">
                 <h1 class="text-center">Edit your profile:</h1>
-                <p class="txt-highlight">{{ user_profile.user }}</p>
                 {% csrf_token %}
                 {{ form.media }}
                 {{ form|crispy}}

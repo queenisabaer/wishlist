@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Delete wish list
+Delete profile
 {% endblock %}
 
 {%block content %}
@@ -9,17 +9,17 @@ Delete wish list
 <div class="container ">
     <div class="row justify-content-center">
         <div class="col md-3">
-          <h1>Confirm Wish List Deletion</h1>
-          <h2>{{ wishlist.list_name }}</h2>
+          <h1>Confirm to delete your profile</h1>
+          <h2>{{ user.username }}</h2>
         </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-6">
             <form method="post" class="text-center">
                 {% csrf_token %}
-            <p>Are you sure you want to delete:<br>
-                <span class="txt-highlight">{{ wishlist.list_name }}</span>?<br> 
-                This action cannot be undone.
+            <p>Are you sure you want to delete your profile:<br>
+                <span class="txt-highlight">{{ user.username }}</span>?<br> 
+                All created wish lists are removed. This action cannot be undone.
             </p>
             <input type="submit" value="Confirm Deletion &raquo;" class="btn btn-delete">
         </form>

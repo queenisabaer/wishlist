@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import EditProfileForm
@@ -36,4 +37,13 @@ def edit_profile(request):
         form = EditProfileForm(instance=user_profile, user=request.user)
     
     return render(request, 'profilemanagement/edit_profile.html', {'form':form})
-    
+
+@login_required
+def delete_profile(request):
+    profile = get_object_or_404(UserProfile, user=request.user)
+    if request.method == 'POST':
+        profile.user.delete()
+        messages.success(request, 'Your profile has been deleted.')
+        return redirect('home')
+    else:
+        return render(request, 'profilemanagement/delete_profile.html')
