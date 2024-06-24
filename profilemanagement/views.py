@@ -22,7 +22,9 @@ from .forms import EditProfileForm
 def profile_page(request):
     user_profile = UserProfile.objects.get(user=request.user)
     return render(
-        request, "profilemanagement/profile.html", {"user_profile": user_profile}
+        request,
+        "profilemanagement/profile.html",
+        {"user_profile": user_profile}
     )
 
 
@@ -34,17 +36,21 @@ def edit_profile(request):
             data=request.POST, instance=user_profile, user=request.user
         )
         if form.is_valid():
-            messages.success(request, "Your profile has been successfully updated")
+            messages.success(request,
+                             "Your profile has been successfully updated")
             form.save()
             return redirect("profile")
         else:
             messages.error(
-                "Something is missing. Please check if you added all relevant information"
+                "Something is missing. Please check if you added all relevant "
+                "information"
             )
     else:
         form = EditProfileForm(instance=user_profile, user=request.user)
 
-    return render(request, "profilemanagement/edit_profile.html", {"form": form})
+    return render(request,
+                  "profilemanagement/edit_profile.html",
+                  {"form": form})
 
 
 @login_required

@@ -333,6 +333,8 @@ Solved: <br>
 
 ## Testing
 
+The app was tested regularly and deployed early to Heroku to make sure both local and remote worked the same.
+
 ### Validator Testing
 
 - **[HTML Validator](https://validator.w3.org/)**
@@ -358,9 +360,7 @@ Solved: <br>
 
   - **[CI Python Linter](https://pep8ci.herokuapp.com/#)**
 
-  - result for xx.py<br>
-  text 
-    ![Python linter result for xx.py](documentation/readme/)<br>
+  - All created python files were checked with the Code Insitute validator. Since some lines were too long, they had to be corrected, after that everything was clear and no errors where found<br>
 
 
 

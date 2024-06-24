@@ -19,7 +19,8 @@ def random_string(length=10):
     """
     letters = string.ascii_letters
     numbers = string.digits
-    random_str = "".join((random.choice(letters + numbers)) for _ in range(length))
+    random_str = "".join((random.choice(letters + numbers))
+                         for _ in range(length))
     return random_str
 
 
@@ -46,7 +47,8 @@ class WishList(models.Model):
         description (TextField): Description of the wish list.
         created_by (ForeignKey): User who created the wish list.
         created_on (DateTimeField): Timestamp when the wish list was created.
-        updated_at (DateTimeField): Timestamp when the wish list was last updated.
+        updated_at (DateTimeField): Timestamp when the wish list was last
+        updated.
         occassion (IntegerField): Occasion for the wish list.
     """
 
@@ -57,7 +59,10 @@ class WishList(models.Model):
     due_date = models.DateField(null=True, blank=True)
     description = models.TextField()
     created_by = models.ForeignKey(
-        User, on_delete=models.CASCADE, null=True, related_name="wish_list_owner"
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        related_name="wish_list_owner"
     )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -69,10 +74,12 @@ class WishList(models.Model):
     def __str__(self):
         return str(self.list_name)
 
-    # How to base a field on another field by overwriting the save method, was found in an article in medium
+    # How to base a field on another field by overwriting the save method, was
+    # found in an article in medium
     def save(self, *args, **kwargs):
         """
-        Save the wish list instance, using the wish_list_id as the list_name if not provided.
+        Save the wish list instance, using the wish_list_id as the list_name
+        if not provided.
 
         Args:
             *args: Variable length argument list.

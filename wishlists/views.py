@@ -25,7 +25,8 @@ class AddWishList(LoginRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         """
-        Set the created_by field to the current user and display a success message.
+        Set the created_by field to the current user and display a success
+        message.
 
         Args:
             form: The form instance being validated.
@@ -41,7 +42,8 @@ class AddWishList(LoginRequiredMixin, generic.CreateView):
         return super(AddWishList, self).form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy("wishlist_detail", args=[str(self.object.wish_list_id)])
+        return reverse_lazy("wishlist_detail",
+                            args=[str(self.object.wish_list_id)])
 
 
 class WishListDetail(generic.DetailView):
@@ -69,15 +71,18 @@ class WishListDetail(generic.DetailView):
             item.wish_list = self.object
             item.save()
             messages.success(request, "Item has been added to your wish list.")
-            return redirect("wishlist_detail", wish_list_id=self.object.wish_list_id)
+            return redirect("wishlist_detail",
+                            wish_list_id=self.object.wish_list_id)
         else:
             context = self.get_context_data(itemForm=itemForm)
             return self.render_to_response(context)
 
 
-class EditWishList(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+class EditWishList(LoginRequiredMixin, UserPassesTestMixin,
+                   generic.UpdateView):
     """
-    View for editing a wish list. Requires the user to be logged in and to own the wish list.
+    View for editing a wish list. Requires the user to be logged in and to own
+    the wish list.
 
     Attributes:
         model (Model): The model associated with this view (WishList).
@@ -85,7 +90,8 @@ class EditWishList(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
         success_url (str): The URL to redirect to upon successful update.
         form_class (Form): The form class to use for editing the wish list.
         slug_field (str): The field used for slug-based URL matching.
-        slug_url_kwarg (str): The name of the URLConf keyword argument containing the slug.
+        slug_url_kwarg (str): The name of the URLConf keyword argument
+                              containing the slug.
     """
 
     model = WishList
@@ -106,13 +112,15 @@ class EditWishList(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
 
     def handle_no_permission(self):
         """
-        Handle the case where the user does not have permission to edit the wish list.
+        Handle the case where the user does not have permission to edit the
+        wish list.
 
         Returns:
             HttpResponse: The response for a user without permission.
         """
         if not self.request.user.is_authenticated:
-            messages.info(self.request, "You need to log in first to edit a wish list.")
+            messages.info(
+                self.request, "You need to log in first to edit a wish list.")
             return redirect("account_login")
         return super().handle_no_permission()
 
@@ -130,8 +138,10 @@ class EditWishList(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
         return super().form_valid(form)
 
 
-class DeleteWishList(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
-    """View for deleting a wish list. Requires the user to be logged in and to be the creator of the wish list."""
+class DeleteWishList(LoginRequiredMixin, UserPassesTestMixin,
+                     generic.DeleteView):
+    """View for deleting a wish list. Requires the user to be logged in and to
+    be the creator of the wish list."""
 
     model = WishList
     template_name = "wishlists/delete_wish_list.html"
@@ -150,7 +160,8 @@ class DeleteWishList(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
 
     def handle_no_permission(self):
         """
-        Handle the case where the user does not have permission to delete the wish list.
+        Handle the case where the user does not have permission to delete the
+        wish list.
 
         Returns:
             HttpResponse: The response for a user without permission.
