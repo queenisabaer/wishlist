@@ -3,46 +3,23 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Your Wish List maker will help you create and organize your wish lists for any occasion imaginable."
-    />
-    <meta
-      name="keywords"
-      content="wish, wish list, birthday, wedding, bridal shower, baby shower, gift, present, list"
-    />
+    <meta name="description" content="Your Wish List maker will help you create and organize your wish lists for any occasion imaginable." />
+    <meta name="keywords" content="wish, wish list, birthday, wedding, bridal shower, baby shower, gift, present, list" />
     <title>Your Wish List Maker - {% block title %} {% endblock %}</title>
 
     <!-- Favicon -->
-    <link
-      href="{% static 'favicon/apple-touch-icon.png' %}"
-      rel="icon"
-      sizes="180x180"
-    />
-    <link
-      href="{% static 'favicon/favicon-32x32.png' %}"
-      rel="icon"
-      sizes="32x32"
-    />
-    <link
-      href="{% static 'favicon/favicon-16x16.png' %}"
-      rel="icon"
-      sizes="16x16"
-    />
+    <link href="{% static 'favicon/apple-touch-icon.png' %}" rel="icon" sizes="180x180" />
+    <link href="{% static 'favicon/favicon-32x32.png' %}" rel="icon" sizes="32x32" />
+    <link href="{% static 'favicon/favicon-16x16.png' %}" rel="icon" sizes="16x16" />
 
     <link href="{% static 'favicon/site.webmanifest' %}" rel="manifest" />
 
     <!-- Bootstrap CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
-      integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -52,38 +29,31 @@
 
     <!-- Block for extra styles -->
     {% block extra_styles %}{% endblock %}
-  </head>
-  <body>
-    
+</head>
+
+<body>
+
     {% include 'header.html' %}
 
     <main class="background_image">
 
-      {% block content %}
-      <!-- Content goes here -->
-      {% endblock content %}
+        {% block content %}
+        <!-- Content goes here -->
+        {% endblock content %}
     </main>
 
     {% include 'footer.html' %}
-    
+
     <!-- Bootstrap JS -->
-    
-    <script 
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" 
-    integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" 
-    crossorigin="anonymous" 
-    referrerpolicy="no-referrer"
-    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Font awesome kit-->
-    <script
-      src="https://kit.fontawesome.com/3b20d96fa9.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/3b20d96fa9.js" crossorigin="anonymous"></script>
 
     <!-- Custom JS file -->
-    <script
-    src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
     <!-- Block for extra JavaScript -->
     {% block load_js %}{% endblock %}
-  </body>
+</body>
+
 </html>

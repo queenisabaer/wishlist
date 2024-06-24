@@ -251,6 +251,7 @@ xxx <br>
 After I tried to load the home app, I was shown that the template base.html does not exist due to the fact that I recalled the TEMPLATES_DIRS as string. After removing the quotation mark, everything worked.
 <br>
 <br>
+
 ![Screenshot of the error message in browser](/documentation/bugs/bug_templates_dir.png)<br>
 ![Screenshot of the settings file section](/documentation/bugs/bug_templates_dir2.png)<br>
 
@@ -262,6 +263,7 @@ After I tried to load the home app, I was shown that the template base.html does
 After I tried to log in, I was shown that the current path does not exist. I could fix this bug by adding the url directly to the action attribute. 
 <br>
 <br>
+
 ![Screenshot of the error message in browser of failed login](/documentation/bugs/bug_login.png)<br>
 ![Screenshot of the login html file section](/documentation/bugs/bug_login_html.png)<br>
 
@@ -273,10 +275,24 @@ After I tried to log in, I was shown that the current path does not exist. I cou
 If I clicked on the links in the navigation bar (for example for login or logout), a wrong URL was created resulting in the error shown in the screenshot. After setting the url paths in a different way, I could fix this error. 
 <br>
 <br>
+
 ![Screenshot of the error message in browser](/documentation/bugs/bug_navbar_links.png)<br>
 ![Screenshot of the browser address bar](/documentation/bugs/bug_navbar_links_browser.png)<br>
 Solved: <br>
 ![Screenshot of the section inside the header html page](/documentation/bugs/bug_navbar_links_header.png)<br>
+
+</details>
+
+<details>
+<summary> Authentication Error for password reset</summary>
+<br>
+If I tried to reset my password and then entered the email address to receive a link, I was shown the following message. I was able to solve this by creating a new Google app password and enabling imap. Now the user receives an email with a link to reset the password and is redirected to the corresponding website. 
+<br>
+<br>
+
+![Screenshot of the error message in browser](/documentation/bugs/bug_authentication_error.png)<br>
+Solved: <br>
+![Screenshot of the message in browser, that email has been send](/documentation/bugs/bug_authentication_solved.png)<br>
 
 </details>
 

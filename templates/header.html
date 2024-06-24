@@ -10,107 +10,56 @@
 <!-- Header sticks to the top at all time-->
 <header class="sticky-top">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <!-- Logo -->
-      <a class="navbar-brand" href="{% url 'home' %}"
-        ><img
-          src="{%static 'images/logo_ywlm.webp' %}"
-          alt="Logo of Your Wish List Maker"
-          class="logo"
-      /></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Navigation bar -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a
-              class="nav-link {% if request.path == home_url %}active{% endif %}"
-              aria-current="page"
-              href="{% url 'home' %}"
-              >Home</a
-            >
-          </li>
-          {% if request.user.is_authenticated %}
-          <li class="nav-item">
-            <a
-              class="nav-link {% if request.path == add_wishlist_url %}active{% endif %}"
-              aria-current="page"
-              href="{% url 'add_wishlist' %}"
-              >New List</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link {% if request.path == profile_url %}active{% endif %}"
-              href="{% url 'profile' %}"
-              >Profile</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link {% if request.path == wishlist_list_url %}active{% endif %}"
-              href="{% url 'wishlist_list' %}"
-              >Overview <i class="fa-solid fa-clipboard-list"></i></a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link {% if request.path == logout_url %}active{% endif %}"
-              href="{% url 'account_logout' %}"
-              >Logout
-            </a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a
-              class="nav-link {% if request.path == login_url %}active{% endif %}"
-              href="{% url 'account_login' %}"
-              >Login
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link {% if request.path == sign_up_url %}active{% endif %}"
-              aria-current="page"
-              href="{% url 'account_signup' %}"
-              >Sign Up</a
-            >
-          </li>
-          {% endif %}
-        </ul>
+      <div class="container-fluid">
+          <!-- Logo -->
+          <a class="navbar-brand" href="{% url 'home' %}"><img src="{%static 'images/logo_ywlm.webp' %}" alt="Logo of Your Wish List Maker" class="logo" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navigation bar -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
+                  </li>
+                  {% if request.user.is_authenticated %}
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == add_wishlist_url %}active{% endif %}" aria-current="page" href="{% url 'add_wishlist' %}">New List</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == profile_url %}active{% endif %}" href="{% url 'profile' %}">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == wishlist_list_url %}active{% endif %}" href="{% url 'wishlist_list' %}">Overview <i class="fa-solid fa-clipboard-list"></i></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}">Logout
+                      </a>
+                  </li>
+                  {% else %}
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}">Login
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link {% if request.path == sign_up_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Sign Up</a>
+                  </li>
+                  {% endif %}
+              </ul>
+          </div>
       </div>
-    </div>
   </nav>
 </header>
 <!-- displaying Django messages -->
 <div class="container justify-content-center align-items-center">
   <div class="row">
-    <div class="col-12 col-md-8 offset-md-2">
-      {% for message in messages %}
-      <div
-        class="alert {{ message.tags }} alert-dismissible fade show text-center"
-        id="msg"
-        role="alert"
-      >
-        {{ message | safe }}
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
+      <div class="col-12 col-md-8 offset-md-2">
+          {% for message in messages %}
+          <div class="alert {{ message.tags }} alert-dismissible fade show text-center" id="msg" role="alert">
+              {{ message | safe }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endfor %}
       </div>
-      {% endfor %}
-    </div>
   </div>
 </div>
