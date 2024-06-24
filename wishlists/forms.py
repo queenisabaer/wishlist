@@ -1,5 +1,7 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from .models import WishList, Item
+from datetime import date, timedelta
 
 
 class WishListForm(forms.ModelForm):
@@ -19,6 +21,16 @@ class WishListForm(forms.ModelForm):
             "description": "Description",
             "occassion": "Occassion",
         }
+    
+    def clean_due_date(self):
+        """
+        Validates that the due_date is not in the past.
+        """
+        due_date = self.cleaned_data.get('due_date')
+        if due_date is not None:
+            if due_date <= date.today():
+                raise ValidationError("The due date must be at least one day in the future.")
+        return due_date
 
 
 class ItemForm(forms.ModelForm):
