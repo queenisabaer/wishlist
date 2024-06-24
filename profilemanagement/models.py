@@ -31,7 +31,7 @@ class UserProfile(models.Model):
         return str(self.user)
 
 
-# Got parts of this code from a tutorial by Daisy McGee 
+# Got parts of this code from a tutorial by Daisy McGirr
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     """

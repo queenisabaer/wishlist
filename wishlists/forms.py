@@ -21,15 +21,17 @@ class WishListForm(forms.ModelForm):
             "description": "Description",
             "occassion": "Occassion",
         }
-    
+
     def clean_due_date(self):
         """
         Validates that the due_date is not in the past.
         """
-        due_date = self.cleaned_data.get('due_date')
+        due_date = self.cleaned_data.get("due_date")
         if due_date is not None:
             if due_date <= date.today():
-                raise ValidationError("The due date must be at least one day in the future.")
+                raise ValidationError(
+                    "The due date must be at least one day in the future."
+                )
         return due_date
 
 
@@ -73,7 +75,9 @@ class ItemForm(forms.ModelForm):
                 "The price must be greater than or equal to zero."
             )
         if price > 1000:
-                raise forms.ValidationError("Please be kind to your loved ones. The price must be less than or equal to 1000.")
+            raise forms.ValidationError(
+                "Please be kind to your loved ones. The price must be less than or equal to 1000."
+            )
         return price
 
     def clean_quantity(self):
@@ -90,5 +94,7 @@ class ItemForm(forms.ModelForm):
         if quantity is not None and quantity <= 0:
             raise forms.ValidationError("The quantity must be greater than zero.")
         if quantity > 100:
-            raise forms.ValidationError("Please be kind to your loved ones. 100 Should be enough.")
+            raise forms.ValidationError(
+                "Please be kind to your loved ones. 100 Should be enough."
+            )
         return quantity

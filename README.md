@@ -10,16 +10,37 @@ View the deployed site [here.]()<br>
 
 ## Table of contents
 
-- [User Experience (UX)](#user-experience-(ux))
+- [User Experience](#user-experience)
+  - [Milestones](#milestones)
+  - [Epics and User stories](#epics-and-user-stories)
 - [Design](#design)
+  - [Wireframes](#wireframes)
+  - [Logo](#logo)
+  - [Favicon](#favicon)
+  - [Structure](#structure)
 - [Features](#features)
 - [Bugs](#bugs)
 - [Technologies Used](#technologies-used)
+  - [Languages](#languages)
+  - [Tools](#tools)
+  - [Frameworks](#frameworks)
+  - [Libraries and modules](#libraries-and-modules)
 - [Testing](#testing)
+  - [Validator Testing](#validator-testing)
+  - [Lighthouse Test](#lighthouse-test)
+  - [Manual testing](#manual-testing)
+  - [Browser Compatibility](#browser-compatibility)
 - [Deployment](#deployment)
+  - [Heroku](#heroku)
+  - [Forking this GitHub repository](#forking-this-github-repository)
+  - [Clone this repository](#clone-this-repository)
 - [Credits](#credits)
+  - [Content](#content)
+  - [Code](#code)
+  - [ReadMe](#readme)
+  - [Acknowledgments](#acknowledgments)
 
-## User Experience (UX)
+## User Experience
 
 I used an Agile methodology approach to plan this project. This was implemented through the GitHub Project board with milestones, epics, user storie and tasks.
 Each user story was classified with a label according to MoSCoW prioritization.<br>
@@ -32,7 +53,7 @@ The project was divided into three milestones, each containing the corresponding
 - [Wishlist MVP Management](https://github.com/queenisabaer/wishlist/milestone/2)
 - [Testing and Validation](https://github.com/queenisabaer/wishlist/milestone/4)
 
-### Epics & User stories
+### Epics and User stories
 
 *Your Wish List Maker* is for those who are interested in organizing their wish lists for special occasions in one place and sending those wish lists to family and friends to provide them with all the desired items.
 Although the website can be used by users of any age, my main target group was working parents, especially women between 30-50 years. <br>
@@ -261,13 +282,20 @@ Solved: <br>
 
 ## Technologies Used
 
-- [HTML5](https://en.wikipedia.org/wiki/HTML5)/ [CSS](https://en.wikipedia.org/wiki/CSS)
+### Languages:
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+- [JavaScript](https://www.javascript.com/)
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
-- [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
+
+### Tools:
 - [Git](https://git-scm.com/) was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 - [GitHub](https://github.com/) was used to save and store the files for the website.
 - [Heroku](https://www.heroku.com) was used to deploy the application.
 - [VS Code](https://code.visualstudio.com/) was used as IDE. 
+- [Code Insitute Database Maker](https://dbs.ci-dbs.net/)PostgreSQL database hosting for this project
+- [Fontawesome](https://fontawesome.com/) was used to add icons to the website.
+- [Balsamiq](https://balsamiq.com/) was used to create the wireframes.
 - [Lucid](https://lucid.app/) was used to create the Flowchart.
 - [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) to beautify the code
 - [LanguageTool](https://languagetool.org/) was used to check the grammar and spelling in the README and the Code. 
@@ -278,18 +306,34 @@ Solved: <br>
 - [QuickTime Player](https://support.apple.com/en_GB/downloads/quicktime) was used to create for recording the screen.
 - [xconvert](https://www.xconvert.com/) was used to convert the screen recording from mov into gif.
 - [Browserling](https://www.browserling.com/) was used to test the application on different browsers.
+- [Müllmail](https://muellmail.com/)was used to create temporary mails to check login functionality. 
+- [Cloudinary](https://cloudinary.com/) was used to store the item images.
+- [Canva](https://www.canva.com/) was used to create the logo.
+- [Favicon.io](https://favicon.io/favicon-generator/) was used to create the favicon.
+- [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools?hl=de) was used to check the application for responsiveness and errors. 
 
-**Libraries and modules used:** <br>
-- [sys](https://docs.python.org/3/library/sys.html) was used to get system-specific functions like exit(). It was also necessary for the typing-print effect. 
-- [time](https://docs.python.org/3/library/time.html) was used to access the sleep() function for the time delay.
-- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/master/reference/google.oauth2.service_account.html) was used to get access to Google authentication. 
-- [gspread](https://docs.gspread.org/en/v5.10.0/) was used for the Google sheets functionality 
-- [datetime](https://docs.python.org/3/library/time.html) was used to get the current year and give the copied worksheets a time stamp in the name to make it unique. 
-- [colorama](https://pypi.org/project/colorama/) was used to color the text in the terminal.
+### Frameworks: 
+- [Bootstrap](https://getbootstrap.com/) 
+- [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
+- [jquery](https://jquery.com/)
+
+### Libraries and modules:
+- [os](https://docs.python.org/3/library/os.html) provides functions to interact with the operating system. 
+- [sys](https://docs.python.org/3/library/sys.html) was used to get system-specific functions.
+- [datetime](https://docs.python.org/3/library/time.html) supplies classes for manipulating dates and times.
+- [Gunicorn](https://gunicorn.org/) provides a way to serve Python web applications.
+- [Pycopg 2](https://pypi.org/project/psycopg2/) is a PostgreSQL database adapter for Python.
+- [Allauth](https://docs.allauth.org/en/latest/) was used to handle user authentication, registration, and account management.
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) is a Django application to manage and to render to render the forms.
+- [Whitenoise](https://whitenoise.readthedocs.io/en/stable/) was used to serve static files.
+- [Summernote](https://summernote.org/) as text-editor for admin panel. 
+- [dj_database_url](https://pypi.org/project/dj-database-url/) enables the ability to represent their database settings via a string.
+- [random](https://docs.python.org/3/whatsnew/3.12.html#random) implements a pseudo-random number generator.
+- [string](https://docs.python.org/3/whatsnew/3.11.html#string) contains a collection of string operations and constants.
 
 ## Testing
 
-1. **Validator Testing**
+### Validator Testing
 
 - **[HTML Validator](https://validator.w3.org/)**
  
@@ -321,13 +365,13 @@ Solved: <br>
 
 
 
-2. **Lighthouse Test** <br>
+### Lighthouse Test
    To measure the website against performance, accessibility, SEO and best practice, I used [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=de).<br>
    - result <br>
   
    ![Lighthouse](documentation/readme/)
 
-3. **Manual testing** <br>
+### Manual testing
 
 | **Test** | **Test Description** | **Expected Outcome** | **Result** |
 |:---|:---|:---|:---|
@@ -338,7 +382,7 @@ Solved: <br>
 
 
 
-4. **Browser Compatibility**<br>
+### Browser Compatibility
   The tests were conducted using the following browsers:
 
 - Google Chrome Version 121.0.6167.160 <br>
@@ -395,12 +439,13 @@ To see the [view of the live site]() click on the _Open app_ button on the top r
 
 ### Code
 
-- A great help and inspiration was the [*Django Recipe Sharing Tutorial*](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) by Daisy Mc Girr. I used espacially her help with the autentification. 
+- A great help and inspiration was the [*Django Recipe Sharing Tutorial*](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) by Daisy Mc Girr. I used espacially her help with the autentification and the class based views. 
 - How to base field on another field by overwriting the save method, was found in an article in [Medium by Marco](https://marcolcl.medium.com/custom-django-model-field-based-on-default-primary-key-d5d13dd61a1c)
 - To override important css from bootstrap, I found a great article at [Slack](https://stackoverflow.com/questions/70315624/how-to-add-remove-important-css-with-new-css)
 - How to redirect to the login template page with a message was found at [Slack](https://stackoverflow.com/questions/39900679/django-permissionrequiredmixin-redirect-to-login-template-with-message)
-- How to get the current url with a django template (for the modal to share a link)was found at [Slack](https://stackoverflow.com/questions/2882490/how-to-get-the-current-url-within-a-django-template)
+- How to get the current url with a django template (for the modal to share a link) was found at [Slack](https://stackoverflow.com/questions/2882490/how-to-get-the-current-url-within-a-django-template)
 - How to copy to the clipboard with javascript was found [here](https://sentry.io/answers/how-do-i-copy-to-the-clipboard-in-javascript/) and at [Slack](https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript)
+- How to keep a modal window open if a validation error is raised was found at [reddit](https://www.reddit.com/r/django/comments/4souit/how_to_keep_a_modal_window_open_if_a_validation/)
 - The following websites were used as a source of knowledge: <br>
   - [Google](www.google.com)
   - [mdn](https://developer.mozilla.org/en-US/)
@@ -408,6 +453,9 @@ To see the [view of the live site]() click on the _Open app_ button on the top r
   - [W3schools](https://www.w3schools.com/)
   - [DevDocs](https://devdocs.io/)
   - [Stack Overflow](https://stackoverflow.com/)
+  - [reddit](https://www.reddit.com/)
+  - [forum djangoproject](https://forum.djangoproject.com/)
+  - Documentation for Bootstrap, Crispy Forms, Django
   - Slack Community
 
 ### ReadMe
@@ -416,7 +464,8 @@ To see the [view of the live site]() click on the _Open app_ button on the top r
 
 ### Acknowledgments
 
-- I would like to thank my amazing mentor Brian Macharia for his numerous tips and wonderful assistance during the creation of this project. 
-- 
+- I would like to express my deepest gratitude to my excellent mentor Brian Macharia for his numerous tips and wonderful assistance during the creation of this project, especially his help with adding items to the wish list..  
+- A big thank you to Dennis Schenkel for all his help on this project, be it brainstorming sessions to refine the code or emotional support. 
+- Furthermore, I would like to thank Lino Bollansee. I greatly appreciate his frequent comments during the creation of my project.
 
 **This is for educational use.**
