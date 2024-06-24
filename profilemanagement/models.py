@@ -31,9 +31,9 @@ class UserProfile(models.Model):
         return str(self.user)
 
 
-# Got this code from a tutorial by Daisy McGee
+# Got parts of this code from a tutorial by Daisy McGee 
 @receiver(post_save, sender=User)
-def create_user_profile(instance, created, **kwargs):
+def create_user_profile(sender, instance, created, **kwargs):
     """
     Create a user profile when a user is created
 
@@ -41,5 +41,4 @@ def create_user_profile(instance, created, **kwargs):
     instance (User): The User instance that was saved.
     created (bool): A boolean indicating whether a new User instance was created.
     **kwargs: Additional keyword arguments passed by the signal."""
-    if created:
-        UserProfile.objects.create(user=instance)
+    UserProfile.objects.get_or_create(user=instance)
