@@ -25,7 +25,7 @@ class UserProfile(models.Model):
     last_name = models.CharField(max_length=50, blank=False, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user_wish_list = models.ForeignKey(WishList, on_delete=models.CASCADE)
+    user_wish_list = models.ForeignKey(WishList, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return str(self.user)
