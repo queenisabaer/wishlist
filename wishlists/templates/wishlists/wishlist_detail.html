@@ -1,4 +1,6 @@
 {% extends "base.html" %} 
+{% load static %}
+{% load crispy_forms_tags %}
 {% block title %} Wishlist Detail - {{wishlist.list_name}} 
 {% endblock %} 
 
@@ -209,5 +211,13 @@
   </div>
   <p class="helptext text-end">Last update on: {{wishlist.updated_at}}</p>
 </div>
+
+{% if itemForm.errors %}
+<script>
+$(document).ready(function(){
+    $('#itemModal').modal('show');
+});
+</script>
+{% endif %}
 
 {% endblock %}

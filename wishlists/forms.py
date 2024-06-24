@@ -60,6 +60,8 @@ class ItemForm(forms.ModelForm):
             raise forms.ValidationError(
                 "The price must be greater than or equal to zero."
             )
+        if price > 1000:
+                raise forms.ValidationError("Please be kind to your loved ones. The price must be less than or equal to 1000.")
         return price
 
     def clean_quantity(self):
@@ -75,4 +77,6 @@ class ItemForm(forms.ModelForm):
         quantity = self.cleaned_data.get("quantity")
         if quantity is not None and quantity <= 0:
             raise forms.ValidationError("The quantity must be greater than zero.")
+        if quantity > 100:
+            raise forms.ValidationError("Please be kind to your loved ones. 100 Should be enough.")
         return quantity

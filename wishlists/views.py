@@ -58,6 +58,7 @@ class WishListDetail(generic.DetailView):
         context["items"] = Item.objects.filter(wish_list=self.object)
         if "itemForm" not in context:
             context["itemForm"] = ItemForm()
+        context["form_has_errors"] = kwargs.get("form_has_errors", False)
         return context
 
     def post(self, request, *args, **kwargs):
