@@ -101,7 +101,7 @@ User Stories with their id:  <br>
 ## Design
 
 ### Wireframes
-Due to lack of time, some of the originally planned features that can be seen on the wireframe had to be deleted or implemented differently. A detailed description of the existing features can be found [here](#features). 
+Due to lack of time, some of the originally planned features that can be seen on the wireframe had to be deleted or implemented differently. A detailed description of the existing features how they differ from the wireframes can be found [here](#features). 
 
 <details>
 <summary> Home </summary>
@@ -166,23 +166,23 @@ Due to lack of time, some of the originally planned features that can be seen on
 
 </details>
 
-- **Imagery:**<br>
+### Imagery
  
 The background image was found at pixabay and was created by [blickpixel](https://pixabay.com/de/photos/geschenk-p%C3%A4ckchen-%C3%BCberraschung-548296/) It was used to create the color palette and logo. The colors are rather soft and playful and the three gifts represent very well the theme of the site. 
 
-### Logo
+#### Logo
 
 The logo was made with [Canva](https://www.canva.com/). The font that was used to add the title is supposed to remind of handwritten greeting cards.<br>
 
   ![Logo for Your Wish List Maker](documentation/features/logo_ywlm_2.webp)<br>
 
-### Favicon
+#### Favicon
 
 The favicon was created with [Favicon.io](https://favicon.io/favicon-generator/)
 
   ![Favicon for Your Wish List Maker](documentation/images/favicon_readme.png)
 
-### Colour Scheme:
+#### Colour Scheme:
   
 The colour palette was generated using the pipette function on the photo with the presents that was used as background. The main colours are glaucous, snow, pink and magenta.  
 
@@ -254,7 +254,65 @@ In the wireframe a slightly different approach can be seen. Due to a alck of tim
 </details>
 
 <details>
-<summary> Login </summary>
+<summary> User authentication and account</summary>
+<br>
+
+For the user authentication functionality like: Sign up, Email verification, Log in, Remember me, Password reset, and Log out Django allauth was installed. Success messages inform the user along the process of logging in and out, signing up etc. (e.g. whether they have successfully logged in or logged out).<br> 
+Email verification is enforced to ensure that only committed individuals access the page. Users can log in after they have confirmed their email address. Then the user can access its profile and create new wish lists. <br>
+Each time a user completes a step successfully, a corresponding message is displayed on the page below the header.<br>
+
+**Screenshots**<br>
+Screenshot for Sign Up: <br>
+![Screenshot of the Sign Up page](/documentation/features/screenshot_sign_up.png)<br>
+Screenshot for Verify email: <br>
+![Screenshot of the verify your email page ](/documentation/features/screenshot_confirm_mail.png)<br>
+Screenshot of the Mail that user receives after signing up: <br>
+![Screenshot of the email to verify mail](/documentation/features/mail%20confirmation.png)<br>
+Screenshot for Confirm Email page: <br>
+![Screenshot of the Confirm mail page](/documentation/features/screenshot_confirm_mail.png)
+Screenshot after clicking the link in the verify email: <br>
+![Screenshot of the verify your email page 2](/documentation/features/screenshot_confirm_mail_2.png)<br>
+Screenshot of the message following the successful verification: <br>
+![Screenshot of the message following the successful verification](/documentation/features/message_confirm_mail.png)<br>
+Scrrenshot for Log In: <br>
+![Screenshot of the Login page](/documentation/features/screenshot_log_in.png)<br>
+![Screenshot of the message following the successful log-in](/documentation/features/message_log_in.png)<br>
+Screenshot for Log Out: <br>
+![Screenshot of the Log Out page](/documentation/features/screenshot_log_out.png)<br>
+Screenshot of the message following a successful log-out: <br>
+![Screenshot of the message following the successful log-out](/documentation/features/message_sign_out.png)<br>
+Screenshot for password reset: <br>
+![Screenshot of the password page](/documentation/features/screenshot_password_reset.png)<br>
+Screenshot of the Mail to reset the password: <br>
+![Screenshot of the email to reset password](/documentation/features/message_reset_password.png)<br>
+The page to reset the password has not been finally formatted and styled. This is a feature, I would like to implement in the future. 
+
+
+</details>
+
+
+<details>
+<summary> User Profile </summary>
+<br>
+
+xxx <br>
+![Screenshot of the Login](/documentation/features/)<br>
+
+</details>
+
+<details>
+<summary> Wishlist Management</summary>
+<br>
+
+xxx <br>
+
+![Screenshot of the Login](/documentation/features/)<br>
+
+</details>
+
+
+<details>
+<summary> xxx </summary>
 <br>
 
 xxx <br>
@@ -263,12 +321,14 @@ xxx <br>
 </details>
 
 
+
 ### Features, which I would like to implement in the future
 
 - Possibility to reserve an item and display the reserved items at the profile page
 - Full CRUD functionality for items
 - Functionality to create a wish list even if I'm not a registered user
 - Improve accessibility of buttons
+- Style the page to reset the password 
 
 ## Bugs
 
@@ -408,6 +468,14 @@ The app was tested regularly and deployed early to Heroku to make sure both loca
 All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/). <br>
   - result for 'home' page<br>
     ![HTML results home page](documentation/validation/html_validation_home.png)<br>
+  - result for 'Sign Up' page<br>
+    ![HTML results home page](documentation/validation/html_validation_sign_up.png)<br>
+  - result for 'Log In' page<br>
+    ![HTML results home page](documentation/validation/html_validation_log_in.png)<br> 
+  - result for 'Log Out' page<br>
+    ![HTML results home page](documentation/validation/html_validation_log_out.png)<br>
+  - result for 'Confirm Email' page<br>
+    ![HTML results confirm mail page](documentation/validation/html_validation_confirm_mail.png)<br> 
   - result for 404.html<br>
   ![HTML results 404 page](documentation)
   <br>
@@ -451,14 +519,23 @@ All created python files were checked with the [Code Insitute validator](https:/
 
 ### Lighthouse Test
 To measure the website against performance, accessibility, SEO and best practice, I used [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=de).<br>
-Because the background and foreground colors of the button with the class: 'btn-pink' and 'btn-reverse' do not have a sufficient contrast ratio, the accessibility was 95. I tried to improve this by changing the background colors to more vibrant ones, but couldn't get a better result. Since time was running out, I left it in the original version at the end. I would like to optimize this in a future version. 
+Because the background and foreground colors of the button with the class: 'btn-pink' and 'btn-reverse' do not have a sufficient contrast ratio, the accessibility was never 100. I tried to improve this by changing the background colors to more vibrant ones, but couldn't get a better result. Since time was running out, I left it in the original version at the end. I would like to optimize this in a future version. 
 <details>
 <summary> Results </summary>
 <br>
 
   - Home Page
   ![Lighthouse](documentation/validation/lighthouse_home.png)
-  
+  - Sign Up
+  ![Lighthouse](documentation/validation/lighthouse_sign_up.png)
+  - Log In
+  ![Lighthouse](documentation/validation/lighthouse_log_in.png)
+  - Log Out
+  ![Lighthouse](documentation/validation/lighthouse_log_out.png)
+  - Verify your email
+  ![Lighthouse](documentation/validation/lighthouse_confirm_mail.png)
+
+
 </details>
 
 ### Manual testing
@@ -475,8 +552,16 @@ Because the background and foreground colors of the button with the class: 'btn-
 | Header - Navigation link | Click on a term in the navigation bar to go to the corresponding page | Clicking on a page at the navigation bar should take the user to the corresponding page | Pass |
 | Header - Navigation links and items | Depending wheter the user is logged in or not, the navigation elements should adapt accordingly | After logging in, the navigation menu should adjust accordingly. | Pass |
 | Footer - Icons | Click on the logo of GitHub or LinkedIn and a new tab with the repository page of this project or the personal LinkedIn profile page opens | After clicking on the logo of GitHub it should open a new tab with the repository page for this project, and after clicking on the LinkdIn logo, LinkedIn should open in a new tab as well | Pass |
-| Main page - default version | Visit the website for the first time or don't be logged in to see the default version of the 'home' page | After visiting the website for the first time or if a user isn't logged in, the main page should contain a short welcome message, with two buttons to sign up or log in, and a navigation bar that only contains three elements: 'Home', 'Login' and 'Sign Up'. 'Home' should be underlined| Pass |
-| Main page - Log in version | Log in to see a modified version of the 'home' page | After logging in the 'home' page should contain a short welcome message, with two buttons to sign up or log in, and a navigation bar that contains five elements: 'Home', 'New List', 'Profile', 'Overview' and 'Logout'. 'Home' should be underlined| Pass |
+| Main page - default version | Visit the website for the first time or don't be logged in to see the default version of the 'home' page | After visiting the website for the first time or if a user isn't logged in, the main page should contain a short welcome message, with two buttons to sign up or log in, and a navigation bar that only contains three elements: 'Home', 'Login' and 'Sign Up'. 'Home' should be underlined | Pass |
+| Main page - Log in version | Log in to see a modified version of the 'home' page | After logging in the 'home' page should contain a short welcome message, with two buttons to sign up or log in, and a navigation bar that contains five elements: 'Home', 'New List', 'Profile', 'Overview' and 'Logout'. 'Home' should be underlined | Pass |
+| Sign Up | Fill out each field and click on the sign up button. | After filling out every form field with validate input and clicking the 'Sign Up' button, the user should be redirect to the verify email page and receive an email to verify the mail address | Pass |
+| Verify email | Click on the link provided in the mail | After clicking on the link that was provide in the 'Verify your email-address' mail, the user should be verified and redirect to the corresponding page | Pass |
+| Log In | Log in with username and password | Clicking on the 'Log In' button after providing the correct username and password, the user should be redirect to the main page in the log in version. In addition, a message that a successful login has taken place should be displayed. | Pass |
+| Log out | Click 'Logout' in the navigation bar | After clicking on Logout, a new page should open in which the user is asked whether they really want to log out. When the logout button is clicked again, the user is redirected to the default home page and a message is displayed. | Pass |
+| Forget password | Click 'Forget password' under the log in page | After clicking on 'Forget password', a new page should open and a mail to reset the password should be send to the user. | Pass |
+| Forget password - mail link | Click on the link sent in the mail | After clicking on the link, a new page should open and a form to reset the password should be seen. | Pass |
+| Forget password - final step | Click on the button to change the password | After clicking on the button, the new password should be stored and a success message should be shown. | Pass |
+
 
 
 </details>
@@ -484,10 +569,26 @@ Because the background and foreground colors of the button with the class: 'btn-
 <details>
 <summary> Click here to see the testing table for User Stories</summary>
 <br>
+The following user stories have been integrated into the application.<br>
 
 | **User Story** | **Acceptance Criteria** | **Was achieved as follows** |
 |:---|:---|:---|
 | #9 As a new website user I am able to identify the website's goal so that I can decide whether to continue or leave. | The website should display a clear and concise description or tagline that communicates the website's primary purpose within the first few seconds of viewing. It should include visual elements and navigational cues that help explain the website's goal and functionality. | A home page has been created that displays a small introductory text for first time visitors or users who are not logged in. In addition, the heading, the background image, the logo and the favicon already indicate the meaning of the page. |
+| #12 As a new user I can register an account so that I can create and manage wish lists or items of other wish lists. | The registration form should include fields for username and password. The registration form should be easy to access from the landing page and before creating a new list or selecting an item of another wish list Upon successful registration, the user should see its dashboard with the created wish lists and/or reserved items | I integrated Django Allauth into my project to handle user authentication, including registration, login, and logout functionalities. By configuring the necessary settings and templates, I ensured that users can easily access the registration form from the landing page and are redirected to the home page from where they can access their dashboard displaying their wish lists upon successful registration. |
+| #13 As a registered user, I want to log in to my account so that I can create, read, update and delete my wish list(s) | The login form should accept username and password and should be easy to access. After successful login, the user should be redirected to their dashboard and have the possibility to logout. | To achieve the user login functionality, I created a user login page that accepts a username and password, ensuring it is easily accessible. Upon successful login, the user is redirected to the home page, where they can effortlessly navigate to their profile. The navigation bar dynamically updates upon login, providing a clear option for the user to access the profile and to log out at any time. In addition, users can access their wish list overview directly on the home page. This page is also always accessible from the navigation list. In their wish list overview, the user has the possibility to update or delete the created wish lists. |
+| #13 As a registered user I want to manage my profile so that I can update my account. | The dashboard should include a button to update the profile. | I implemented a profile management feature by adding a profile page. On this profile page, users can easily update their information by clicking the edit button or delete their account by clicking the delete button. The profile page can be accessed by users as soon as they are logged in, both from the homepage and from the navigation bar. |
+| #16 As a registered user, I want to edit my wishlist so that I can update its details. | The wishlist edit form should allow changes to the title, description, and occasion type. Changes should be saved and reflected in the user's dashboard and in the database. | To achieve the wishlist edit functionality, I created an edit form that allows users to modify the title, description, due date, and occasion type of their wishlists. Changes made in the form are saved and immediately reflected both in the user's profile and in the database. Users can access this form from the wish list overview page, where all their wishlists are displayed, as well as from the detailed view of each individual wishlist. |
+| #17 As a registered user, I want to be able to delete a wishlist so that I can remove outdated or unnecessary lists. | The Wishlist contains delete button. The delete action should prompt for confirmation. Once confirmed, the wishlist should be removed from the user's dashboard and removed from the database | To achieve the wishlist deletion functionality, I added a delete button on both the wishlist detail view and the wishlist overview page. When the user clicks the delete button, a confirmation page appears, informing them that this action cannot be undone and asking for their confirmation. Upon confirmation, the wishlist is removed from the user's dashboard and deleted from the database, along with all items related to the wishlist. |
+| #19 As a registered user, I want to edit items in my wishlist so that I can update their details. | The item edit form should allow changes to the item name, description, and purchase link. Changes should be saved and reflected in the wishlist. | I was unable to complete this user story due to time constraints; however, I plan to implement it in the future. This feature remains a priority and will be added to enhance the application's functionality. |
+| #20 As a registered user, I want to be able to delete items from my wishlist so that I can remove unwanted items | The delete action should prompt for confirmation. Once confirmed, the item should be removed from the wishlist. | I was unable to complete this user story due to time constraints; however, I plan to implement it in the future. This feature remains a priority and will be added to enhance the application's functionality. |
+| #23 As a registered user, I want to reserve an item of a wishlist, so that no other user will purchase this. | Users should be able to mark an item in a wishlist as reserved/unreserved. Reserved items should display a visual indicator | I was unable to complete this user story due to time constraints; however, I plan to implement it in the future. This feature remains a priority and will be added to enhance the application's functionality. |
+| #24 As a registered user, I want to be able to collaborate on a wishlist with others so that we can collectively manage it. | Collaborators should be able to add, edit, and delete items in the shared wishlist. | I was unable to complete this user story due to time constraints; however, I plan to implement it in the future. This feature remains a priority and will be added to enhance the application's functionality. |
+| xxx | xxx | xxx |
+| xxx | xxx | xxx |
+| xxx | xxx | xxx |
+
+
+
 
 
 </details>
@@ -545,7 +646,7 @@ To see the [view of the live site](https://your-wish-list-maker-6905b0903af9.her
 
 ### Content
 
-- 
+- The background image was found at pixabay and was created by [blickpixel](https://pixabay.com/de/photos/geschenk-p%C3%A4ckchen-%C3%BCberraschung-548296/)
 
 ### Code
 
