@@ -1,12 +1,12 @@
 # Your Wish List Maker
 Full-Stack Toolkit Portfolio Project(PP4) - Code Institute
 
-View the deployed site [here.]()<br>
+View the deployed site [here.](https://your-wish-list-maker-6905b0903af9.herokuapp.com/)<br>
 
- *Your Wish List Maker* is a website designed to help people keep their wish lists for special occasions organised.  
+ *Your Wish List Maker* is designed for users who want to efficiently manage and organize their wish lists for various occasions such as birthdays, holidays, and weddings. This application allows users to create, edit, and categorize wish lists, making it easy to keep track of desired items. Users can effortlessly share their lists with family and friends, ensuring everyone knows exactly what gifts are wanted. Additionally, the app supports links to online stores, helping gift-givers find and purchase the perfect presents with ease.
  It is a full stack Django project running on Heroku.
 
-![Screenshot of the preview of application](documentation/readme/)<br>
+![Screenshot of the preview of application](documentation/images/wish_list_maker_am_i_responsive.png)<br>
 
 ## Table of contents
 
@@ -245,7 +245,8 @@ To ensure uniformity and a sense of familiarity for users, all pages include the
 <summary> Home(Welcome) page </summary>
 <br>
 
-The home page contains a short welcome text for first-time visitors or users who are not logged in, giving them the possibility to sign up or log in to use the application. The navigation bar only has three options: 'Home', 'Login' and 'Sign Up'. Two buttons each lead to the pages to log in or sign up. After signing up or logging in, this page changes. The navigation bar then contains the possibility to access the following pages: 'Home', 'New List', 'Profile', 'Overview' and 'Logout'. The buttons then lead to the possibility to create a new wishlist or to call up the own profile.
+The home page contains a short welcome text for first-time visitors or users who are not logged in, giving them the possibility to sign up or log in to use the application. The navigation bar only has three options: 'Home', 'Login' and 'Sign Up'. Two buttons each lead to the pages to log in or sign up. After signing up or logging in, this page changes. The navigation bar then contains the possibility to access the following pages: 'Home', 'New List', 'Profile', 'Overview' and 'Logout'. The buttons then lead to the possibility to create a new wishlist or to call up the own profile.<br>
+In the wireframe a slightly different approach can be seen. Due to a alck of time, I wasn't able to implement the functionality, so that a wish list can be created without logging in. This is a feature I would like to implement in the future. In addition, I have seen in some other projects where the own LinkedIn profile and the corresponding repository was referenced. I found this approach very nice and therefore adopted it. <br>
 ![Screenshot home page](/documentation/features/screenshot_home.png)<br>
 ![Screenshot home page](/documentation/features/screenshot_home_log.png)<br>
 
@@ -523,7 +524,7 @@ This site is deployed using Heroku. To deploy it from its GitHub repository to H
 13. Search for the repository name on github _life-in-numbers_ and click the _Connect_ button 
 14. Enable the automatic deploy or manually deploy the code from the main branch.<br>
 
-To see the [view of the live site]() click on the _Open app_ button on the top right corner or, if you enabled automatic deploy(step 14), log in to GitHub, navigate to the repository for this project by selecting [*queenisabaer/wishlist*](https://github.com/queenisabaer/wishlist), click on _Deployment_ and choose in the _Environments_ section _life-in-numbers_. On top of the latest deployment is the link to the [live site]().
+To see the [view of the live site](https://your-wish-list-maker-6905b0903af9.herokuapp.com/) click on the _Open app_ button on the top right corner or, if you enabled automatic deploy(step 14), log in to GitHub, navigate to the repository for this project by selecting [*queenisabaer/wishlist*](https://github.com/queenisabaer/wishlist), click on _Deployment_ and choose in the _Environments_ section _life-in-numbers_. On top of the latest deployment is the link to the [live site]().
 
 ### Forking this GitHub repository
 1.  Log in to GitHub.
