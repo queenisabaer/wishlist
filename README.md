@@ -245,8 +245,9 @@ To ensure uniformity and a sense of familiarity for users, all pages include the
 <summary> Home(Welcome) page </summary>
 <br>
 
-The logo was made with [Canva](https://www.canva.com/). 
-![Screenshot Logo](/documentation/features/)<br>
+The home page contains a short welcome text for first-time visitors or users who are not logged in, giving them the possibility to sign up or log in to use the application. The navigation bar only has three options: 'Home', 'Login' and 'Sign Up'. Two buttons each lead to the pages to log in or sign up. After signing up or logging in, this page changes. The navigation bar then contains the possibility to access the following pages: 'Home', 'New List', 'Profile', 'Overview' and 'Logout'. The buttons then lead to the possibility to create a new wishlist or to call up the own profile.
+![Screenshot home page](/documentation/features/screenshot_home.png)<br>
+![Screenshot home page](/documentation/features/screenshot_home_log.png)<br>
 
 
 </details>
@@ -265,6 +266,8 @@ xxx <br>
 
 - Possibility to reserve an item and display the reserved items at the profile page
 - Full CRUD functionality for items
+- Functionality to create a wish list even if I'm not a registered user
+- Improve accessibility of buttons
 
 ## Bugs
 
@@ -401,15 +404,11 @@ The app was tested regularly and deployed early to Heroku to make sure both loca
 <summary> HTML Validation</summary>
 <br>
 
-All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/). 
-  - result for index.html<br>
-    xxx
-    1. result with error<br>
-    ![HTML results index with errors](documentation/readme/)
-    2. final result<br>
-    ![HTML results index](documentation/readme/)<br>
+All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/). <br>
+  - result for 'home' page<br>
+    ![HTML results home page](documentation/validation/html_validation_home.png)<br>
   - result for 404.html<br>
-  ![HTML results 404 page](documentation/readme/html-validator-404.png)
+  ![HTML results 404 page](documentation)
   <br>
   
 </details>
@@ -450,15 +449,21 @@ All created python files were checked with the [Code Insitute validator](https:/
 
 
 ### Lighthouse Test
-   To measure the website against performance, accessibility, SEO and best practice, I used [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=de).<br>
-   - result <br>
+To measure the website against performance, accessibility, SEO and best practice, I used [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=de).<br>
+Because the background and foreground colors of the button with the class: 'btn-pink' and 'btn-reverse' do not have a sufficient contrast ratio, the accessibility was 95. I tried to improve this by changing the background colors to more vibrant ones, but couldn't get a better result. Since time was running out, I left it in the original version at the end. I would like to optimize this in a future version. 
+<details>
+<summary> Results </summary>
+<br>
+
+  - Home Page
+  ![Lighthouse](documentation/validation/lighthouse_home.png)
   
-   ![Lighthouse](documentation/readme/)
+</details>
 
 ### Manual testing
 
 <details>
-<summary> Click here to see the manual testing table</summary>
+<summary> Click here to see the testing table for features</summary>
 <br>
 
 | **Test** | **Test Description** | **Expected Outcome** | **Result** |
@@ -469,6 +474,20 @@ All created python files were checked with the [Code Insitute validator](https:/
 | Header - Navigation link | Click on a term in the navigation bar to go to the corresponding page | Clicking on a page at the navigation bar should take the user to the corresponding page | Pass |
 | Header - Navigation links and items | Depending wheter the user is logged in or not, the navigation elements should adapt accordingly | After logging in, the navigation menu should adjust accordingly. | Pass |
 | Footer - Icons | Click on the logo of GitHub or LinkedIn and a new tab with the repository page of this project or the personal LinkedIn profile page opens | After clicking on the logo of GitHub it should open a new tab with the repository page for this project, and after clicking on the LinkdIn logo, LinkedIn should open in a new tab as well | Pass |
+| Main page - default version | Visit the website for the first time or don't be logged in to see the default version of the 'home' page | After visiting the website for the first time or if a user isn't logged in, the main page should contain a short welcome message, with two buttons to sign up or log in, and a navigation bar that only contains three elements: 'Home', 'Login' and 'Sign Up'. 'Home' should be underlined| Pass |
+| Main page - Log in version | Log in to see a modified version of the 'home' page | After logging in the 'home' page should contain a short welcome message, with two buttons to sign up or log in, and a navigation bar that contains five elements: 'Home', 'New List', 'Profile', 'Overview' and 'Logout'. 'Home' should be underlined| Pass |
+
+
+</details>
+
+<details>
+<summary> Click here to see the testing table for User Stories</summary>
+<br>
+
+| **User Story** | **Acceptance Criteria** | **Was achieved as follows** |
+|:---|:---|:---|
+| #9 As a new website user I am able to identify the website's goal so that I can decide whether to continue or leave. | The website should display a clear and concise description or tagline that communicates the website's primary purpose within the first few seconds of viewing. It should include visual elements and navigational cues that help explain the website's goal and functionality. | A home page has been created that displays a small introductory text for first time visitors or users who are not logged in. In addition, the heading, the background image, the logo and the favicon already indicate the meaning of the page. |
+
 
 </details>
 

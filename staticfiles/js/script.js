@@ -1,3 +1,5 @@
+//jshint esversion:8
+
 document.addEventListener("DOMContentLoaded", function() {
     const messages = document.getElementById('msg');
     setTimeout(function(){
@@ -33,9 +35,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const firstNameElement = document.getElementById('f_name');
     const lastNameElement = document.getElementById('l_name');
     if (firstNameElement.innerText == 'None'){
-        firstNameElement.innerText = "Not yet provided"
+        firstNameElement.innerText = "Not yet provided";
     }
     if (lastNameElement.innerText == 'None'){
-        lastNameElement.innerText = "Not yet provided"
+        lastNameElement.innerText = "Not yet provided";
     }
 });
