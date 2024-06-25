@@ -397,8 +397,11 @@ The app was tested regularly and deployed early to Heroku to make sure both loca
 
 ### Validator Testing
 
-- **[HTML Validator](https://validator.w3.org/)**
- 
+<details>
+<summary> HTML Validation</summary>
+<br>
+
+All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/). 
   - result for index.html<br>
     xxx
     1. result with error<br>
@@ -408,20 +411,41 @@ The app was tested regularly and deployed early to Heroku to make sure both loca
   - result for 404.html<br>
   ![HTML results 404 page](documentation/readme/html-validator-404.png)
   <br>
+  
+</details>
 
+<details>
+<summary> CSS Validation</summary>
+<br>
 
-
-- **[CSS Validator](https://jigsaw.w3.org/css-validator/)**
-   - result for styles.css <br>
+I passed my css file through the [CSS Validator](https://jigsaw.w3.org/css-validator/) and no errors were found.<br>
      
-     ![CSS result](documentation/readme/)
-     The warning is due to import of the Google fonts.
+![CSS result](documentation/validation/css_validation.png)
+  
+</details>
 
+<details>
+<summary> JavaScript Validation</summary>
+<br>
 
-  - **[CI Python Linter](https://pep8ci.herokuapp.com/#)**
+I passed my javaScript file through the [JSHint](https://jshint.com/). In the first attempt three warnings were found due to two missing semicolons and ths usage of the async function, which is only available in ES8. After searching on Slack, I found a useful thread of [Joanna Skoczen](https://code-institute-room.slack.com/archives/C7EJUQT2N/p1662139410703239) and used the following statement to get rid of the error: 
+```//jshint esversion:8``` 
+<br>
+<br>
+     
+![JavaScript result](documentation/validation/javascript_validation.png)
 
-  - All created python files were checked with the Code Insitute validator. Since some lines were too long, they had to be corrected, after that everything was clear and no errors where found<br>
+The statement of one undefinied variable is caused by cross referencing scripts. 
+  
+</details>
 
+<details>
+<summary> Python Validation</summary>
+<br>
+
+All created python files were checked with the [Code Insitute validator](https://pep8ci.herokuapp.com/#). Since some lines were too long, they had to be corrected, after that everything was clear and no errors where found<br>
+  
+</details>
 
 
 
