@@ -218,8 +218,15 @@ To learn more about each feature, please click on the respective headline
 <br>
 
 To ensure uniformity and a sense of familiarity for users, all pages include the same header with navigation links and an identical footer.
-The header consists of the logo, which is always arranged on the right and acts as a link to return to the main page. On the left side is the navigation bar, which turns into a clickable burger menu on smaller screens. Depending on whether the user is logged in or not, the navigation elements adapt accordingly. 
-![Screenshot Logo](/documentation/features/)<br>
+The header consists of the logo, which is always arranged on the right and acts as a link to return to the main page. On the left side is the navigation bar, which turns into a clickable burger menu on smaller screens. Depending on whether the user is logged in or not, the navigation elements adapt accordingly. <br>
+View for users who are not logged in:<br>
+![Screenshot header mobile view](/documentation/features/header_mobile_view.png)<br>
+![Screenshot header mobile view toggle](/documentation/features/header_mobile_toggle.png)<br>
+![Screenshot Header on larger screens](/documentation/features/header_larger_screens.png)<br>
+View for users who are logged in:<br>
+![Screenshot header for logged in user mobile view](/documentation/features/header_mobile_view_log_in.png)<br>
+![Screenshot header for logged in user mobile view toggle](/documentation/features/header_mobile_toggle_log_in.png)<br>
+![Screenshot header for logged in user on larger screens](/documentation/features/header_larger_screens_log_in.png)<br>
 
 
 </details>
@@ -228,9 +235,9 @@ The header consists of the logo, which is always arranged on the right and acts 
 <summary> Footer </summary>
 <br>
 
-To ensure uniformity and a sense of familiarity for users, all pages include the same header with navigation links and an identical footer. 
-![Screenshot Logo](/documentation/features/)<br>
-
+To ensure uniformity and a sense of familiarity for users, all pages include the same header with navigation links and an identical footer. Unlike the original wireframes, the footer does not contain a contact link or a link to Facebook and Instagram. Instead, the repository for this project and the personal linkedin profile have been pointed out, from where it is possible to contact the owner of the page. <br>
+![Screenshot footer mobile view](/documentation/features/footer_mobile.png)<br>
+![Screenshot footer on larger screens](/documentation/features/footer_larger_screens.png)<br>
 
 </details>
 
@@ -426,7 +433,9 @@ The app was tested regularly and deployed early to Heroku to make sure both loca
 
 ### Manual testing
 
-
+<details>
+<summary> Click here to see the manual testing table</summary>
+<br>
 
 | **Test** | **Test Description** | **Expected Outcome** | **Result** |
 |:---|:---|:---|:---|
@@ -435,8 +444,9 @@ The app was tested regularly and deployed early to Heroku to make sure both loca
 | Header - Navigation underline | The page you are currently on should be underlined in the menu | After reaching a page at the application the corresponding navigation item should be underlined | Pass |
 | Header - Navigation link | Click on a term in the navigation bar to go to the corresponding page | Clicking on a page at the navigation bar should take the user to the corresponding page | Pass |
 | Header - Navigation links and items | Depending wheter the user is logged in or not, the navigation elements should adapt accordingly | After logging in, the navigation menu should adjust accordingly. | Pass |
+| Footer - Icons | Click on the logo of GitHub or LinkedIn and a new tab with the repository page of this project or the personal LinkedIn profile page opens | After clicking on the logo of GitHub it should open a new tab with the repository page for this project, and after clicking on the LinkdIn logo, LinkedIn should open in a new tab as well | Pass |
 
-
+</details>
 
 ### Browser Compatibility
   The tests were conducted using the following browsers:
