@@ -17,6 +17,7 @@ View the deployed site [here.]()<br>
   - [Wireframes](#wireframes)
   - [Logo](#logo)
   - [Favicon](#favicon)
+  - [Typography](#typography)
   - [Structure](#structure)
 - [Features](#features)
 - [Bugs](#bugs)
@@ -100,6 +101,7 @@ User Stories with their id:  <br>
 ## Design
 
 ### Wireframes
+Due to lack of time, some of the originally planned features that can be seen on the wireframe had to be deleted or implemented differently. A detailed description of the existing features can be found [here](#features). 
 
 <details>
 <summary> Home </summary>
@@ -166,12 +168,13 @@ User Stories with their id:  <br>
 
 - **Imagery:**<br>
  
-background image
+The background image was found at pixabay and was created by [blickpixel](https://pixabay.com/de/photos/geschenk-p%C3%A4ckchen-%C3%BCberraschung-548296/) It was used to create the color palette and logo. The colors are rather soft and playful and the three gifts represent very well the theme of the site. 
 
 ### Logo
 
+The logo was made with [Canva](https://www.canva.com/). The font that was used to add the title is supposed to remind of handwritten greeting cards.<br>
 
-  ![Logo for Your Wish List Maker](documentation/readme_features/)<br>
+  ![Logo for Your Wish List Maker](documentation/features/logo_ywlm_2.webp)<br>
 
 ### Favicon
 
@@ -179,9 +182,9 @@ The favicon was created with [Favicon.io](https://favicon.io/favicon-generator/)
 
   ![Favicon for Your Wish List Maker](documentation/images/favicon_readme.png)
 
-- **Colour Scheme:**<br>
+### Colour Scheme:
   
-The color palette was generated using the pipette function on the photo with the presents, which was also used for the favicon and logo. The main colors are glaucous, snow, pink and magenta.  
+The colour palette was generated using the pipette function on the photo with the presents that was used as background. The main colours are glaucous, snow, pink and magenta.  
 
 <details>
 <summary> Click here to see the colour palette </summary>
@@ -192,24 +195,16 @@ I created the colour palette with [coloors](https://coolors.co/).<br>
 
 </details>
 
+### Typography
+
+[Indie Flower](https://fonts.google.com/specimen/Indie+Flower) was used as font for headings. It is a handwriting font that seems carefree and open. Although it is a handwriting font it is still easy to read.<br>
+[Rubik](https://fonts.google.com/specimen/Rubik?query=rubik) was selected for text content. It is a sans-serif font which is easy to read, and has a certain aestethic. Both fonts were imported via Google Fonts. 
+
 ### Structure 
 
-The flowchart was crafted during the planning phase of the project and was created with [Lucid](https://lucid.app/). It still displays a third topic (Food/Drinks), that I would love to implement in the future. Furthermore, it has some additional input (smoking/alcohol) that I didn't use in the end. This could be a future enhancement.
-<details>
-<summary> Site Map </summary>
-<br>
+The database schema was crafted during the planning phase of the project and was created with [dbdiagramm](https://dbdiagram.io/home). It still displays the reserved item modal, that I would love to implement in the future. In addition, the user profile still contains email and password, which are directly retrieved in the final version from the profile created for authentication. 
 
-![Flowchart](documentation/readme/)
-
-</details>
-
-details>
-<summary> Database Schema  </summary>
-<br>
-
-![Flowchart](documentation/readme/)
-
-</details>
+![Initial Database Schema](documentation/features/database_schema_plan.png)
 
 
 ## Features
@@ -219,15 +214,35 @@ details>
 To learn more about each feature, please click on the respective headline
 
 <details>
-<summary> Logo </summary>
+<summary> Header with logo and navbar </summary>
 <br>
 
+To ensure uniformity and a sense of familiarity for users, all pages include the same header with navigation links and an identical footer.
+The header consists of the logo, which is always arranged on the right and acts as a link to return to the main page. On the left side is the navigation bar, which turns into a clickable burger menu on smaller screens. Depending on whether the user is logged in or not, the navigation elements adapt accordingly. 
 ![Screenshot Logo](/documentation/features/)<br>
 
 
 </details>
 
+<details>
+<summary> Footer </summary>
+<br>
 
+To ensure uniformity and a sense of familiarity for users, all pages include the same header with navigation links and an identical footer. 
+![Screenshot Logo](/documentation/features/)<br>
+
+
+</details>
+
+<details>
+<summary> Home(Welcome) page </summary>
+<br>
+
+The logo was made with [Canva](https://www.canva.com/). 
+![Screenshot Logo](/documentation/features/)<br>
+
+
+</details>
 
 <details>
 <summary> Login </summary>
@@ -241,7 +256,8 @@ xxx <br>
 
 ### Features, which I would like to implement in the future
 
-- xxx
+- Possibility to reserve an item and display the reserved items at the profile page
+- Full CRUD functionality for items
 
 ## Bugs
 
@@ -296,6 +312,26 @@ Solved: <br>
 
 </details>
 
+<details>
+<summary> Error for profile page</summary>
+<br>
+After I created the UserProfile model, there was an error when you wanted to call up your own profile in the published version. This could be solved by including sender to the arguments of the create_user_profile method. 
+<br>
+<br>
+
+</details>
+
+<details>
+<summary> Not null for wish list id</summary>
+<br>
+In the original version of the UserProfile model, a wishlist had to be assigned to the user, which caused the following error. After adding null=True to the attribute wish_list_id, this bug could be fixed. 
+<br>
+<br>
+
+![Screenshot of the error message in browser](/documentation/bugs/Bug_not_null.png)<br>
+
+</details>
+
 ## Technologies Used
 
 ### Languages:
@@ -314,6 +350,7 @@ Solved: <br>
 - [Balsamiq](https://balsamiq.com/) was used to create the wireframes.
 - [Lucid](https://lucid.app/) was used to create the Flowchart.
 - [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) to beautify the code
+- [Beautifier](https://beautifier.io/) to beautify the html code
 - [LanguageTool](https://languagetool.org/) was used to check the grammar and spelling in the README and the Code. 
 - [Coloors](https://coolors.co/image-picker) was used to create the color scheme.
 - [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) was used to convert jpg images into wepb images.
@@ -389,12 +426,15 @@ The app was tested regularly and deployed early to Heroku to make sure both loca
 
 ### Manual testing
 
+
+
 | **Test** | **Test Description** | **Expected Outcome** | **Result** |
 |:---|:---|:---|:---|
 | Header - Logo | Click on the logo to return to main page | Clicking on the logo on each page will return you to the main page | Pass |
-| Header - Navbar toggler in mobile view | Click in mobile view on the burger icon to open the navigation | When the burger icon in mobile view is clicked, the navigation should open | Pass |
-| Header - Navigation underline | The page you are currently on should be underlined in the menu | After reaching "Home", "About", "Gallery" or "Contact" the corresponding navigation item should be underlined | Pass |
-| Header - Navigation link | Click on a term in the navigation bar to go to the corresponding page | Clicking "Home", "About", "Gallery" or "Contact" should take the user to the corresponding page | Pass |
+| Header - Navbar toggler in tablet/mobile view | Click in tablet/mobile view on the burger icon to open the navigation | When the burger icon in mobile or tablet view is clicked, the navigation should open | Pass |
+| Header - Navigation underline | The page you are currently on should be underlined in the menu | After reaching a page at the application the corresponding navigation item should be underlined | Pass |
+| Header - Navigation link | Click on a term in the navigation bar to go to the corresponding page | Clicking on a page at the navigation bar should take the user to the corresponding page | Pass |
+| Header - Navigation links and items | Depending wheter the user is logged in or not, the navigation elements should adapt accordingly | After logging in, the navigation menu should adjust accordingly. | Pass |
 
 
 
