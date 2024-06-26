@@ -459,13 +459,26 @@ In the original version of the UserProfile model, a wishlist had to be assigned 
 </details>
 
 <details>
-<summary> Wishlist Overview</summary>
+<summary> Wishlist Overview - Message to add wish list</summary>
 <br>
 If a user has not yet created a wish list, a sentence should be displayed so that they can create its first list. Unfortunately, only the headline was displayed. I was able to solve this by changing the for loop in the html page and adding the get_queryset method to the class WishListOverview. 
 <br>
 <br>
 
-![Screenshot of the error message in browser](/documentation/bugs/Bug_not_null.png)<br>
+Screenshot of the wishlist overview with message: <br>
+![Screenshot of the wishlist overview with message](/documentation/features/screenshot_wishlist_overview_empty.png)<br>
+
+</details>
+
+<details>
+<summary> Item image upload</summary>
+<br>
+ 
+<br>
+<br>
+
+Screenshot: <br>
+![Screenshot of the wishlist overview with message](/documentation/features/)<br>
 
 </details>
 

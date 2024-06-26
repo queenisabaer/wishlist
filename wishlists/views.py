@@ -72,7 +72,7 @@ class WishListDetail(generic.DetailView):
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
-        itemForm = ItemForm(request.POST)
+        itemForm = ItemForm(request.POST, request.FILES)
         if itemForm.is_valid():
             item = itemForm.save(commit=False)
             item.wish_list = self.object
@@ -81,7 +81,8 @@ class WishListDetail(generic.DetailView):
             return redirect("wishlist_detail",
                             wish_list_id=self.object.wish_list_id)
         else:
-            context = self.get_context_data(itemForm=itemForm)
+            context = self.get_context_data(itemForm=item,
+                                            Formform_has_errors=True)
             return self.render_to_response(context)
 
 
