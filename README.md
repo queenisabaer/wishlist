@@ -202,10 +202,32 @@ I created the colour palette with [coloors](https://coolors.co/).<br>
 
 ### Structure 
 
-The database schema was crafted during the planning phase of the project and was created with [dbdiagramm](https://dbdiagram.io/home). It still displays the reserved item modal, that I would love to implement in the future. In addition, the user profile still contains email and password, which are directly retrieved in the final version from the profile created for authentication. 
+The first database schema was crafted during the planning phase of the project and was created with [dbdiagramm](https://dbdiagram.io/home). It still displays the reserved item modal, that I would love to implement in the future. In addition, the user profile still contains email and password, which are directly retrieved in the final version from the profile created for authentication. <br>
 
-![Initial Database Schema](documentation/features/database_schema_plan.png)
+![Initial Database Schema](documentation/images/erd_plan.png)<br>
+Final ERD:<br>
+![Final Database Schema](documentation/images/erd_final.png)<br>
 
+- **FieldTypes:**<br>
+  - AutoField: An integer field that automatically increments.
+  - CharField: A text field with a maximum length.
+  - EmailField: A CharField that checks if the value is a valid email address.
+  - DateTimeField: A field for storing date and time.
+  - DateField: A field for storing dates.
+  - TextField: A large text field.
+  - OneToOneField: A one-to-one relationship.
+  - ForeignKey: A many-to-one relationship.
+  - IntegerField: An integer field.
+  - DecimalField: A fixed-precision decimal number.
+  - URLField: A CharField for URLs.
+  - ResizedImageField: An image field with resizing options.<br>
+- **Relationships:**<br>
+  - A User has one UserProfile.
+  - A UserProfile belongs to one User.
+  - A WishList is created by one User.
+  - A User can create many WishLists.
+  - A WishList can have many Items.
+  - An Item belongs to one WishList.
 
 ## Features
 
