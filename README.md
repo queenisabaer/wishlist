@@ -340,16 +340,16 @@ For future versions of 'Your Wish List Maker', I would like to display the reser
 
 Screenshot of buttons on 'home' page:<br>
 ![Screenshot of home page with profile button](/documentation/features/screenshot_profile_button.png)<br>
-Screenshots of profile page:<br>
+Screenshot of profile page:<br>
 ![Screenshot of profile page after first login](/documentation/features/screenshot_profile_not_yet.png)<br>
 ![Screenshot of profile page](/documentation/features/screenshot_profile_page.png)<br>
 Screenshot to edit the profile and success message:<br>:
 ![Screenshot of edit profile page](/documentation/features/screenshot_edit_profil.png)<br>
-![Screenshot of message to edit profile](/documentation/features/message_edit_profile.png)<br
+![Screenshot of message to edit profile](/documentation/features/message_edit_profile.png)<br>
 Screenshot to delete the profile:<br>
-![Screenshot of delete profile page](/documentation/features/screenshot_delete_profile.png)<br
+![Screenshot of delete profile page](/documentation/features/screenshot_delete_profile.png)<br>
 Screenshot of success message after deletion and default home page<br>
-![Screenshot of message after deletion of profile](/documentation/features/message_deletion.png)<br
+![Screenshot of message after deletion of profile](/documentation/features/message_deletion.png)<br>
 
 </details>
 
@@ -357,9 +357,47 @@ Screenshot of success message after deletion and default home page<br>
 <summary> Wishlist Management</summary>
 <br>
 
-xxx <br>
+The Wish List Management includes the following areas: Adding a new list, Wish list detail view, Editing or deleting an existing list, Adding items to a wish list, Displaying an overview of all existing wish lists. <br>
 
-![Screenshot of the Login](/documentation/features/)<br>
+ - **Adding a new wish list**<br>
+To add a new wish list, the user must sign up or log in. Then they can either go to the associated page via the navigation bar or a button on the home page. All form fields are required. The due date must be at least one day in the future. The default occasion is anniversary. The user is informed that they can add items to the wish list in the next step. In a future version I would like to include django formsets to create wish list and items at the same time as can be seen in the wireframes. <br>
+After the user has clicked the 'save wish list' button, they will be redirected to the detailed view of the wishlist just created and a success message is shown to the user. The wish_list_id of the WishList model, that was generated in the background, is part of the URL. Different wish lists can have the same name, so users can have several versions for the same occasion and, for example, send multiple versions to differing groups of people. <br>
+<br>
+
+Screenshot of 'add a new wishlist' page:<br>
+![Screenshot of add a new wishlist page](/documentation/features/screenshot_add_wishlist.png)<br>
+Screenshot of success message:<br>
+![Screenshot of success message](/documentation/features/message_wishlist.png)<br>
+Screenshot of two wish lists with same name<br>
+![Screenshot of two wish lists with same name](/documentation/features/screenshot_two_wishlists_same_name.png)<br>
+<br>
+
+- **Wish List detail view**<br>
+To A wish list contains several elements in the detailed view and varies depending on whether you own the list or not. 
+The following elements are included for the owner of the list: <br>
+  - Easily share the wish list by clicking on the button under the title of the wish list. This will open a modal with the link to copy. 
+  - Two buttons allow either editing or deleting the wish list.
+  - Below these buttons are the details that you had to enter in the form to add the wish list.
+  - In the 'Wishes' section, all items added to a wish list are displayed in cards containing the entered data. This includes either the uploaded image or a standard image, the name of the wish, price, priority, quantity, and a link where you can buy this item. The link is only displayed if one has been specified. If the user has not added any items yet, they will be alerted by a note under the 'Add a wish' button. External users receive a slightly modified version of this message, which informs them that no items have been added yet. 
+  - The 'Add a Wish' button opens a modal in which you can then add items.
+  - The items are displayed in cards containing the entered data.
+  - A link below the wishes enables the user to return to the overview of all wish lists. 
+  - A timestamp in the lower-right corner shows when the wish list was last edited. This is mainly intended to help users who receive the wish list to see how current it is. <br>
+Users who receive the link will only see the name of the list, the details, wishes included, and the date stamp when the list was last updated.
+
+Screenshot of wish list detail page for owner of the list:<br>
+![Screenshot of wish list detail page for owner of the list](/documentation/features/screenshot_wishlist_detail_log.png)<br>
+Screenshot of wish list detail page for external users:<br>
+![Screenshot of wish list detail page for external users](/documentation/features/screenshot_wishlist_detail.png)<br>
+Screenshot of modal to share wish list:<br>
+![Screenshot of modal to share wish list](/documentation/features/screenshot_share_wishlist_copied.png)<br>
+Screenshot of modal to share wish list with copied:<br>
+![Screenshot of modal to share wish list with copied](/documentation/features/screenshot_share_wishlist.png)<br>
+Screenshot of message, if no item was added(for owner of wish list):<br>
+![Screenshot of message, if no item was added](/documentation/features/message_no_item.png)<br>
+Screenshot of message, if no item was added(external user):<br>
+![Screenshot of message, if no item was added for external user](/documentation/features/message_no_items_external.png)<br>
+
 
 </details>
 
@@ -370,6 +408,7 @@ xxx <br>
 
 Error pages for common HTTP errors (403, 404, 405 and 500) have been created and include a button 'Return to the home page'. <br>
 ![Screenshot of 404 page](/documentation/features/screenshot_404.png)<br>
+![Screenshot of 500 page](/documentation/features/screenshot_500.png)<br>
 
 </details>
 
@@ -383,7 +422,8 @@ Error pages for common HTTP errors (403, 404, 405 and 500) have been created and
 - Style the page to reset the password 
 - Display reserved items and wish lists on profile page
 - Expand profile with additional fields such as image, phone number or detailed profile information
-- optimize lighthouse results
+- Optimize lighthouse results
+- Create functionality to add items at the same time as wishlist via Django formsets
 
 ## Bugs
 
@@ -473,12 +513,8 @@ Screenshot of the wishlist overview with message: <br>
 <details>
 <summary> Item image upload</summary>
 <br>
- 
-<br>
-<br>
 
-Screenshot: <br>
-![Screenshot of the wishlist overview with message](/documentation/features/)<br>
+ When adding an item with an uploaded image, the default image was still displayed. After adding enctspe to the form, this bug could be fixed. Since a placeholder image was present, no error message was displayed in the browser. I had to go through the steps to add pictures in a form to find the concrete error. 
 
 </details>
 
@@ -561,8 +597,17 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
     ![HTML validation result for edit profile page](documentation/validation/html_validation_edit_profile.png)<br>
   - result for 'Delete Profile' page<br>
     ![HTML validation result for delete profile page](documentation/validation/html_validation_delete_profile.png)<br>
+  - result for 'Add a new wish list' page<br>
+    ![HTML validation result for 'Add a new wish list' page](documentation/validation/html_validation_add_wishlist.png)<br>
+  - result for wishlist detail page with error:<br>
+    I had a closing div too much before the last row. No errors or warnings could be found after deleting this item. 
+    ![HTML validation result for wishlist detail page](documentation/validation/html_validation_detail_wishlist_error.png)<br>
+  - result for wishlist detail page without errors or warnings:<br>
+    ![HTML validation result for wishlist detail page](documentation/validation)<br>
   - result for 404 page<br>
-    ![HTML validation result for 404 page](documentation/validation/html_validation_404.png)
+    ![HTML validation result for 404 page](documentation/validation/html_validation_404.png)<br>
+  -  result for 500 page<br>
+    ![HTML validation result for 500 page](documentation/validation/html_validation_500.png)<br>
   <br>
   
 </details>
@@ -614,18 +659,24 @@ In general, I am not satisfied with some values and would like to improve them. 
   ![Lighthouse result for home page](documentation/validation/lighthouse_home.png)
   - Sign Up
   ![Lighthouse result for sign up page](documentation/validation/lighthouse_sign_up.png)
-  - Log In
+  - Log In<br>
   ![Lighthouse result for log in page](documentation/validation/lighthouse_log_in.png)
-  - Log Out
+  - Log Out<br>
   ![Lighthouse result for log out page](documentation/validation/lighthouse_log_out.png)
-  - Verify your email
+  - Verify your email<br>
   ![Lighthouse result for confirm email page](documentation/validation/lighthouse_confirm_mail.png)
-  - Profile Page
+  - Profile Page<br>
   ![Lighthouse result for profile page](documentation/validation/lighthouse_profile_page.png)
-  - Edit Profile Page
+  - Edit Profile Page<br>
   ![Lighthouse result for edit profile page](documentation/validation/lighthouse_edit_profile.png)
-  - Delete Profile Page
+  - Delete Profile Page<br>
   ![Lighthouse result for delete profile page](documentation/validation/lighthouse_delete_profile.png)
+  - Add Wishlist Page<br>
+  ![Lighthouse result for add wishlist page](documentation/validation/lighthouse_add_wishlist.png)
+  - Wishlist Overview Page<br>
+  ![Lighthouse result for wishlist overview page](documentation/validation/lighthouse_wishlist_overview.png)
+  - Wishlist Detail Page<br>
+  ![Lighthouse result for wishlist detail page](documentation/validation/lighthouse_wishlist_detail.png)
 
 
 
@@ -654,12 +705,31 @@ In general, I am not satisfied with some values and would like to improve them. 
 | Forget password | Click 'Forget password' under the log in page | After clicking on 'Forget password', a new page should open and a mail to reset the password should be send to the user. | Pass |
 | Forget password - mail link | Click on the link sent in the mail | After clicking on the link, a new page should open and a form to reset the password should be seen. | Pass |
 | Forget password - final step | Click on the button to change the password | After clicking on the button, the new password should be stored and a success message should be shown. | Pass |
-| Userprofile - first view | After successful registration, go to the profile page for the first time | The profile page should show an overview of the available data(username, email). There should be placeholder text in the fields for first and last names. | Pass |
-| Userprofile Overview | Go to the profile page to see profile data | The profile page should show an overview of the data given | pass |
-| User Profile - edit profile page | Click on the 'Edit your profile' button | After clicking on the 'Edit your profile' button the user should be redirected to a page where they can edit its data. All fields of the form should already contain the existing data. | Pass |
-| User Profile - confirm changes | Click the 'Confirm Changes' button on the edit profile page | After clicking the button the user should be redirected to the profile overview and a success message should be shown for 3 seconds | Pass |
-| User Profile - delete profile | Click on the 'Delete your Profile' button | After clicking the button, the user should be redirect to a page where they must confirm that they actually want to delete its profile. | Pass |
-| User Profile - confirm deletion | Click on the 'Confirm Deletion' button | After the user has confirmed the deletion, he will be redirected to the default home page. Here the user has the oportunity to sign up again. A message that the deletion was successful should be shown for 3 seconds | Pass |
+| Userprofile - first view - Log in required | After successful registration, go to the profile page for the first time | The profile page should show an overview of the available data(username, email). There should be placeholder text in the fields for first and last names. | Pass |
+| Userprofile Overview - Log in required | Go to the profile page to see profile data | The profile page should show an overview of the data given | pass |
+| User Profile - edit profile page - Log in required | Click on the 'Edit your profile' button | After clicking on the 'Edit your profile' button the user should be redirected to a page where they can edit its data. All fields of the form should already contain the existing data. | Pass |
+| User Profile - confirm changes - Log in required | Click the 'Confirm Changes' button on the edit profile page | After clicking the button the user should be redirected to the profile overview and a success message should be shown for 3 seconds | Pass |
+| User Profile - delete profile - Log in required | Click on the 'Delete your Profile' button | After clicking the button, the user should be redirect to a page where they must confirm that they actually want to delete its profile. | Pass |
+| User Profile - confirm deletion - Log in required | Click on the 'Confirm Deletion' button | After the user has confirmed the deletion, he will be redirected to the default home page. Here the user has the oportunity to sign up again. A message that the deletion was successful should be shown for 3 seconds | Pass |
+| 'Add a new wish list' page - Log in required | Click in the navigation bar on the link 'New List' or on the button 'New Wish List' to get to the 'Add a new wish list' page | After the user clicks on the button or the link, he gets to the corresponding website 'Add a new wish list' | Pass |
+| Create new wish list - Log in required | Fill in all necessary fields and click on "save wish list" button | The user should be forwarded to the Wish list detail page after all fields have been filled with valid data(e.g. due date in the future) and they have clicked on the button to save the wish list. A message that the wish list has been successfully created should be displayed to the user. The wish_list_id generated in the background should be part of the URL. | Pass |
+| Create new wish list with same name as exisiting wish list - Log in required  | Fill in all necessary fields, and give the wish list a name that is already existing, and click on "save wish list" button | The wish list should be generated with a different url and wish_list_id | Pass |
+| Wish list detailed view - Log In and ownership required | In the wish list overview click on the button "show wish list" to get to the detailed view | After clicking on the button the user should be redirect to the detailed view for the wish list | Pass |
+| Wish list detailed view - share wish list - Log In and ownership required | Log in as the owner of the wish list, navigate to the wish list detail view, click on the "Share" button under the title | A modal opens with the link to copy. After clicking on the copy button for a brief moment "copied" is displayed underneath the link. | Pass |
+| Wish list detailed view - edit and delete buttons visibility - Log In and ownership required | Log in as the owner of the wish list, navigate to the wish list detail view | "Edit" and "Delete" buttons are visible below the title | Pass |
+| Wish list detailed view - display details of wish list  | Navigate to the wish list detail view | All details (name, due date, etc.) are displayed below the "Edit" and "Delete" buttons | Pass |
+| Wish list detailed view - display Items in 'Wishes' Section | Navigate to the wish list detail view | Items are displayed in cards with provided data (image, name, price, priority, quantity, link if given) | Pass |
+| Wish list detailed view - no items message - Log In and ownership | Log in as the owner of the wish list, navigate to the wish list detail view with no items added | A note is displayed under the 'Add a Wish' button alerting the user that no items are added yet | Pass |
+| Wish list detailed view - no items message - external user | Log in as the owner of the wish list, navigate to the wish list detail view with no items added | A note is displayed under the heading Wishes alerting the user that no items have been added yet by the owner of the wish list | Pass |
+| Wish list detailed view - Add a Wish Button Functionality - Log In and ownership required | Log in as the owner of the wish list, navigate to the wish list deta | A modal opens to allow the addition of new items | Pass |
+| Wish list detailed view - Link to Wish Lists Overview - Log In and ownership required | Log in as the owner of the wish list, navigate to the wish list detail view | A link is displayed below the wishes to return to the overview of all wish lists | Pass |
+| Wish list detailed view - Timestamp Display | Log in as the owner of the wish list, navigate to the wish list detail view | A timestamp in the lower-right corner shows the last edited date and time | Pass |
+| Wish list detailed view - View Wish List as Non-Owner | Open the wish list link as a non-owner | The wish list displays the name, details, wishes included, and the last updated timestamp without the "Share," "Edit," and "Delete" buttons and the link to display the wish lists overview | Pass |
+| xxx | xxx | xxx | xxx |
+| xxx | xxx | xxx | xxx |
+| xxx | xxx | xxx | xxx |
+| xxx | xxx | xxx | xxx |
+| xxx | xxx | xxx | xxx |
 | xxx | xxx | xxx | xxx |
 | xxx | xxx | xxx | xxx |
 
@@ -683,8 +753,8 @@ In general, I am not satisfied with some values and would like to improve them. 
 | #23 As a registered user, I want to reserve an item of a wishlist, so that no other user will purchase this. | Users should be able to mark an item in a wishlist as reserved/unreserved. Reserved items should display a visual indicator | I was unable to complete this user story due to time constraints; however, I plan to implement it in the future. This feature remains a priority and will be added to enhance the application's functionality. |
 | #24 As a registered user, I want to be able to collaborate on a wishlist with others so that we can collectively manage it. | Collaborators should be able to add, edit, and delete items in the shared wishlist. | I was unable to complete this user story due to time constraints; however, I plan to implement it in the future. This feature remains a priority and will be added to enhance the application's functionality. |
 | #14 As a logged-in user, I want to update my profile information so that my account details are current. | The profile page should allow users to update their username and password. Changes should be saved and reflected immediately. | To meet the acceptance criteria, I created a profile page where users can update their username and password. The profile overview contains an „Edit your Profile" button that redirects to an edit page with a form pre-filled with the current data. Upon submitting the form, changes are saved immediately in the database, and the user is redirected back to the profile overview, where a success message indicates the profile has been updated. This ensures that updates are reflected immediately and the user is informed of the successful update. |
-| #9 As a frequent website user I can easily login to my account so that I have access to my wish lists and items I want to purchase | "The website should display a clear and concise description or tagline that communicates the website's primary purpose within the first few seconds of viewin It should include visual elements and navigational cues that help explain the website's goal and functionality. | To achieve the user login functionality, I added a prominent login button on the homepage for easy access. Additionally, the navigation bar includes login functionality. Once logged in, users can access their wish lists and items they want to purchase, ensuring a seamless user experience. |
-| xxx | xxx | xxx |
+| #9 As a frequent website user I can easily login to my account so that I have access to my wish lists and items I want to purchase. | "The website should display a clear and concise description or tagline that communicates the website's primary purpose within the first few seconds of viewin It should include visual elements and navigational cues that help explain the website's goal and functionality. | To achieve the user login functionality, I added a prominent login button on the homepage for easy access. Additionally, the navigation bar includes login functionality. Once logged in, users can access their wish lists ensuring a seamless user experience. The functionality to re serve an item has yet to be implemented. |
+| #15 As a user of the website I want to create a wish list for a specific occasion so that I can organize my desired items | The wish list creation form should include fields for title, description, and occasion type. The new wish list should appear in the user's dashboard. | xxx |
 | xxx | xxx | xxx |
 | xxx | xxx | xxx |
 | xxx | xxx | xxx |

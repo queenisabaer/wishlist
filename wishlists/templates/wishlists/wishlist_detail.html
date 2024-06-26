@@ -90,7 +90,7 @@
                                         {% if item.item_link %}
                                         <p class="card-text text-start">
                                             Purchase here:
-                                            <a href="{{ item.item_link }}" class="helptext">{{ item.item_link }}</a>
+                                            <a href="{{ item.item_link }}" class="helptext" target="_blank" rel="noopener" aria-label="Link to desired item">{{ item.item_link }}</a>
                                         </p>
                                         {% endif %}
                                     </div>
@@ -144,17 +144,18 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-8 mt-3">
-                    <a href="{% url 'wishlist_list' %}">&laquo; Back to Wish List Overview</a>
+                <div class="row justify-content-center">
+                    <div class="col-md-8 mt-3">
+                        <a href="{% url 'wishlist_list' %}">&laquo; Back to Wish List Overview</a>
+                    </div>
                 </div>
+                {% endif %}
             </div>
-            {% endif %}
         </div>
     </div>
     <p class="helptext text-end">Last update on: {{wishlist.updated_at}}</p>
 </div>
+
 
 {% if itemForm.errors %}
 <script>
