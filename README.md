@@ -249,13 +249,20 @@ To learn more about each feature, please click on the respective headline
 To ensure uniformity and a sense of familiarity for users, all pages include the same header with navigation links and an identical footer.
 The header consists of the logo, which is always arranged on the right and acts as a link to return to the main page. On the left side is the navigation bar, which turns into a clickable burger menu on smaller screens. Depending on whether the user is logged in or not, the navigation elements adapt accordingly. <br>
 View for users who are not logged in:<br>
-![Screenshot header mobile view](/documentation/features/header_mobile_view.png)<br>
-![Screenshot header mobile view toggle](/documentation/features/header_mobile_toggle.png)<br>
-![Screenshot Header on larger screens](/documentation/features/header_larger_screens.png)<br>
+  - Screenshot of header in mobile view:<br>
+  ![Screenshot header mobile view](/documentation/features/header_mobile_view.png)<br>
+  - Screenshot of header in mobile view with toggled navigation:<br>
+  ![Screenshot header mobile view toggle](/documentation/features/header_mobile_toggle.png)<br>
+  - Screenshot of header in mobile view with toggled navigation:<br>
+  ![Screenshot Header on larger screens](/documentation/features/header_larger_screens.png)<br>
+  <br>
 View for users who are logged in:<br>
-![Screenshot header for logged in user mobile view](/documentation/features/header_mobile_view_log_in.png)<br>
-![Screenshot header for logged in user mobile view toggle](/documentation/features/header_mobile_toggle_log_in.png)<br>
-![Screenshot header for logged in user on larger screens](/documentation/features/header_larger_screens_log_in.png)<br>
+  - Screenshot of header in mobile view:<br>
+  ![Screenshot header for logged in user mobile view](/documentation/features/header_mobile_view_log_in.png)<br>
+  - Screenshot of header in mobile view with toggled navigation:<br>
+  ![Screenshot header for logged in user mobile view toggle](/documentation/features/header_mobile_toggle_log_in.png)<br>
+  - Screenshot of header in mobile view with toggled navigation:<br>
+  ![Screenshot header for logged in user on larger screens](/documentation/features/header_larger_screens_log_in.png)<br>
 
 
 </details>
@@ -265,7 +272,9 @@ View for users who are logged in:<br>
 <br>
 
 To ensure uniformity and a sense of familiarity for users, all pages include the same header with navigation links and an identical footer. Unlike the original wireframes, the footer does not contain a contact link or a link to Facebook and Instagram. Instead, the repository for this project and the personal linkedin profile have been pointed out, from where it is possible to contact the owner of the page. <br>
+Screenshot for footer in mobile view:<br>
 ![Screenshot footer mobile view](/documentation/features/footer_mobile.png)<br>
+Screenshot for footer on larger screens: <br>
 ![Screenshot footer on larger screens](/documentation/features/footer_larger_screens.png)<br>
 
 </details>
@@ -276,8 +285,10 @@ To ensure uniformity and a sense of familiarity for users, all pages include the
 
 The home page contains a short welcome text for first-time visitors or users who are not logged in, giving them the possibility to sign up or log in to use the application. The navigation bar only has three options: 'Home', 'Login' and 'Sign Up'. Two buttons each lead to the pages to log in or sign up. After signing up or logging in, this page changes. The navigation bar then contains the possibility to access the following pages: 'Home', 'New List', 'Profile', 'Overview' and 'Logout'. The buttons then lead to the possibility to create a new wishlist or to call up the own profile.<br>
 In the wireframe a slightly different approach can be seen. Due to a alck of time, I wasn't able to implement the functionality, so that a wish list can be created without logging in. This is a feature I would like to implement in the future. In addition, I have seen in some other projects where the own LinkedIn profile and the corresponding repository was referenced. I found this approach very nice and therefore adopted it. <br>
+Screenshot for home page to log in or sign up:<br>
 ![Screenshot home page](/documentation/features/screenshot_home.png)<br>
-![Screenshot home page](/documentation/features/screenshot_home_log.png)<br>
+Screenshot of home page after log in: <br>
+![Screenshot home page after log in](/documentation/features/screenshot_home_log.png)<br>
 
 
 </details>
@@ -324,8 +335,21 @@ The page to reset the password has not been finally formatted and styled. This i
 <summary> User Profile </summary>
 <br>
 
-xxx <br>
-![Screenshot of the Login](/documentation/features/)<br>
+The navigation bar allows you to navigate to the user's profile or page. Alternatively, there is a corresponding button directly on the home page after a successful log in. The user profile is based on the Django allauth user and fields from the user profile modal. When a user clicks on his profile overview for the first time, placeholder text is displayed for first name and last name. The user has the possibility to edit his profile and to fill in the corresponding fields or to update them. After confirming the changes, the user is redirected to the profile page and a success message is shown. It is also possible to completely delete the profile from this page. All corresponding wish lists and the items contained therein are deleted. If the user wants to delete the profile, this must be verified in a second step. After the user has successfully deleted its profile, a success message is displayed and is redirected to the default home page. <br>
+For future versions of 'Your Wish List Maker', I would like to display the reserved items and wish lists directly on the profile page. In addition, I could imagine expanding the profile as such by other fields, such as photo, phone number or the like. <br>
+
+Screenshot of buttons on 'home' page:<br>
+![Screenshot of home page with profile button](/documentation/features/screenshot_profile_button.png)<br>
+Screenshots of profile page:<br>
+![Screenshot of profile page after first login](/documentation/features/screenshot_profile_not_yet.png)<br>
+![Screenshot of profile page](/documentation/features/screenshot_profile_page.png)<br>
+Screenshot to edit the profile and success message:<br>:
+![Screenshot of edit profile page](/documentation/features/screenshot_edit_profil.png)<br>
+![Screenshot of message to edit profile](/documentation/features/message_edit_profile.png)<br
+Screenshot to delete the profile:<br>
+![Screenshot of delete profile page](/documentation/features/screenshot_delete_profile.png)<br
+Screenshot of success message after deletion and default home page<br>
+![Screenshot of message after deletion of profile](/documentation/features/message_deletion.png)<br
 
 </details>
 
@@ -341,14 +365,13 @@ xxx <br>
 
 
 <details>
-<summary> xxx </summary>
+<summary> Error pages </summary>
 <br>
 
-xxx <br>
-![Screenshot of the Login](/documentation/features/)<br>
+Error pages for common HTTP errors (403, 404, 405 and 500) have been created and include a button 'Return to the home page'. <br>
+![Screenshot of 404 page](/documentation/features/screenshot_404.png)<br>
 
 </details>
-
 
 
 ### Features, which I would like to implement in the future
@@ -358,6 +381,9 @@ xxx <br>
 - Functionality to create a wish list even if I'm not a registered user
 - Improve accessibility of buttons
 - Style the page to reset the password 
+- Display reserved items and wish lists on profile page
+- Expand profile with additional fields such as image, phone number or detailed profile information
+- optimize lighthouse results
 
 ## Bugs
 
@@ -496,17 +522,23 @@ The app was tested regularly and deployed early to Heroku to make sure both loca
 
 All HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/). <br>
   - result for 'home' page<br>
-    ![HTML results home page](documentation/validation/html_validation_home.png)<br>
+    ![HTML validation result for home page](documentation/validation/html_validation_home.png)<br>
   - result for 'Sign Up' page<br>
-    ![HTML results home page](documentation/validation/html_validation_sign_up.png)<br>
+    ![HTML validation result for sign up page](documentation/validation/html_validation_sign_up.png)<br>
   - result for 'Log In' page<br>
-    ![HTML results home page](documentation/validation/html_validation_log_in.png)<br> 
+    ![HTML validation result for log in page](documentation/validation/html_validation_log_in.png)<br> 
   - result for 'Log Out' page<br>
-    ![HTML results home page](documentation/validation/html_validation_log_out.png)<br>
+    ![HTML validation result for log out page](documentation/validation/html_validation_log_out.png)<br>
   - result for 'Confirm Email' page<br>
-    ![HTML results confirm mail page](documentation/validation/html_validation_confirm_mail.png)<br> 
-  - result for 404.html<br>
-  ![HTML results 404 page](documentation)
+    ![HTML validation result for confirm mail page](documentation/validation/html_validation_confirm_mail.png)<br> 
+  - result for 'Profile' page<br>
+    ![HTML validation result for profile page](documentation/validation/html_validation_confirm_mail.png)<br>
+  - result for 'Edit Profile' page<br>
+    ![HTML validation result for edit profile page](documentation/validation/html_validation_edit_profile.png)<br>
+  - result for 'Delete Profile' page<br>
+    ![HTML validation result for delete profile page](documentation/validation/html_validation_delete_profile.png)<br>
+  - result for 404 page<br>
+    ![HTML validation result for 404 page](documentation/validation/html_validation_404.png)
   <br>
   
 </details>
@@ -548,21 +580,29 @@ All created python files were checked with the [Code Insitute validator](https:/
 
 ### Lighthouse Test
 To measure the website against performance, accessibility, SEO and best practice, I used [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=de).<br>
-Because the background and foreground colors of the button with the class: 'btn-pink' and 'btn-reverse' do not have a sufficient contrast ratio, the accessibility was never 100. I tried to improve this by changing the background colors to more vibrant ones, but couldn't get a better result. Since time was running out, I left it in the original version at the end. I would like to optimize this in a future version. 
+Because the background and foreground colors of the button with the class: 'btn-pink' and 'btn-reverse' do not have a sufficient contrast ratio, the accessibility was never 100. I tried to improve this by changing the background colors to more vibrant ones, but couldn't get a better result. Since time was running out, I left it in the original version at the end. I would like to optimize this in a future version. <br>
+In general, I am not satisfied with some values and would like to improve them. Unfortunately, I didn’t have enough time to do this for this version.
 <details>
 <summary> Results </summary>
 <br>
 
   - Home Page
-  ![Lighthouse](documentation/validation/lighthouse_home.png)
+  ![Lighthouse result for home page](documentation/validation/lighthouse_home.png)
   - Sign Up
-  ![Lighthouse](documentation/validation/lighthouse_sign_up.png)
+  ![Lighthouse result for sign up page](documentation/validation/lighthouse_sign_up.png)
   - Log In
-  ![Lighthouse](documentation/validation/lighthouse_log_in.png)
+  ![Lighthouse result for log in page](documentation/validation/lighthouse_log_in.png)
   - Log Out
-  ![Lighthouse](documentation/validation/lighthouse_log_out.png)
+  ![Lighthouse result for log out page](documentation/validation/lighthouse_log_out.png)
   - Verify your email
-  ![Lighthouse](documentation/validation/lighthouse_confirm_mail.png)
+  ![Lighthouse result for confirm email page](documentation/validation/lighthouse_confirm_mail.png)
+  - Profile Page
+  ![Lighthouse result for profile page](documentation/validation/lighthouse_profile_page.png)
+  - Edit Profile Page
+  ![Lighthouse result for edit profile page](documentation/validation/lighthouse_edit_profile.png)
+  - Delete Profile Page
+  ![Lighthouse result for delete profile page](documentation/validation/lighthouse_delete_profile.png)
+
 
 
 </details>
@@ -590,7 +630,14 @@ Because the background and foreground colors of the button with the class: 'btn-
 | Forget password | Click 'Forget password' under the log in page | After clicking on 'Forget password', a new page should open and a mail to reset the password should be send to the user. | Pass |
 | Forget password - mail link | Click on the link sent in the mail | After clicking on the link, a new page should open and a form to reset the password should be seen. | Pass |
 | Forget password - final step | Click on the button to change the password | After clicking on the button, the new password should be stored and a success message should be shown. | Pass |
-
+| Userprofile - first view | After successful registration, go to the profile page for the first time | The profile page should show an overview of the available data(username, email). There should be placeholder text in the fields for first and last names. | Pass |
+| Userprofile Overview | Go to the profile page to see profile data | The profile page should show an overview of the data given | pass |
+| User Profile - edit profile page | Click on the 'Edit your profile' button | After clicking on the 'Edit your profile' button the user should be redirected to a page where they can edit its data. All fields of the form should already contain the existing data. | Pass |
+| User Profile - confirm changes | Click the 'Confirm Changes' button on the edit profile page | After clicking the button the user should be redirected to the profile overview and a success message should be shown for 3 seconds | Pass |
+| User Profile - delete profile | Click on the 'Delete your Profile' button | After clicking the button, the user should be redirect to a page where they must confirm that they actually want to delete its profile. | Pass |
+| User Profile - confirm deletion | Click on the 'Confirm Deletion' button | After the user has confirmed the deletion, he will be redirected to the default home page. Here the user has the oportunity to sign up again. A message that the deletion was successful should be shown for 3 seconds | Pass |
+| xxx | xxx | xxx | xxx |
+| xxx | xxx | xxx | xxx |
 
 
 </details>
@@ -598,7 +645,6 @@ Because the background and foreground colors of the button with the class: 'btn-
 <details>
 <summary> Click here to see the testing table for User Stories</summary>
 <br>
-The following user stories have been integrated into the application.<br>
 
 | **User Story** | **Acceptance Criteria** | **Was achieved as follows** |
 |:---|:---|:---|
@@ -612,6 +658,13 @@ The following user stories have been integrated into the application.<br>
 | #20 As a registered user, I want to be able to delete items from my wishlist so that I can remove unwanted items | The delete action should prompt for confirmation. Once confirmed, the item should be removed from the wishlist. | I was unable to complete this user story due to time constraints; however, I plan to implement it in the future. This feature remains a priority and will be added to enhance the application's functionality. |
 | #23 As a registered user, I want to reserve an item of a wishlist, so that no other user will purchase this. | Users should be able to mark an item in a wishlist as reserved/unreserved. Reserved items should display a visual indicator | I was unable to complete this user story due to time constraints; however, I plan to implement it in the future. This feature remains a priority and will be added to enhance the application's functionality. |
 | #24 As a registered user, I want to be able to collaborate on a wishlist with others so that we can collectively manage it. | Collaborators should be able to add, edit, and delete items in the shared wishlist. | I was unable to complete this user story due to time constraints; however, I plan to implement it in the future. This feature remains a priority and will be added to enhance the application's functionality. |
+| #14 As a logged-in user, I want to update my profile information so that my account details are current. | The profile page should allow users to update their username and password. Changes should be saved and reflected immediately. | To meet the acceptance criteria, I created a profile page where users can update their username and password. The profile overview contains an „Edit your Profile" button that redirects to an edit page with a form pre-filled with the current data. Upon submitting the form, changes are saved immediately in the database, and the user is redirected back to the profile overview, where a success message indicates the profile has been updated. This ensures that updates are reflected immediately and the user is informed of the successful update. |
+| #9 As a frequent website user I can easily login to my account so that I have access to my wish lists and items I want to purchase | "The website should display a clear and concise description or tagline that communicates the website's primary purpose within the first few seconds of viewin It should include visual elements and navigational cues that help explain the website's goal and functionality. | To achieve the user login functionality, I added a prominent login button on the homepage for easy access. Additionally, the navigation bar includes login functionality. Once logged in, users can access their wish lists and items they want to purchase, ensuring a seamless user experience. |
+| xxx | xxx | xxx |
+| xxx | xxx | xxx |
+| xxx | xxx | xxx |
+| xxx | xxx | xxx |
+| xxx | xxx | xxx |
 | xxx | xxx | xxx |
 | xxx | xxx | xxx |
 | xxx | xxx | xxx |
