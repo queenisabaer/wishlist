@@ -106,6 +106,7 @@ Due to lack of time, some of the originally planned features that can be seen on
 <details>
 <summary> Home </summary>
 <br>
+In the final version of the 'home' page you have to create an account to create a new wishlist. Therefore, the buttons and the navigation bar look different. <br>
 
 ![Mobile wireframe](/documentation/wireframes/wish-list-home-mobil.png)
 ![Desktop wireframe](/documentation/wireframes/wish-list-home-desktop.png)
@@ -115,6 +116,7 @@ Due to lack of time, some of the originally planned features that can be seen on
 <details>
 <summary> About </summary>
 <br>
+The 'about' page as not implemented in the final project.<br>
 
 ![Mobile wireframe](/documentation/wireframes/wish-list-about-mobil.png)
 ![Desktop wireframe](/documentation/wireframes/wish-list-about-desktop.png)
@@ -124,6 +126,7 @@ Due to lack of time, some of the originally planned features that can be seen on
 <details>
 <summary> Create New Wish List </summary>
 <br>
+The final approach to creating a wishlist is different from this wireframe. You can only add items in the detailed view of the wishlist and see the link to share the list. <br>
 
 ![Mobile wireframe](/documentation/wireframes/wish-list-new-wish-list-mobil-admin.png)
 ![Desktop wireframe](/documentation/wireframes/wish-list-new-wish-list-desktop-admin.png)
@@ -133,6 +136,7 @@ Due to lack of time, some of the originally planned features that can be seen on
 <details>
 <summary> Add Item </summary>
 <br>
+To add an item to a wish list, a modal opens on the detail page of the wish list. <br>
 
 ![Mobile wireframe](/documentation/wireframes/wish-list-add-item-mobil-admin.png)
 ![Desktop wireframe](/documentation/wireframes/wish-list-add-item-desktop-admin.png)
@@ -142,6 +146,7 @@ Due to lack of time, some of the originally planned features that can be seen on
 <details>
 <summary> User Dashboard </summary>
 <br>
+The user dashboard or profile looks significantly different than originally planned. The functionality to directly display the wish lists has been integrated as a button. Reserving items is only planned for a future version. <br>
 
 ![Mobile wireframe](/documentation/wireframes/wish-list-dashboard-mobil.png)
 ![Desktop wireframe](/documentation/wireframes/wish-list-dashboard-desktop.png)
@@ -151,6 +156,7 @@ Due to lack of time, some of the originally planned features that can be seen on
 <details>
 <summary> Sign Up </summary>
 <br>
+Unlike this wireframe, first name and last name can be added in the profile view. <br>
 
 ![Mobile wireframe](/documentation/wireframes/wish-list-signUp-mobil.png)
 ![Desktop wireframe](/documentation/wireframes/wish-list-signUp-desktop.png)
@@ -160,6 +166,7 @@ Due to lack of time, some of the originally planned features that can be seen on
 <details>
 <summary> Sample Wish List </summary>
 <br>
+The arrangement of the items was created as a bootstrap card and therefore differs somewhat from this wireframe<br>
 
 ![Mobile wireframe](/documentation/wireframes/wish-list-sample-wish-list-mobil-user.png)
 ![Desktop wireframe](/documentation/wireframes/wish-list-sample-wish-list-desktop-user.png)
