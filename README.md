@@ -458,6 +458,17 @@ In the original version of the UserProfile model, a wishlist had to be assigned 
 
 </details>
 
+<details>
+<summary> Wishlist Overview</summary>
+<br>
+If a user has not yet created a wish list, a sentence should be displayed so that they can create its first list. Unfortunately, only the headline was displayed. I was able to solve this by changing the for loop in the html page and adding the get_queryset method to the class WishListOverview. 
+<br>
+<br>
+
+![Screenshot of the error message in browser](/documentation/bugs/Bug_not_null.png)<br>
+
+</details>
+
 ## Technologies Used
 
 ### Languages:
@@ -734,11 +745,12 @@ To see the [view of the live site](https://your-wish-list-maker-6905b0903af9.her
 
 - A great help and inspiration was the [*Django Recipe Sharing Tutorial*](https://www.youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy) by Daisy Mc Girr. I used espacially her help with the autentification and the class based views. 
 - How to base field on another field by overwriting the save method, was found in an article in [Medium by Marco](https://marcolcl.medium.com/custom-django-model-field-based-on-default-primary-key-d5d13dd61a1c)
-- To override important css from bootstrap, I found a great article at [Slack](https://stackoverflow.com/questions/70315624/how-to-add-remove-important-css-with-new-css)
-- How to redirect to the login template page with a message was found at [Slack](https://stackoverflow.com/questions/39900679/django-permissionrequiredmixin-redirect-to-login-template-with-message)
-- How to get the current url with a django template (for the modal to share a link) was found at [Slack](https://stackoverflow.com/questions/2882490/how-to-get-the-current-url-within-a-django-template)
-- How to copy to the clipboard with javascript was found [here](https://sentry.io/answers/how-do-i-copy-to-the-clipboard-in-javascript/) and at [Slack](https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript)
+- To override important css from bootstrap, I found a great article at [StackOverflow](https://stackoverflow.com/questions/70315624/how-to-add-remove-important-css-with-new-css)
+- How to redirect to the login template page with a message was found at [StackOverflow](https://stackoverflow.com/questions/39900679/django-permissionrequiredmixin-redirect-to-login-template-with-message)
+- How to get the current url with a django template (for the modal to share a link) was found at [StackOverflow](https://stackoverflow.com/questions/2882490/how-to-get-the-current-url-within-a-django-template)
+- How to copy to the clipboard with javascript was found [here](https://sentry.io/answers/how-do-i-copy-to-the-clipboard-in-javascript/) and at [Stack Overflow](https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript)
 - How to keep a modal window open if a validation error is raised was found at [reddit](https://www.reddit.com/r/django/comments/4souit/how_to_keep_a_modal_window_open_if_a_validation/)
+- How to override the get queryset method was found at [StackOvervflow](https://stackoverflow.com/questions/62976955/how-to-override-get-queryset-in-django)
 - The following websites were used as a source of knowledge: <br>
   - [Google](www.google.com)
   - [mdn](https://developer.mozilla.org/en-US/)

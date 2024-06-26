@@ -1,222 +1,166 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block title %} Wishlist Detail - {{wishlist.list_name}} 
-{% endblock %} 
+{% block title %} Wishlist Detail - {{wishlist.list_name}}
+{% endblock %}
 
 {% block content %}
 
 <div class="container content-shadow">
-  <div class="row justify-content-center">
-    <div class="col md-3">
-      <h1>{{ wishlist.list_name }}</h1>
-    </div>
-  </div>
-  <div class="row justify-content-center mb-3">
-    <div class="col md-3">
-      {% if request.user == wishlist.created_by %}
-      <!-- Modal to share a wish list-->
-      <!-- Button to trigger the modal -->
-      <button
-        type="button"
-        class="btn btn-outline-dark"
-        data-bs-toggle="modal"
-        data-bs-target="#shareModal"
-      >
-        Share your Wish List <i class="fa-solid fa-link"></i>
-      </button>
-      <!-- Modal -->
-      <div
-        class="modal fade"
-        id="shareModal"
-        tabindex="-1"
-        aria-labelledby="shareModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="shareModalLabel">
-                Share your Wish List
-              </h1>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <p>Copy this link:</p>
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="shareLink"
-                  value="{{ request.build_absolute_uri }}"
-                  readonly
-                />
-                <button class="btn btn-delete" type="button" id="shareButton">
-                  Copy <i class="fa-solid fa-copy"></i>
-                </button>
-              </div>
-              <div class="input-group mb-3 justify-content-center">
-                <p id="share-message"></p>
-              </div>
-            </div>
-          </div>
+    <div class="row justify-content-center">
+        <div class="col md-3">
+            <h1>{{ wishlist.list_name }}</h1>
         </div>
-      </div>
-      <!-- Edit & Delete Button -->
-      <div class="row justify-content-center mt-2">
-        <div class="col-md-8">
-          <a
-            href="{% url 'edit_wishlist' wishlist.wish_list_id %}"
-            class="btn btn-edit"
-            >Edit <i class="fa-solid fa-pen helptext"></i
-          ></a>
-          <a
-            href="{% url 'delete_wishlist' wishlist.wish_list_id %}"
-            class="btn btn-delete"
-            >Delete <i class="fa-solid fa-trash helptext"></i
-          ></a>
-        </div>
-      </div>
-      {% endif %}
     </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col">
-      <p><i class="fa-regular fa-calendar"></i> {{wishlist.due_date}}</p>
-      <p>Details: {{wishlist.description}}</p>
-      <p>Occassion: {{wishlist.get_occassion_display}}</p>
-      <h2>Wishes:</h2>
-      <div class="container justify-content-center">
-        <div class="row">
-          {% if items %}
-          <!-- Displaying Items -->
-          {% for item in items %}
-          <div class="col-md-4">
-            <div class="card mb-3" style="max-width: 540px">
-              <div class="row g-0">
-                <div class="col-md-4 p-2">
-                  <img
-                    src="{{ item.image.url }}"
-                    class="img-fluid rounded"
-                    alt="{{ item.image_alt }}"
-                  />
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title text-start">{{ item.item_name }}</h5>
-                    <p class="card-text text-start helptext">
-                      Priority:
-                      <span
-                        class="priority-button {% if item.get_priority_display == 'low' %}priority-low{% endif %} {% if item.get_priority_display == 'medium' %}priority-medium{% endif %} {% if item.get_priority_display == 'high' %}priority-high{% endif %} {% if item.get_priority_display == 'no-priority' %}priority-no-priority{% endif %}"
-                      >
-                        {{ item.get_priority_display }}
-                      </span>
-                    </p>
-                    <p class="card-text text-start">
-                      Price (approx.): {{ item.price }} €
-                    </p>
-                    <p class="card-text text-start">
-                      Desired quantity: {{ item.quantity }}
-                    </p>
-                    {% if item.item_link %}
-                    <p class="card-text text-start">
-                      Purchase here:
-                      <a href="{{ item.item_link }}" class="helptext"
-                        >{{ item.item_link }}</a
-                      >
-                    </p>
-                    {% endif %}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endfor %} 
-          {% else %}
-          <!-- Displaying message to add items, if no items-->
-          <div class="col">
+    <div class="row justify-content-center mb-3">
+        <div class="col md-3">
             {% if request.user == wishlist.created_by %}
-            <p>
-              Seems like you don't have a wish in your wish list yet. Start now
-              by clicking the button:
-            </p>
-            {% else %}
-            <p>
-              Apparently no wishes have been added yet, please try again later.
-            </p>
-            {% endif %}
-          </div>
-          {% endif %}
-        </div>
-      </div>
-      <div>
-        <!-- Modal to add items -->
-        <!-- Button trigger modal -->
-        {% if request.user == wishlist.created_by %}
-        <button
-          type="button"
-          class="btn btn-dark mb-3"
-          data-bs-toggle="modal"
-          data-bs-target="#itemModal"
-        >
-          <i class="fa-solid fa-plus"></i> Add a Wish
-        </button>
-        <!-- Modal -->
-        <div
-          class="modal fade"
-          id="itemModal"
-          tabindex="-1"
-          aria-labelledby="itemModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="itemModalLabel">
-                  Add an item
-                </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form id="addItemForm" method="POST">
-                  {% csrf_token %} {{ itemForm.media }} {{ itemForm|crispy}}
-                  <button class="btn btn-pink" type="submit" name="add_item">
-                    Add Item
-                  </button>
-                </form>
-              </div>
+            <!-- Modal to share a wish list-->
+            <!-- Button to trigger the modal -->
+            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#shareModal">
+                Share your Wish List <i class="fa-solid fa-link"></i>
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="shareModalLabel">
+                                Share your Wish List
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Copy this link:</p>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="shareLink" value="{{ request.build_absolute_uri }}" readonly />
+                                <button class="btn btn-delete" type="button" id="shareButton">
+                                    Copy <i class="fa-solid fa-copy"></i>
+                                </button>
+                            </div>
+                            <div class="input-group mb-3 justify-content-center">
+                                <p id="share-message"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <!-- Edit & Delete Button -->
+            <div class="row justify-content-center mt-2">
+                <div class="col-md-8">
+                    <a href="{% url 'edit_wishlist' wishlist.wish_list_id %}" class="btn btn-edit">Edit <i class="fa-solid fa-pen helptext"></i></a>
+                    <a href="{% url 'delete_wishlist' wishlist.wish_list_id %}" class="btn btn-delete">Delete <i class="fa-solid fa-trash helptext"></i></a>
+                </div>
+            </div>
+            {% endif %}
         </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-md-8 mt-3">
-          <a href="{% url 'wishlist_list' %}"
-            >&laquo; Back to Wish List Overview</a
-          >
-        </div>
-      </div>
-      {% endif %}
     </div>
-  </div>
-  <p class="helptext text-end">Last update on: {{wishlist.updated_at}}</p>
+    <div class="row justify-content-center">
+        <div class="col">
+            <p><i class="fa-regular fa-calendar"></i> {{wishlist.due_date}}</p>
+            <p>Details: {{wishlist.description}}</p>
+            <p>Occassion: {{wishlist.get_occassion_display}}</p>
+            <h2>Wishes:</h2>
+            <div class="container justify-content-center">
+                <div class="row">
+                    {% if items %}
+                    <!-- Displaying Items -->
+                    {% for item in items %}
+                    <div class="col-md-4">
+                        <div class="card mb-3" style="max-width: 540px">
+                            <div class="row g-0">
+                                <div class="col-md-4 p-2">
+                                    <img src="{{ item.image.url }}" class="img-fluid rounded" alt="{{ item.image_alt }}" />
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-start">{{ item.item_name }}</h5>
+                                        <p class="card-text text-start helptext">
+                                            Priority:
+                                            <span class="priority-button {% if item.get_priority_display == 'low' %}priority-low{% endif %} {% if item.get_priority_display == 'medium' %}priority-medium{% endif %} {% if item.get_priority_display == 'high' %}priority-high{% endif %} {% if item.get_priority_display == 'no-priority' %}priority-no-priority{% endif %}">
+                                                {{ item.get_priority_display }}
+                                            </span>
+                                        </p>
+                                        <p class="card-text text-start">
+                                            Price (approx.): {{ item.price }} €
+                                        </p>
+                                        <p class="card-text text-start">
+                                            Desired quantity: {{ item.quantity }}
+                                        </p>
+                                        {% if item.item_link %}
+                                        <p class="card-text text-start">
+                                            Purchase here:
+                                            <a href="{{ item.item_link }}" class="helptext">{{ item.item_link }}</a>
+                                        </p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <!-- Displaying message to add items, if no items-->
+                    <div class="col">
+                        {% if request.user == wishlist.created_by %}
+                        <p>
+                            Seems like you don't have a wish in your wish list yet. Start now
+                            by clicking the button:
+                        </p>
+                        {% else %}
+                        <p>
+                            Apparently no wishes have been added yet, please try again later.
+                        </p>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div>
+                <!-- Modal to add items -->
+                <!-- Button trigger modal -->
+                {% if request.user == wishlist.created_by %}
+                <button type="button" class="btn btn-dark mb-3" data-bs-toggle="modal" data-bs-target="#itemModal">
+                    <i class="fa-solid fa-plus"></i> Add a Wish
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="itemModal" tabindex="-1" aria-labelledby="itemModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="itemModalLabel">
+                                    Add an item
+                                </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="addItemForm" method="POST">
+                                    {% csrf_token %} {{ itemForm.media }} {{ itemForm|crispy}}
+                                    <button class="btn btn-pink" type="submit" name="add_item">
+                                        Add Item
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8 mt-3">
+                    <a href="{% url 'wishlist_list' %}">&laquo; Back to Wish List Overview</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <p class="helptext text-end">Last update on: {{wishlist.updated_at}}</p>
 </div>
 
 {% if itemForm.errors %}
 <script>
-$(document).ready(function(){
-    $('#itemModal').modal('show');
-});
+    $(document).ready(function() {
+        $('#itemModal').modal('show');
+    });
 </script>
 {% endif %}
 

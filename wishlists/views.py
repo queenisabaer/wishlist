@@ -14,6 +14,13 @@ class WishListOverview(generic.ListView):
     template_name = "wishlists/wishlist_list.html"
     context_object_name = "wishlists"
 
+    def get_queryset(self):
+        """Return wishlists created by the current user."""
+        if self.request.user.is_authenticated:
+            return WishList.objects.filter(created_by=self.request.user)
+        else:
+            return WishList.objects.none()
+
 
 class AddWishList(LoginRequiredMixin, generic.CreateView):
     """View for adding a new wish list. Requires the user to be logged in."""
