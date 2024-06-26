@@ -398,6 +398,24 @@ Screenshot of message, if no item was added(for owner of wish list):<br>
 Screenshot of message, if no item was added(external user):<br>
 ![Screenshot of message, if no item was added for external user](/documentation/features/message_no_items_external.png)<br>
 
+-**Edit a wish list**
+As part of the full CRUD functionality, the wish list owner has the ability to edit a wish list. The page on which the corresponding form is contained can be reached from the wish list overview(button with pen) as well as from the detail page of the wish list. The fields contain the previous data. After clicking on the "Confirm Changes" button, you will be redirected back to the overview page of the wish lists. In addition, a message appears that the list has been changed successfully. If a user attempts to edit a wishlist by inserting the corresponding term into the URL, they will be redirected to the login page and shown a message indicating that they need to log in first to edit a wishlist. If they then log in and are not the owner of the wishlist, they will receive a 403 page on their next attempt.
+
+Screenshot of edit page<br>
+![Screenshot of edit page](/documentation/features/screenshot_edit_wishlist.png)<br>
+Screenshot of message:<br>
+![Screenshot of edit message](/documentation/features/message_edit.png)<br>
+Screenshot of message if user is not owner:<br>
+![Screenshot of edit message](/documentation/features/message_edit_log.png)<br>
+
+-**Delete a wish list**
+As part of the full CRUD functionality, the wish list owner has the ability to delete a wish list. This can be achieved from the wish list overview(button with trash can) as well as from the detail page of the wish list. The user must confirm that he actually wants to delete the wish list. After successful deletion, it is redirected back to the overview page of the wish lists and the corresponding wish list is deleted from the database and the overview. If a user attempts to delete a wishlist by inserting the corresponding term into the URL, they will be redirected to the login page and shown a message indicating that they need to log in first to delete a wishlist. If they then log in and are not the owner of the wishlist, they will receive a 403 page on their next attempt.
+
+Screenshot of delete confirmation page<br>
+![Screenshot of delete confirmation page](/documentation/features/screenshot_delete_wishlist.png)<br>
+Screenshot of message if user is not owner:<br>
+![Screenshot of delete message if user is not owner](/documentation/features/message_delete_log.png)<br>
+
 
 </details>
 
@@ -407,6 +425,7 @@ Screenshot of message, if no item was added(external user):<br>
 <br>
 
 Error pages for common HTTP errors (403, 404, 405 and 500) have been created and include a button 'Return to the home page'. <br>
+![Screenshot of 403 page](/documentation/features/screenshot_403.png)<br>
 ![Screenshot of 404 page](/documentation/features/screenshot_404.png)<br>
 ![Screenshot of 500 page](/documentation/features/screenshot_500.png)<br>
 
@@ -603,7 +622,11 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
     I had a closing div too much before the last row. No errors or warnings could be found after deleting this item. 
     ![HTML validation result for wishlist detail page](documentation/validation/html_validation_detail_wishlist_error.png)<br>
   - result for wishlist detail page without errors or warnings:<br>
-    ![HTML validation result for wishlist detail page](documentation/validation)<br>
+    ![HTML validation result for wishlist detail page](documentation/validation/html_validation_detail_wishlist.png)<br>
+  - result for 'Edit Wishlist' page:<br>
+    ![HTML validation result for edit wishlist page](documentation/validation/html_validation_edit_wishlist.png)<br>
+  - result for 'Delete Wishlist' page:<br>
+    ![HTML validation result for delete wishlist page](documentation/validation/html_validation_delete_wishlist.png)<br>
   - result for 404 page<br>
     ![HTML validation result for 404 page](documentation/validation/html_validation_404.png)<br>
   -  result for 500 page<br>
@@ -725,11 +748,18 @@ In general, I am not satisfied with some values and would like to improve them. 
 | Wish list detailed view - Link to Wish Lists Overview - Log In and ownership required | Log in as the owner of the wish list, navigate to the wish list detail view | A link is displayed below the wishes to return to the overview of all wish lists | Pass |
 | Wish list detailed view - Timestamp Display | Log in as the owner of the wish list, navigate to the wish list detail view | A timestamp in the lower-right corner shows the last edited date and time | Pass |
 | Wish list detailed view - View Wish List as Non-Owner | Open the wish list link as a non-owner | The wish list displays the name, details, wishes included, and the last updated timestamp without the "Share," "Edit," and "Delete" buttons and the link to display the wish lists overview | Pass |
-| xxx | xxx | xxx | xxx |
-| xxx | xxx | xxx | xxx |
-| xxx | xxx | xxx | xxx |
-| xxx | xxx | xxx | xxx |
-| xxx | xxx | xxx | xxx |
+| Edit wish list from overview page  | Log in as the owner of the wish list, navigate to the wish list overview page, click the "pen" button | User should be redirected to the edit form page with fields containing previous data | Pass |
+| Edit wish list from detail page | Log in as the owner of the wish list, navigate to the wish list detail page, click the "Edit" button |  User should be  redirected to the edit form page with fields containing previous data | Pass |
+| Edit wish list - Confirm Changes | Log in as the owner of the wish list, navigate to the wish list edit form page, make changes, and click "Confirm Changes" button | User is redirected back to the overview page with a success message indicating the wish list has been changed  | Pass |
+| Edit wish list -  Prevent unauthorized URL access for editing | Open the wish list edit URL without logging in  | Redirected to the login page with a message indicating the need to log in first to edit a wish list | Pass |
+| Edit wish list - Unauthorized User Receives 403 Error  - Log in required | Log in as user who is a non-owner of a wishlist, attempt to edit a wish list by entering the edit URL | Receive a 403 Forbidden page indicating they are not authorized to edit the wish list | Pass |
+
+
+| Delete a wish list from overview page  | Log in as the owner of the wish list, navigate to the wish list overview page, click the "trash can" button | User should be redirected to the confirm deletion form page | Pass |
+| Delete a wish list from detail page | Log in as the owner of the wish list, navigate to the wish list detail page, click the "Delete" button |  User should be redirected to the confirm deletion form page | Pass |
+| Delete a wish list - Confirm deletion and redirect to overview | Click on the 'Confirm Deletion' button | After clicking on the "Confirm Deletion" button the user should be redirected to the wish list overview page | Pass |
+| Delete wish list -  Prevent unauthorized URL access for editing | Open the wish list delete URL without logging in  | Redirected to the login page with a message indicating the need to log in first to delete a wish list | Pass |
+| Delete a wish list - Unauthorized User Receives 403 Error  - Log in required | Log in as user who is a non-owner of a wishlist, attempt to delete a wish list by entering the delete URL | Receive a 403 Forbidden page indicating they are not authorized to delete the wish list | Pass |
 | xxx | xxx | xxx | xxx |
 | xxx | xxx | xxx | xxx |
 
