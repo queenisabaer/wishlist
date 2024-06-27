@@ -387,7 +387,7 @@ The following elements are included for the owner of the list: <br>
   - Easily share the wish list by clicking on the button under the title of the wish list. This will open a modal with the link to copy. 
   - Two buttons allow either editing or deleting the wish list.
   - Below these buttons are the details that you had to enter in the form to add the wish list.
-  - In the 'Wishes' section, all items added to a wish list are displayed in cards containing the entered data. This includes either the uploaded image or a standard image, the name of the wish, price, priority, quantity, and a link where you can buy this item. The link is only displayed if one has been specified. If the user has not added any items yet, they will be alerted by a note under the 'Add a wish' button. External users receive a slightly modified version of this message, which informs them that no items have been added yet. 
+  - In the 'Wishes' section, all items added to a wish list are displayed in cards containing the entered data. This includes either the uploaded image or a standard image, the name of the wish, price, priority, quantity, and a link where you can buy this item. The link is only displayed if one has been specified and opens in a new tab. If the user has not added any items yet, they will be alerted by a note under the 'Add a wish' button. External users receive a slightly modified version of this message, which informs them that no items have been added yet. All wishes are sorted by priority, with high priority at the top. 
   - The 'Add a Wish' button opens a modal in which you can then add items.
   - The items are displayed in cards containing the entered data.
   - A link below the wishes enables the user to return to the overview of all wish lists. 
@@ -439,6 +439,19 @@ Screenshot of message that item has been added successfully <br>
 
 -**Displaying an overview of all existing wish lists.**<br>
 
+The user can access the overview page of their wish lists by clicking on the corresponding link in the navigation bar or by clicking the "Show your wish lists overview" button in their profile. The wish lists overview page displays only the wish lists created by the logged-in user. These wish lists are sorted by the date they were added. Each wish list is displayed in a card format that includes the wish list's title, the due date, and a "Show wish list" button that leads to the detailed view of the wish list. Underneath this button, there are two buttons with icons:<br>
+- *Edit Button* (Pencil Icon): Leads to the page for editing the wish list.<br>
+- *Delete Button* (Trash Icon): Allows the user to delete the wish list. This action requires a confirmation step to complete the deletion.<br>
+If the user has not created any wish lists yet, the following message is displayed: "Seems like you don't have a wish list yet. Click here to create your first one." This message includes a link to add a new wish list.<br>
+
+Screenshot of wish list overview page<br>
+![Screenshot ofwish list overview page](/documentation/features/screenshot_wishlist_overview.png)<br>
+
+Screenshot of the wishlist overview with message: <br>
+![Screenshot of the wishlist overview with message](/documentation/features/screenshot_wishlist_overview_empty.png)<br>
+
+-**Admin panel**<br>
+
 
 
 </details>
@@ -467,6 +480,8 @@ Error pages for common HTTP errors (403, 404, 405 and 500) have been created and
 - Expand profile with additional fields such as image, phone number or detailed profile information
 - Optimize lighthouse results
 - Create functionality to add items at the same time as wishlist via Django formsets
+- Functionality to automatically set a wishlist to inactive when it reaches the due date
+- Change ordering of wishlists on wishlist overview page
 
 ## Bugs
 
@@ -569,7 +584,6 @@ When I tried to add an item with a very high price (over 1000 €) or a very hig
 ![Screenshot of unbound local error](/documentation/bugs/bug_itemform.png)<br>
 The error occurs because item is not defined when the form is invalid. The variable item should only be defined if itemForm.is_valid() is True. I had to pass _itemForm_ to *get_context_data* when the form is invalid, not the _item_.<br>
 
-
 </details>
 
 ## Technologies Used
@@ -662,6 +676,8 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
     ![HTML validation result for edit wishlist page](documentation/validation/html_validation_edit_wishlist.png)<br>
   - result for 'Delete Wishlist' page:<br>
     ![HTML validation result for delete wishlist page](documentation/validation/html_validation_delete_wishlist.png)<br>
+  - result for 'Wishlist Overview' page:<br>
+    ![HTML validation result for wishlist overview page](documentation/validation/html_validation_wishlist_overview.png)<br>
   - result for 404 page<br>
     ![HTML validation result for 404 page](documentation/validation/html_validation_404.png)<br>
   -  result for 500 page<br>
@@ -770,13 +786,14 @@ In general, I am not satisfied with some values and would like to improve them. 
 | User Profile - delete profile - Log in required | Click on the 'Delete your Profile' button | After clicking the button, the user should be redirect to a page where they must confirm that they actually want to delete its profile. | Pass |
 | User Profile - confirm deletion - Log in required | Click on the 'Confirm Deletion' button | After the user has confirmed the deletion, he will be redirected to the default home page. Here the user has the oportunity to sign up again. A message that the deletion was successful should be shown for 3 seconds | Pass |
 | 'Add a new wish list' page - Log in required | Click in the navigation bar on the link 'New List' or on the button 'New Wish List' to get to the 'Add a new wish list' page | After the user clicks on the button or the link, he gets to the corresponding website 'Add a new wish list' | Pass |
-| Create new wish list - Log in required | Fill in all necessary fields and click on "save wish list" button | The user should be forwarded to the Wish list detail page after all fields have been filled with valid data(e.g. due date in the future) and they have clicked on the button to save the wish list. A message that the wish list has been successfully created should be displayed to the user. The wish_list_id generated in the background should be part of the URL. | Pass |
-| Create new wish list with same name as exisiting wish list - Log in required  | Fill in all necessary fields, and give the wish list a name that is already existing, and click on "save wish list" button | The wish list should be generated with a different url and wish_list_id | Pass |
+| 'Add a new wish list' page - Create new wish list - Log in required | Fill in all necessary fields and click on "save wish list" button | The user should be forwarded to the Wish list detail page after all fields have been filled with valid data(e.g. due date in the future) and they have clicked on the button to save the wish list. A message that the wish list has been successfully created should be displayed to the user. The wish_list_id generated in the background should be part of the URL. | Pass |
+| 'Add a new wish list' page - Create new wish list with same name as exisiting wish list - Log in required  | Fill in all necessary fields, and give the wish list a name that is already existing, and click on "save wish list" button | The wish list should be generated with a different url and wish_list_id | Pass |
 | Wish list detailed view - Log In and ownership required | In the wish list overview click on the button "show wish list" to get to the detailed view | After clicking on the button the user should be redirect to the detailed view for the wish list | Pass |
 | Wish list detailed view - share wish list - Log In and ownership required | Log in as the owner of the wish list, navigate to the wish list detail view, click on the "Share" button under the title | A modal opens with the link to copy. After clicking on the copy button for a brief moment "copied" is displayed underneath the link. | Pass |
 | Wish list detailed view - edit and delete buttons visibility - Log In and ownership required | Log in as the owner of the wish list, navigate to the wish list detail view | "Edit" and "Delete" buttons are visible below the title | Pass |
-| Wish list detailed view - display details of wish list  | Navigate to the wish list detail view | All details (name, due date, etc.) are displayed below the "Edit" and "Delete" buttons | Pass |
-| Wish list detailed view - display Items in 'Wishes' Section | Navigate to the wish list detail view | Items are displayed in cards with provided data (image, name, price, priority, quantity, link if given) | Pass |
+| Wish list detailed view - display details of wish list | Navigate to the wish list detail view | All details (name, due date, etc.) are displayed below the "Edit" and "Delete" buttons | Pass |
+| Wish list detailed view - purchas link is only shown if provided and opens in a new tab | Navigate to the wish list detail view and click on the purchase link, if it is displayed | The purchase link should only be displayed if the user has provided one. After clicking on the purchase link a new tab should open | Pass |
+| Wish list detailed view - display Items in 'Wishes' section, sorted by priority | Navigate to the wish list detail view | Items are displayed in cards with provided data (image, name, price, priority, quantity, link if given) and sorted by priority | Pass |
 | Wish list detailed view - no items message - Log In and ownership | Log in as the owner of the wish list, navigate to the wish list detail view with no items added | A note is displayed under the 'Add a Wish' button alerting the user that no items are added yet | Pass |
 | Wish list detailed view - no items message - external user | Log in as the owner of the wish list, navigate to the wish list detail view with no items added | A note is displayed under the heading Wishes alerting the user that no items have been added yet by the owner of the wish list | Pass |
 | Wish list detailed view - Add a Wish Button Functionality - Log In and ownership required | Log in as the owner of the wish list, navigate to the wish list deta | A modal opens to allow the addition of new items | Pass |
@@ -802,6 +819,16 @@ In general, I am not satisfied with some values and would like to improve them. 
 | Add item - alt text of default image - Log In and ownership of wishlist required | Log in as the owner of the wish list, open the add item modal, add an item with the default image, and inspect the added item card | The default image description (alt text) for this image is "item image" | Pass |
 | Add item - error message for empty mandatory fields - Log In and ownership of wishlist required | Log in as the owner of the wish list, open the add item modal, leave item name, price, quantity, and priority fields empty, and click on the "Add item" button | Error messages are displayed indicating the mandatory fields that need to be filled, and the item is not added | xxx |
 | Add item - success message and redirect to wishlist detail page with new card after adding item - Log In and ownership of wishlist required | Log in as the owner of the wish list, open the add item modal, fill in the mandatory fields, and click on the "Add item" button | The item is added as a new card in the wishes overview, and a success message is displayed | Pass |
+| Wish list overview page - Access overview page - Log in required | Log in as owner of wish lists, click on the "Wish Lists Overview" link in the navigation bar or navigate to the profile page, and click on the "Show your wish lists overview" button| The wish list overview page is displayed, showing only the user's wish lists sorted by the date they were added | Pass |
+| Wish list overview page - display user's wish lists - Log in required| Log in as owner of wish lists, navigate to the wish list overview page | Only the wish lists created by the logged-in user are displayed, each in a card format with the title, due date, "Show wish list" button, and two buttons with icons | Pass |
+| Wish list overview page - Sort Wish Lists by Date Added - Log in required | Log in as owner of wish lists, navigate to the wish list overview page | Wish lists are displayed in the order they were added, from newest to oldest | Pass |
+| Wish list overview page - Show wish list button - Log in required | Log in as owner of wish lists, navigate to the wish list overview page, click on the "Show wish list" button on a wish list card  | The detailed view of the selected wish list should be displayed | Pass |
+| Wish list overview page - Edit button functionality - Log in required | Log in as owner of wish lists, navigate to the wish list overview page, click on the edit button (pencil icon) on a wish list card | The page for editing the selected wish list should be displayed. | Pass |
+| Wish list overview page - Delete button functionality - Log in required | Log in as owner of wish lists, navigate to the wish list overview page, click on the delete button (trash can) on a wish list card | A page to confirm the deletion should be displayed. | Pass |
+| Wish list overview page - No wish lists message - Log in required | Log in as the user with no wish lists created, navigate to the wish list overview page | A message is displayed: "Seems like you don't have a wish list yet. Click here to create your first one." The message includes a link to add a new wish list.| Pass |
+| Wish list overview page - Create Wish List Link - Log in required | Log in as the user with no wish lists created, navigate to the wish list overview page, click on the "Click here to create your first one" link  | The page to create a new wish list is displayed | Pass |
+| Wish list overview page - wish list card format | Log in as the user, navigate to the wish list overview page | Each wish list is displayed in a card format including the title, due date, and "Show wish list" button. | Pass |
+| xxx | xxx | xxx | xxx |
 | xxx | xxx | xxx | xxx |
 | xxx | xxx | xxx | xxx |
 | xxx | xxx | xxx | xxx |
