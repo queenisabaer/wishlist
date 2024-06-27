@@ -81,8 +81,8 @@ class WishListDetail(generic.DetailView):
             return redirect("wishlist_detail",
                             wish_list_id=self.object.wish_list_id)
         else:
-            context = self.get_context_data(itemForm=item,
-                                            Formform_has_errors=True)
+            context = self.get_context_data(itemForm=itemForm,
+                                            form_has_errors=True)
             return self.render_to_response(context)
 
 

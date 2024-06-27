@@ -32,6 +32,7 @@ View the deployed site [here.](https://your-wish-list-maker-6905b0903af9.herokua
   - [Lighthouse Test](#lighthouse-test)
   - [Manual testing](#manual-testing)
   - [Browser Compatibility](#browser-compatibility)
+  - [Automated Testing](#automated-testing)
 - [Deployment](#deployment)
   - [Heroku](#heroku)
   - [Local deployment](#local-deployment)
@@ -365,7 +366,7 @@ Screenshot of success message after deletion and default home page<br>
 <summary> Wishlist Management</summary>
 <br>
 
-The Wish List Management includes the following areas: Adding a new list, Wish list detail view, Editing or deleting an existing list, Adding items to a wish list, Displaying an overview of all existing wish lists. <br>
+The Wish List Management includes the following topics: Adding a new list, Wish list detail view, Editing or deleting an existing list, Adding items to a wish list, Displaying an overview of all existing wish lists. <br>
 
  - **Adding a new wish list**<br>
 To add a new wish list, the user must sign up or log in. Then they can either go to the associated page via the navigation bar or a button on the home page. All form fields are required. The due date must be at least one day in the future. The default occasion is anniversary. The user is informed that they can add items to the wish list in the next step. In a future version I would like to include django formsets to create wish list and items at the same time as can be seen in the wireframes. <br>
@@ -391,7 +392,7 @@ The following elements are included for the owner of the list: <br>
   - The items are displayed in cards containing the entered data.
   - A link below the wishes enables the user to return to the overview of all wish lists. 
   - A timestamp in the lower-right corner shows when the wish list was last edited. This is mainly intended to help users who receive the wish list to see how current it is. <br>
-Users who receive the link will only see the name of the list, the details, wishes included, and the date stamp when the list was last updated.
+Users who receive the link will only see the name of the list, the details, wishes included, and the date stamp when the list was last updated.<br>
 
 Screenshot of wish list detail page for owner of the list:<br>
 ![Screenshot of wish list detail page for owner of the list](/documentation/features/screenshot_wishlist_detail_log.png)<br>
@@ -407,7 +408,7 @@ Screenshot of message, if no item was added(external user):<br>
 ![Screenshot of message, if no item was added for external user](/documentation/features/message_no_items_external.png)<br>
 
 -**Edit a wish list**<br>
-As part of the full CRUD functionality, the wish list owner has the ability to edit a wish list. The page on which the corresponding form is contained can be reached from the wish list overview(button with pen) as well as from the detail page of the wish list. The fields contain the previous data. After clicking on the "Confirm Changes" button, you will be redirected back to the overview page of the wish lists. In addition, a message appears that the list has been changed successfully. If a user attempts to edit a wishlist by inserting the corresponding term into the URL, they will be redirected to the login page and shown a message indicating that they need to log in first to edit a wishlist. If they then log in and are not the owner of the wishlist, they will receive a 403 page on their next attempt.
+As part of the full CRUD functionality, the wish list owner has the ability to edit a wish list. The page on which the corresponding form is contained can be reached from the wish list overview(button with pen) as well as from the detail page of the wish list. The fields contain the previous data. After clicking on the "Confirm Changes" button, you will be redirected back to the overview page of the wish lists. In addition, a message appears that the list has been changed successfully. If a user attempts to edit a wishlist by inserting the corresponding term into the URL, they will be redirected to the login page and shown a message indicating that they need to log in first to edit a wishlist. If they then log in and are not the owner of the wishlist, they will receive a 403 page on their next attempt.<br>
 
 Screenshot of edit page<br>
 ![Screenshot of edit page](/documentation/features/screenshot_edit_wishlist.png)<br>
@@ -417,7 +418,7 @@ Screenshot of message if user is not owner:<br>
 ![Screenshot of edit message](/documentation/features/message_edit_log.png)<br>
 
 -**Delete a wish list**<br>
-As part of the full CRUD functionality, the wish list owner has the ability to delete a wish list. This can be achieved from the wish list overview(button with trash can) as well as from the detail page of the wish list. The user must confirm that he actually wants to delete the wish list. After successful deletion, it is redirected back to the overview page of the wish lists and the corresponding wish list is deleted from the database and the overview. If a user attempts to delete a wishlist by inserting the corresponding term into the URL, they will be redirected to the login page and shown a message indicating that they need to log in first to delete a wishlist. If they then log in and are not the owner of the wishlist, they will receive a 403 page on their next attempt.
+As part of the full CRUD functionality, the wish list owner has the ability to delete a wish list. This can be achieved from the wish list overview(button with trash can) as well as from the detail page of the wish list. The user must confirm that he actually wants to delete the wish list. After successful deletion, it is redirected back to the overview page of the wish lists and the corresponding wish list is deleted from the database and the overview. If a user attempts to delete a wishlist by inserting the corresponding term into the URL, they will be redirected to the login page and shown a message indicating that they need to log in first to delete a wishlist. If they then log in and are not the owner of the wishlist, they will receive a 403 page on their next attempt.<br>
 
 Screenshot of delete confirmation page<br>
 ![Screenshot of delete confirmation page](/documentation/features/screenshot_delete_wishlist.png)<br>
@@ -425,12 +426,16 @@ Screenshot of message if user is not owner:<br>
 ![Screenshot of delete message if user is not owner](/documentation/features/message_delete_log.png)<br>
 
 -**Adding items to a wish list**<br>
-
+If you are the owner/creator of a wish list you will find a button below the wishes on the wish list detail page to add items to this wish list. Clicking this button, a modal opens with a form to specify the desired item. The following fields are mandatory and must be completed by the user: item name, price(approx.), quantity(_How many do you wish for?_), priority of this wish. The price must not be higher than 1000 €, otherwise an error message will be displayed and the item cannot be added. An error message is also displayed if the quantity exceeds 100, furthermore the item cannot be added. The default value for quantity is 1 and is displayed directly to the user. The default priority value is *no-priority*. A default image will be provided, but can be changed by selecting a file from the local machine. The default image description for screen readers is item image. After clicking on the "Add item" button, the item appears as a new card in the wishes overview. At the same time, a message shows that the item was added successfully. <br>
 
 Screenshot of modal to add an item<br>
-![Screenshot of modal to add an item](/documentation/features)<br>
-Screenshot of message if user is not owner:<br>
-![Screenshot of delete message if user is not owner](/documentation/features)<br>
+![Screenshot of modal to add an item](/documentation/features/screenshot_add_item.png)<br>
+Screenshot of message if price is over 1000 €<br>
+![Screenshot of message if price is to high](/documentation/features/message_price.png)<br>
+Screenshot of message if quantity is over 100<br>
+![Screenshot of message if quantity is to high](/documentation/features/message_quantity.png)<br>
+Screenshot of message that item has been added successfully <br>
+![Screenshot of message if quantity is to high](/documentation/features/message_item_add.png)<br>
 
 -**Displaying an overview of all existing wish lists.**<br>
 
@@ -556,6 +561,17 @@ Screenshot of the wishlist overview with message: <br>
 
 </details>
 
+<details>
+<summary> Add item with high price(>1000) or quantiy(>100) </summary>
+<br>
+
+When I tried to add an item with a very high price (over 1000 €) or a very high number (over 100), I was shown an UnboundLocalError. <br>
+![Screenshot of unbound local error](/documentation/bugs/bug_itemform.png)<br>
+The error occurs because item is not defined when the form is invalid. The variable item should only be defined if itemForm.is_valid() is True. I had to pass _itemForm_ to *get_context_data* when the form is invalid, not the _item_.<br>
+
+
+</details>
+
 ## Technologies Used
 
 ### Languages:
@@ -639,7 +655,7 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
     ![HTML validation result for 'Add a new wish list' page](documentation/validation/html_validation_add_wishlist.png)<br>
   - result for wishlist detail page with error:<br>
     I had a closing div too much before the last row. No errors or warnings could be found after deleting this item. 
-    ![HTML validation result for wishlist detail page](documentation/validation/html_validation_detail_wishlist_error.png)<br>
+    ![HTML validation result for wishlist detail page with error](documentation/validation/html_validation_detail_wishlist_error.png)<br>
   - result for wishlist detail page without errors or warnings:<br>
     ![HTML validation result for wishlist detail page](documentation/validation/html_validation_detail_wishlist.png)<br>
   - result for 'Edit Wishlist' page:<br>
@@ -691,7 +707,7 @@ All created python files were checked with the [Code Insitute validator](https:/
 
 ### Lighthouse Test
 To measure the website against performance, accessibility, SEO and best practice, I used [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=de).<br>
-Because the background and foreground colors of the button with the class: 'btn-pink' and 'btn-reverse' do not have a sufficient contrast ratio, the accessibility was never 100. I tried to improve this by changing the background colors to more vibrant ones, but couldn't get a better result. Since time was running out, I left it in the original version at the end. I would like to optimize this in a future version. <br>
+Because the background and foreground colors of the button with the class: 'btn-pink' and 'btn-reverse' do not have a sufficient contrast ratio, the accessibility was never 100. I tried to improve this by changing the background colors to more vibrant ones that are still in the colour palette, but couldn't get a better result. Since time was running out, I left it in the original version at the end. I would like to optimize this in a future version. <br>
 In general, I am not satisfied with some values and would like to improve them. Unfortunately, I didn’t have enough time to do this for this version.
 <details>
 <summary> Results </summary>
@@ -724,7 +740,7 @@ In general, I am not satisfied with some values and would like to improve them. 
 
 </details>
 
-### Manual testing
+### Manual Testing
 
 <details>
 <summary> Click here to see the testing table for features</summary>
@@ -767,18 +783,26 @@ In general, I am not satisfied with some values and would like to improve them. 
 | Wish list detailed view - Link to Wish Lists Overview - Log In and ownership required | Log in as the owner of the wish list, navigate to the wish list detail view | A link is displayed below the wishes to return to the overview of all wish lists | Pass |
 | Wish list detailed view - Timestamp Display | Log in as the owner of the wish list, navigate to the wish list detail view | A timestamp in the lower-right corner shows the last edited date and time | Pass |
 | Wish list detailed view - View Wish List as Non-Owner | Open the wish list link as a non-owner | The wish list displays the name, details, wishes included, and the last updated timestamp without the "Share," "Edit," and "Delete" buttons and the link to display the wish lists overview | Pass |
-| Edit wish list from overview page  | Log in as the owner of the wish list, navigate to the wish list overview page, click the "pen" button | User should be redirected to the edit form page with fields containing previous data | Pass |
-| Edit wish list from detail page | Log in as the owner of the wish list, navigate to the wish list detail page, click the "Edit" button |  User should be  redirected to the edit form page with fields containing previous data | Pass |
-| Edit wish list - Confirm Changes | Log in as the owner of the wish list, navigate to the wish list edit form page, make changes, and click "Confirm Changes" button | User is redirected back to the overview page with a success message indicating the wish list has been changed  | Pass |
+| Edit wish list from overview page | Log in as the owner of the wish list, navigate to the wish list overview page, click the "pen" button | User should be redirected to the edit form page with fields containing previous data | Pass |
+| Edit wish list from detail page | Log in as the owner of the wish list, navigate to the wish list detail page, click the "Edit" button |  User should be redirected to the edit form page with fields containing previous data | Pass |
+| Edit wish list - Confirm Changes | Log in as the owner of the wish list, navigate to the wish list edit form page, make changes, and click "Confirm Changes" button | User is redirected back to the overview page with a success message indicating the wish list has been changed | Pass |
 | Edit wish list -  Prevent unauthorized URL access for editing | Open the wish list edit URL without logging in  | Redirected to the login page with a message indicating the need to log in first to edit a wish list | Pass |
 | Edit wish list - Unauthorized User Receives 403 Error  - Log in required | Log in as user who is a non-owner of a wishlist, attempt to edit a wish list by entering the edit URL | Receive a 403 Forbidden page indicating they are not authorized to edit the wish list | Pass |
-
-
-| Delete a wish list from overview page  | Log in as the owner of the wish list, navigate to the wish list overview page, click the "trash can" button | User should be redirected to the confirm deletion form page | Pass |
+| Delete a wish list from overview page | Log in as the owner of the wish list, navigate to the wish list overview page, click the "trash can" button | User should be redirected to the confirm deletion form page | Pass |
 | Delete a wish list from detail page | Log in as the owner of the wish list, navigate to the wish list detail page, click the "Delete" button |  User should be redirected to the confirm deletion form page | Pass |
 | Delete a wish list - Confirm deletion and redirect to overview | Click on the 'Confirm Deletion' button | After clicking on the "Confirm Deletion" button the user should be redirected to the wish list overview page | Pass |
 | Delete wish list -  Prevent unauthorized URL access for editing | Open the wish list delete URL without logging in  | Redirected to the login page with a message indicating the need to log in first to delete a wish list | Pass |
-| Delete a wish list - Unauthorized User Receives 403 Error  - Log in required | Log in as user who is a non-owner of a wishlist, attempt to delete a wish list by entering the delete URL | Receive a 403 Forbidden page indicating they are not authorized to delete the wish list | Pass |
+| Delete a wish list - Unauthorized User Receives 403 Error - Log in required | Log in as user who is a non-owner of a wishlist, attempt to delete a wish list by entering the delete URL | Receive a 403 Forbidden page indicating they are not authorized to delete the wish list | Pass |
+| Add item - open modal - Log In and ownership of wishlist required | Log in as the owner of the wish list, navigate to the wish list detail page, click on the "Add item" button | The add item modal opens with a form | Pass |
+| Add Item with Valid Details - Log In and ownership of wishlist required | Log in as the owner of the wish list, open the add item modal, fill in the item name, price (within the limit), quantity, priority, and optionally select a different image, then click on the "Add item" button | The item is added as a new card in the wishes overview, and a success message is displayed | Pass |
+| Add item with price over 1000 € - Log In and ownership of wishlist required | Log in as the owner of the wish list, open the add item modal, fill in the item name, set the price over 1000 €, fill in the other mandatory fields, and click on the "Add item" button | An error message is displayed indicating the price limit, and the item is not added | Pass |
+| Add item with quantity over 100 - Log In and ownership of wishlist required | Log in as the owner of the wish list, open the add item modal, fill in the item name, set the quantity over 100, fill in the other mandatory fields, and click on the "Add item" butto | An error message is displayed indicating the quantity limit, and the item is not added | Pass |
+| Add item with default quantity, priority and image - Log In and ownership of wishlist required | Log in as the owner of the wish list, open the add item modal, fill in the item name and price within the limit, leave the quantity, the priority and the image field at their default values, and click on the "Add item" button | The item is added with the default quantity of 1, a priority  of _no-priority_ and the default image as a new card in the wishes overview, and a success message is displayed | Pass |
+| Add item - change default image - Log In and ownership of wishlist required | Log in as the owner of the wish list, open the add item modal, fill in the mandatory fields, select a different image from the local machine, and click on the "Add item" button | The item is added with the selected image as a new card in the wishes overview, and a success message is displayed | Pass |
+| Add item - alt text of default image - Log In and ownership of wishlist required | Log in as the owner of the wish list, open the add item modal, add an item with the default image, and inspect the added item card | The default image description (alt text) for this image is "item image" | Pass |
+| Add item - error message for empty mandatory fields - Log In and ownership of wishlist required | Log in as the owner of the wish list, open the add item modal, leave item name, price, quantity, and priority fields empty, and click on the "Add item" button | Error messages are displayed indicating the mandatory fields that need to be filled, and the item is not added | xxx |
+| Add item - success message and redirect to wishlist detail page with new card after adding item - Log In and ownership of wishlist required | Log in as the owner of the wish list, open the add item modal, fill in the mandatory fields, and click on the "Add item" button | The item is added as a new card in the wishes overview, and a success message is displayed | Pass |
+| xxx | xxx | xxx | xxx |
 | xxx | xxx | xxx | xxx |
 | xxx | xxx | xxx | xxx |
 
@@ -818,6 +842,18 @@ In general, I am not satisfied with some values and would like to improve them. 
 
 </details>
 
+### Automated Testing
+Originally, automated tests (e.g. with jest and unittes) were planned. Unfortunately, I did not have enough time in this version to perform the corresponding tests. However, this is intended for future versions. 
+Examples of automated tests:
+- Ensure wish list and wish list item models are correctly defined and behave as expected. Test reletionship between them.
+- Verify that forms handle data correctly
+- Ensure views return the correct pages in project
+- Test CRUD operations on wish list
+- Test rendering of components like wish list details
+- Test adding and removing items from the wish list.
+- Test opening and closing modals
+- Test error handling for failed requests 
+
 ### Browser Compatibility
   The tests were conducted using the following browsers:
 
@@ -847,7 +883,7 @@ This site is deployed using Heroku. To deploy it from its GitHub repository to H
 11. Gather all static files of the project by using the command _python3 manage.py collectstatic_ in the terminal
 12. Make sure that DEBUG=FALSE in settings.py
 13. Create a _Procfile_ in the root directory and add *web: gunicorn wish_list_maker.wsgi*
-13. Enable the automatic deploy or manually deploy the code from the main branch in Heroku
+13. In Heroku enable the automatic deploy or manually deploy the code from the main branch
 
 To see the [view of the live site](https://your-wish-list-maker-6905b0903af9.herokuapp.com/) click on the _Open app_ button on the top right corner or, if you enabled automatic deploy(step 14), log in to GitHub, navigate to the repository for this project by selecting [*queenisabaer/wishlist*](https://github.com/queenisabaer/wishlist), click on _Deployment_ and choose in the _Environments_ section _wishtlist_. On top of the latest deployment is the link to the [live site](https://your-wish-list-maker-6905b0903af9.herokuapp.com/).<br>
 
