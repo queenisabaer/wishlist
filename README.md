@@ -720,7 +720,7 @@ The statement of one undefinied variable is caused by cross referencing scripts.
 <summary> Python Validation</summary>
 <br>
 
-All created python files were checked with the [Code Insitute validator](https://pep8ci.herokuapp.com/#). Since some lines were too long, they had to be corrected, after that everything was clear and no errors where found<br>
+All created python files were checked with the [Code Insitute validator - CI Python Linter](https://pep8ci.herokuapp.com/#). After removing some lines that were too long, everything was clear, and no errors were found.<br>
   
 </details>
 
@@ -840,6 +840,7 @@ In general, I am not satisfied with some values and would like to improve them. 
 | Admin panel - Manage user accounts - super user required | Log in as a superuser, navigate to the user management section, add a new user, edit an existing user, delete a user. | The user accounts are correctly added, edited, and deleted, with changes reflected in the database. | Pass |
 | Admin panel - Manage wish lists - super user required | Log in as a superuser, navigate to the wish lists section, add a new wish list, edit or delete an existing one. | The wish lists are correctly added, edited, and deleted, with changes reflected in the database. | Pass |
 | Admin panel - Manage items - super user required | Log in as a superuser, navigate to the items section, add a new wish list item, edit or delete an existing one. | The items are correctly added, edited, and deleted, with changes reflected in the database. | Pass |
+| Responsiveness | Access the the _Your Wish List Maker_ pages using a desktop browser, resize the browser window to simulate different screen sizes (e.g., mobile, tablet), and refresh the pages as needed | he page layout adjusts smoothly and remains usable without horizontal scrolling, ensuring all content (cards, buttons, text) is displayed appropriately for each screen size. | Pass |
 
 
 </details>
@@ -862,17 +863,18 @@ In general, I am not satisfied with some values and would like to improve them. 
 | #24 As a registered user, I want to be able to collaborate on a wishlist with others so that we can collectively manage it. | Collaborators should be able to add, edit, and delete items in the shared wishlist. | I was unable to complete this user story due to time constraints; however, I plan to implement it in the future. This feature remains a priority and will be added to enhance the application's functionality. |
 | #14 As a logged-in user, I want to update my profile information so that my account details are current. | The profile page should allow users to update their username and password. Changes should be saved and reflected immediately. | To meet the acceptance criteria, I created a profile page where users can update their username and password. The profile overview contains an „Edit your Profile" button that redirects to an edit page with a form pre-filled with the current data. Upon submitting the form, changes are saved immediately in the database, and the user is redirected back to the profile overview, where a success message indicates the profile has been updated. This ensures that updates are reflected immediately and the user is informed of the successful update. |
 | #9 As a frequent website user I can easily login to my account so that I have access to my wish lists and items I want to purchase. | "The website should display a clear and concise description or tagline that communicates the website's primary purpose within the first few seconds of viewin It should include visual elements and navigational cues that help explain the website's goal and functionality. | To achieve the user login functionality, I added a prominent login button on the homepage for easy access. Additionally, the navigation bar includes login functionality. Once logged in, users can access their wish lists ensuring a seamless user experience. The functionality to re serve an item has yet to be implemented. |
-| #15 As a user of the website I want to create a wish list for a specific occasion so that I can organize my desired items | The wish list creation form should include fields for title, description, and occasion type. The new wish list should appear in the user's dashboard. | xxx |
-| xxx | xxx | xxx |
-| xxx | xxx | xxx |
-| xxx | xxx | xxx |
-| xxx | xxx | xxx |
-| xxx | xxx | xxx |
-| xxx | xxx | xxx |
-| xxx | xxx | xxx |
-
-
-
+| #15 As a user of the website I want to create a wish list for a specific occasion so that I can organize my desired items | The wish list creation form should include fields for title, description, and occasion type. The new wish list should appear in the user's dashboard. | To achieve the wishlist creation functionality, I added a form requiring users to fill out fields for the list name, due date, description, and occasion type. These fields are mandatory to ensure the wishlist is well-organized for the specific occasion. Once the form is submitted, the new wishlist appears in the user's wish list overview. |
+| #18 As a user, I want to add items to my wishlist so that I can keep track of things I want. | The item addition form should include fields for item name, description, quantity, purchase link and the possibility to reserve the item. The new item should appear in the wishlist. | To achieve the item addition functionality, I implemented a form displayed in a modal that opens when the user clicks the 'Add item' button on the wishlist detail page. The form includes mandatory fields for item name, price (limited to 1000€), quantity (limited to 100), and priority. Users can also add a purchase link and upload a custom image, with a default image automatically generated if none is provided. Once the form is submitted, the new item appears in the corresponding wishlist |
+| #22 As a user, I want to share my wishlist with others so that they can see my wishlist and know what I want to have. | The sharing functionality should generate a unique link for the wishlist. The recipient of the link should be able to view the wishlist without logging in. | To achieve the wishlist sharing functionality, I integrated a share button on the wishlist detail view. Clicking this button opens a modal displaying a unique link for the wishlist, along with a copy button. When the copy button is clicked, a "copied" confirmation briefly appears beneath the link. This link allows recipients to view the wishlist details without needing to sign up or log in. Additionally, the shared view restricts any modifications, preventing the addition, deletion, or editing of items on the wishlist. |
+| #10 As a developer I want to define a database structure so that it matches the objectives of the project. | Modelling the database schema visually | To achieve the objective of defining a database structure that aligns with the project's goals, I visually modeled the database schema using dbdiagram.io. This involved creating an Entity-Relationship Diagram (ERD) to plan the models for WishList, Item, User, and UserProfile. The ERD provided a clear and organized representation of the relationships between these entities. |
+| #11 As a developer I want to set up and configure a database so that I can store and manage the application data securely and efficiently. | Choose an appropriate database for the project. Define models representing the data structure required by the applicatio. Ensure database credentials are stored securely | I chose PostgreSQL, provided by Code Institute, as the relational database for the project. I defined the necessary models to represent the application's data structure, ensuring they align with the project's requirements. |
+| #25 As a developer, I need to verify that all html files pass the W3C validation so that the code is executed correctly | When I pass my code into the validator no errors are thrown. | To ensure that all HTML files pass W3C validation and execute correctly, I used the Nu Html Checker to check each HTML file I created or updated. By passing all my HTML code via link or text input through the validator, I confirmed that no errors were present. |
+| #26 As a developer, I need to verify that my css files pass the W3C validation so that the code is executed correctly | When I pass my code into the validator no errors are thrown | To ensure that my CSS file passes W3C validation and execute correctly, I used the W3C CSS Validation Service. By validating my CSS code through this service, I confirmed that no errors were present. |
+| #27 As a developer, I need to verify that my JavaScript files pass the jshint validation so that the code is executed correctly | When I pass my code into the validator no errors are thrown | To ensure that my JavaScript file passes JavaScript validation and execute correctly, I used JSHint to check my JavaScript file. By running my code through JSHint, I confirmed that no errors were present. |
+| #28 As a developer, I need to verify that my python files pass the pep8 validation so that the code is executed correctly | When I pass my code into the validator no errors are thrown. | To ensure that all Python files pass PEP8 validation and execute correctly, I used the CI Python Linter provided by Code Institute. After addressing issues such as removing lines that were too long, I confirmed that no errors were present. |
+| #29 As a developer, I want to implement python test procedures so that I can assess functionality, usability, responsiveness and data management throughout the web application. | All critical functionalities of the web application are covered by test cases. All tests are well documented | To ensure the functionality, usability, responsiveness, and data management of the web application, I conducted comprehensive manual testing. Although I didn't have time to implement automated tests, I thoroughly tested all critical functionalities of the project manually. Each test case was documented to ensure all aspects of the application were covered and performed as expected. |
+| #30 As a developer, I want to implement JavaScript test procedures so that I can assess functionality, usability, responsiveness and data management throughout the web application. | All critical functionalities of the web application are covered by test cases. All tests are well documented | As a developer, I aimed to assess the functionality, usability, responsiveness, and data management of the web application through JavaScript test procedures. While I didn't have the opportunity to implement automated tests, I conducted thorough manual testing to ensure all critical functionalities were covered by test cases. Each test was meticulously documented to verify the application's performance and adherence to requirements. |
+| #31 As a developer, I want to implement manual test cases so that I can assess functionality, usability, responsiveness and data management throughout the web application. | Document manual test cases for functionalities that require human assessment. All tests are well documented | To ensure thorough evaluation of functionality, usability, responsiveness, and data management across the web application, I implemented comprehensive manual test cases. I carefully documented these test cases, covering various functionalities that require human assessment. This involved creating a detailed manual test table that systematically evaluated each aspect of the application to ensure all requirements were met and properly documented. |
 
 
 </details>
@@ -890,14 +892,15 @@ Examples of automated tests:
 - Test error handling for failed requests 
 
 ### Browser Compatibility
-  The tests were conducted using the following browsers:
+  The tests were conducted using the following browser:
 
-- Google Chrome Version 121.0.6167.160 <br>
-The following tests were conducted by using [browserling](https://www.browserling.com/) <br>
-- Edge Version 118
-- Firefox 119
-- Opera 104
-
+- Google Chrome Version 126.0.6478.126 <br>
+Tests were also carried out for the following browsers using [browserling](https://www.browserling.com/) <br>
+- Edge Version 122
+- Firefox 124
+- Opera 108
+- Brave 1.63
+- Vivaldi 6.6
 
 ## Deployment
 
