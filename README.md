@@ -18,7 +18,8 @@ View the deployed site [here.](https://your-wish-list-maker-6905b0903af9.herokua
   - [Logo](#logo)
   - [Favicon](#favicon)
   - [Typography](#typography)
-  - [Structure](#structure)
+- [Structure](#structure)
+- [Database](#database)
 - [Features](#features)
 - [Bugs](#bugs)
 - [Technologies Used](#technologies-used)
@@ -33,8 +34,12 @@ View the deployed site [here.](https://your-wish-list-maker-6905b0903af9.herokua
   - [Browser Compatibility](#browser-compatibility)
 - [Deployment](#deployment)
   - [Heroku](#heroku)
+  - [Local deployment](#local-deployment)
   - [Forking this GitHub repository](#forking-this-github-repository)
   - [Clone this repository](#clone-this-repository)
+  - [Cloudinary](#cloudinary)
+  - [Create PostgresSQL using Code Institute Database Maker](#create-postgressql-using-code-institute-database-maker)
+  - [Gmail](#gmail)
 - [Credits](#credits)
   - [Content](#content)
   - [Code](#code)
@@ -207,13 +212,16 @@ I created the colour palette with [coloors](https://coolors.co/).<br>
 [Indie Flower](https://fonts.google.com/specimen/Indie+Flower) was used as font for headings. It is a handwriting font that seems carefree and open. Although it is a handwriting font it is still easy to read.<br>
 [Rubik](https://fonts.google.com/specimen/Rubik?query=rubik) was selected for text content. It is a sans-serif font which is easy to read, and has a certain aestethic. Both fonts were imported via Google Fonts. 
 
-### Structure 
+## Structure 
 
-The first database schema was crafted during the planning phase of the project and was created with [dbdiagramm](https://dbdiagram.io/home). It still displays the reserved item modal, that I would love to implement in the future. In addition, the user profile still contains email and password, which are directly retrieved in the final version from the profile created for authentication. <br>
+The first database schema was crafted during the planning phase of the project and was created with [dbdiagramm](https://dbdiagram.io/home). It still displays the reserved item modal, that I would love to implement in the future. In addition, the user profile still contains email and password, which are directly retrieved in the final version from the profile created for authentication. 
 
 ![Initial Database Schema](documentation/images/erd_plan.png)<br>
 Final ERD:<br>
 ![Final Database Schema](documentation/images/erd_final.png)<br>
+
+## Database<br>
+I used a PostgreSQL provided by Code Institute as relational database.<br>
 
 - **FieldTypes:**<br>
   - AutoField: An integer field that automatically increments.
@@ -398,7 +406,7 @@ Screenshot of message, if no item was added(for owner of wish list):<br>
 Screenshot of message, if no item was added(external user):<br>
 ![Screenshot of message, if no item was added for external user](/documentation/features/message_no_items_external.png)<br>
 
--**Edit a wish list**
+-**Edit a wish list**<br>
 As part of the full CRUD functionality, the wish list owner has the ability to edit a wish list. The page on which the corresponding form is contained can be reached from the wish list overview(button with pen) as well as from the detail page of the wish list. The fields contain the previous data. After clicking on the "Confirm Changes" button, you will be redirected back to the overview page of the wish lists. In addition, a message appears that the list has been changed successfully. If a user attempts to edit a wishlist by inserting the corresponding term into the URL, they will be redirected to the login page and shown a message indicating that they need to log in first to edit a wishlist. If they then log in and are not the owner of the wishlist, they will receive a 403 page on their next attempt.
 
 Screenshot of edit page<br>
@@ -408,13 +416,24 @@ Screenshot of message:<br>
 Screenshot of message if user is not owner:<br>
 ![Screenshot of edit message](/documentation/features/message_edit_log.png)<br>
 
--**Delete a wish list**
+-**Delete a wish list**<br>
 As part of the full CRUD functionality, the wish list owner has the ability to delete a wish list. This can be achieved from the wish list overview(button with trash can) as well as from the detail page of the wish list. The user must confirm that he actually wants to delete the wish list. After successful deletion, it is redirected back to the overview page of the wish lists and the corresponding wish list is deleted from the database and the overview. If a user attempts to delete a wishlist by inserting the corresponding term into the URL, they will be redirected to the login page and shown a message indicating that they need to log in first to delete a wishlist. If they then log in and are not the owner of the wishlist, they will receive a 403 page on their next attempt.
 
 Screenshot of delete confirmation page<br>
 ![Screenshot of delete confirmation page](/documentation/features/screenshot_delete_wishlist.png)<br>
 Screenshot of message if user is not owner:<br>
 ![Screenshot of delete message if user is not owner](/documentation/features/message_delete_log.png)<br>
+
+-**Adding items to a wish list**<br>
+
+
+Screenshot of modal to add an item<br>
+![Screenshot of modal to add an item](/documentation/features)<br>
+Screenshot of message if user is not owner:<br>
+![Screenshot of delete message if user is not owner](/documentation/features)<br>
+
+-**Displaying an overview of all existing wish lists.**<br>
+
 
 
 </details>
@@ -808,10 +827,8 @@ The following tests were conducted by using [browserling](https://www.browserlin
 - Firefox 119
 - Opera 104
 
-I have tested the website on Safari on macOS Sonoma 14.3, but unfortunately, it just opens the website and starts the program, but I can’t enter any input.
 
-
-## Deployment NEEDS UPDATE
+## Deployment
 
 ### Heroku
 This site is deployed using Heroku. To deploy it from its GitHub repository to Heroku, I took the following steps:
@@ -821,17 +838,26 @@ This site is deployed using Heroku. To deploy it from its GitHub repository to H
 3. Click on the _New_ button and select _Create new app_
 4. Give it a unique name and choose the region _Europe_
 5. Click the *Settings* tab, go to the _Config Vars_ section and click on the _Reveal Config Vars_ button
-6. Copy the content of the creds.json file() and paste it into the value field, then name the _Key_ CREDS, like the variable that holds the json file in the run.py file
+6. Add all variables from *env.py* to _ConfigVars_ of Heroku
+![Screenshot of config vars](documentation/features/screenshot_config_vars.png)<br>
 7. Click the _Add_ button
-8. Add a second key _PORT_ and set the value to _8000_
-9. Go to the _Buildpacks_ section and click the _Add Buildpacks_ button
-10. Select _python_ and click the _Save changes_ button
-11. Add a second buildpack: _nodejs_
-12. Click the *Deploy* tab, go to the _Deployment method_ section, select _GitHub_ and confirm this selection by clicking on the _Connect to Github_ button
-13. Search for the repository name on github _life-in-numbers_ and click the _Connect_ button 
-14. Enable the automatic deploy or manually deploy the code from the main branch.<br>
+8. Click the *Deploy* tab, go to the _Deployment method_ section, select _GitHub_ and confirm this selection by clicking on the _Connect to Github_ button
+9. Search for the repository name on github _wishlist_ and click the _Connect_ button
+10. Add in the setting.py the Heroku app URL into ALLOWED HOSTS<br>
+11. Gather all static files of the project by using the command _python3 manage.py collectstatic_ in the terminal
+12. Make sure that DEBUG=FALSE in settings.py
+13. Create a _Procfile_ in the root directory and add *web: gunicorn wish_list_maker.wsgi*
+13. Enable the automatic deploy or manually deploy the code from the main branch in Heroku
 
-To see the [view of the live site](https://your-wish-list-maker-6905b0903af9.herokuapp.com/) click on the _Open app_ button on the top right corner or, if you enabled automatic deploy(step 14), log in to GitHub, navigate to the repository for this project by selecting [*queenisabaer/wishlist*](https://github.com/queenisabaer/wishlist), click on _Deployment_ and choose in the _Environments_ section _life-in-numbers_. On top of the latest deployment is the link to the [live site]().
+To see the [view of the live site](https://your-wish-list-maker-6905b0903af9.herokuapp.com/) click on the _Open app_ button on the top right corner or, if you enabled automatic deploy(step 14), log in to GitHub, navigate to the repository for this project by selecting [*queenisabaer/wishlist*](https://github.com/queenisabaer/wishlist), click on _Deployment_ and choose in the _Environments_ section _wishtlist_. On top of the latest deployment is the link to the [live site](https://your-wish-list-maker-6905b0903af9.herokuapp.com/).<br>
+
+### Local deployment
+
+1. Generate a env.py file in the root directory of the project
+2. Configure the environment variables within this file.
+3. Create a virtual environment
+4. Install all required dependencies using _pip install_ command into the .venv
+5. Add dependencies to the requirements.txt file using _'pip3 freeze > requirements.txt_ command
 
 ### Forking this GitHub repository
 1.  Log in to GitHub.
@@ -847,6 +873,28 @@ To see the [view of the live site](https://your-wish-list-maker-6905b0903af9.her
 5. Type `git clone` and paste the URL you copied into your terminal
 6. Press the enter key
 
+### Cloudinary
+1. Navigate to [Cloudinary](https://cloudinary.com/)
+2. Sign up or log in to account
+3. Go to the dashboard
+4. Click on _Go to API Keys_ button
+5. Generate a new API Key
+6. Provide the API environment variable in format: *CLOUDINARY_URL=cloudinary://<your_api_key>:<your_api_secret>@ds5rjhhxu* in _env.py_ and _Config Vars_
+7. Update settings.py
+
+### Create PostgresSQL using Code Institute Database Maker
+1. As Student of the Code Institute go to the [CI Database Maker](https://dbs.ci-dbs.net/)
+2. Input your email address
+3. Paste the provided URL in as your DATABASE_URL value
+
+### Gmail
+1. Navigate to [Gmail](https://www.google.com/intl/de/gmail/about/)
+2. Sign up or log in to account
+3. Go to the settings and enable 2-step verification and IMAP
+4. Navigate to your [Google account](https://myaccount.google.com/) 
+5. Search in search bar for _App password_
+6. Create new app passwort and copy this as variable in _env.py_ and _Config Vars_
+7. Update settings.py
 
 ## Credits
 
