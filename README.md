@@ -451,7 +451,12 @@ Screenshot of the wishlist overview with message: <br>
 ![Screenshot of the wishlist overview with message](/documentation/features/screenshot_wishlist_overview_empty.png)<br>
 
 -**Admin panel**<br>
+As a superuser it is possible to access the admin area of the page by adding */admin* to the link of the home page and logging in with username and password. Inside the admin panel the super user can manage and interact with the data of a this project.<br>
 
+Screenshot of admin panel log in: <br>
+![Screenshot of admin panel log in](/documentation/features/screenshot_admin_panel_log.png)<br>
+Screenshot of admin panel: <br>
+![Screenshot of admin panel](/documentation/features/screenshot_admin_panel.png)<br>
 
 
 </details>
@@ -828,10 +833,13 @@ In general, I am not satisfied with some values and would like to improve them. 
 | Wish list overview page - No wish lists message - Log in required | Log in as the user with no wish lists created, navigate to the wish list overview page | A message is displayed: "Seems like you don't have a wish list yet. Click here to create your first one." The message includes a link to add a new wish list.| Pass |
 | Wish list overview page - Create Wish List Link - Log in required | Log in as the user with no wish lists created, navigate to the wish list overview page, click on the "Click here to create your first one" link  | The page to create a new wish list is displayed | Pass |
 | Wish list overview page - wish list card format | Log in as the user, navigate to the wish list overview page | Each wish list is displayed in a card format including the title, due date, and "Show wish list" button. | Pass |
-| xxx | xxx | xxx | xxx |
-| xxx | xxx | xxx | xxx |
-| xxx | xxx | xxx | xxx |
-| xxx | xxx | xxx | xxx |
+| Admin panel - super user required | Navigate to the home page of the application and append /admin to it | As super user the admin panel should appear | Pass |
+| Admin panel - Login as super user - super user required | Access the admin login page, enter valid superuser username and password, click the "Log in" button | The admin dashboard is displayed | Pass |
+| Admin panel - Try to access admin area without super user privileges - super user required | Log in as a regular user, access the admin URL by adding /admin to the homepage URL | An error message is displayed indicating insufficient permissions, and the user cannot access the admin dashboard | Pass |
+| Admin panel - Manage user accounts - super user required | Log in as a superuser, navigate to the user management section, add a new user, edit an existing user, delete a user. | The user accounts are correctly added, edited, and deleted, with changes reflected in the database. | Pass |
+| Admin panel - Manage user accounts - super user required | Log in as a superuser, navigate to the user management section, add a new user, edit an existing user, delete a user. | The user accounts are correctly added, edited, and deleted, with changes reflected in the database. | Pass |
+| Admin panel - Manage wish lists - super user required | Log in as a superuser, navigate to the wish lists section, add a new wish list, edit or delete an existing one. | The wish lists are correctly added, edited, and deleted, with changes reflected in the database. | Pass |
+| Admin panel - Manage items - super user required | Log in as a superuser, navigate to the items section, add a new wish list item, edit or delete an existing one. | The items are correctly added, edited, and deleted, with changes reflected in the database. | Pass |
 
 
 </details>
@@ -993,8 +1001,9 @@ To see the [view of the live site](https://your-wish-list-maker-6905b0903af9.her
 
 ### Acknowledgments
 
-- I would like to express my deepest gratitude to my excellent mentor Brian Macharia for his numerous tips and wonderful assistance during the creation of this project, especially his help with adding items to the wish list..  
-- A big thank you to Dennis Schenkel for all his help on this project, be it brainstorming sessions to refine the code or emotional support. 
-- Furthermore, I would like to thank Lino Bollansee. I greatly appreciate his frequent comments during the creation of my project.
+- I would like to express my deepest gratitude to my excellent mentor Brian Macharia for his numerous tips and wonderful assistance during the creation of this project, especially his help with adding items to the wish list.  
+- A big thank you to [Dennis Schenkel](https://github.com/DennisSchenkel) for all his help on this project, be it brainstorming sessions to refine the code or emotional support. 
+- In addition, my sincerest gratitude goes out to [Niclas Hugdahl](https://github.com/NiclO1337), [Tomas Kubancik](https://github.com/tomik-z-cech) and [MilenTecle](https://github.com/MilenTecle). Their projects were a great source of inspiration.
+- Furthermore, I would like to thank [Lino Bollansee](https://github.com/linobollansee). I greatly appreciate his frequent comments during the creation of my project.
 
 **This is for educational use.**
