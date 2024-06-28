@@ -8,8 +8,18 @@ from .forms import WishListForm, ItemForm
 
 
 class WishListOverview(generic.ListView):
-    """View for displaying an overview of all wish lists."""
+    """
+    View for displaying an overview of all wish lists.
 
+    This view provides a list of wish lists created by the currently
+    authenticated user, rendered using the specified template.
+
+    Attributes:
+        model (Model): The model to be used for this view (WishList).
+        template_name (str): The template to render the list view.
+        context_object_name (str): The name of the context object to be used
+        in the template.
+    """
     model = WishList
     template_name = "wishlists/wishlist_list.html"
     context_object_name = "wishlists"

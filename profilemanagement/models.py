@@ -19,7 +19,6 @@ class UserProfile(models.Model):
         updated_at (DateTimeField): Timestamp when profile was last updated.
         user_wish_list (ForeignKey): The user's associated wish list.
     """
-
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=30, blank=False, null=True)
     last_name = models.CharField(max_length=50, blank=False, null=True)
@@ -39,6 +38,7 @@ def create_user_profile(sender, instance, created, **kwargs):
     Create a user profile when a user is created
 
     Parameters:
+    sender (Model class): The model class that sent the signal (User).
     instance (User): The User instance that was saved.
     created (bool): Boolean indicating whether a new User instance was created.
     **kwargs: Additional keyword arguments passed by the signal."""
