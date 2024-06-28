@@ -617,7 +617,7 @@ The error occurs because _item_ is not defined when the form is invalid. The var
 - [Tinypng](https://tinypng.com/) was used to compress the webp background-image.
 - [Pixabay](https://www.pixabay.com/de-de/) was used to search and load the background image.
 - [Browserling](https://www.browserling.com/) was used to test the application on different browsers.
-- [Müllmail](https://muellmail.com/)was used to create temporary mails to check login functionality. 
+- [Müllmail](https://muellmail.com/) was used to create temporary mails to check login functionality. 
 - [Cloudinary](https://cloudinary.com/) was used to store the item images.
 - [Canva](https://www.canva.com/) was used to create the logo.
 - [Favicon.io](https://favicon.io/favicon-generator/) was used to create the favicon.

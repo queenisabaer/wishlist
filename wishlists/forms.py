@@ -6,9 +6,12 @@ from datetime import date, timedelta
 
 class WishListForm(forms.ModelForm):
     """
-    Form to create a new wish list
-    """
+    Form to create a new wish list.
 
+    Attributes:
+        due_date (DateField): The due date of the wish list.
+        list_name (CharField): The name of the wish list.
+    """
     due_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
     list_name = forms.CharField(max_length=255, initial="")
 
@@ -25,6 +28,12 @@ class WishListForm(forms.ModelForm):
     def clean_due_date(self):
         """
         Validates that the due_date is not in the past.
+
+        Raises:
+            ValidationError: If the due date is today or in the past.
+
+        Returns:
+            date: The validated due date.
         """
         due_date = self.cleaned_data.get("due_date")
         if due_date is not None:
@@ -36,8 +45,18 @@ class WishListForm(forms.ModelForm):
 
 
 class ItemForm(forms.ModelForm):
-    """Form to add an item to the wishlist"""
+    """
+    Form to add an item to the wishlist.
 
+    Attributes:
+        item_name (CharField): The name of the item.
+        item_link (URLField): The URL link to the item.
+        price (DecimalField): The price of the item.
+        quantity (IntegerField): The quantity of the item.
+        priority (IntegerField): The priority level of the item.
+        image (ResizedImageField): The image of the item.
+        image_alt (CharField): The alt text for the image.
+    """
     class Meta:
         model = Item
         fields = [

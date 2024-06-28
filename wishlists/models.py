@@ -4,7 +4,7 @@ from django_resized import ResizedImageField
 import random
 import string
 
-# Helper function
+# Helper function to generate the random string
 
 
 def random_string(length=10):
@@ -51,7 +51,6 @@ class WishList(models.Model):
         updated.
         occassion (IntegerField): Occasion for the wish list.
     """
-
     wish_list_id = models.CharField(
         max_length=255, default=random_string, editable=False, unique=True
     )
@@ -82,6 +81,7 @@ class WishList(models.Model):
         if not provided.
 
         Args:
+            self (WishList): The instance of the WishList model.
             *args: Variable length argument list.
             **kwargs: Arbitrary keyword arguments.
         """
@@ -105,7 +105,6 @@ class Item(models.Model):
         image (ResizedImageField): Image of the item.
         image_alt (CharField): Alt text for the image.
     """
-
     item_id = models.AutoField(primary_key=True)
     item_name = models.CharField(max_length=250, blank=False, null=False)
     item_link = models.URLField(blank=True)
