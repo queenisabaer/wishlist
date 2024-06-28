@@ -5,21 +5,22 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import EditProfileForm
 
-# def profile_page(request):
-#  """
-# View to render the profile page.
-
-# Args:
-#   request (HttpRequest): The HTTP request object.
-
-# Returns:
-#   HttpResponse: The rendered profile page.
-# """
-# return redirect("/wishlists/wishlist_list")
-
 
 @login_required
 def profile_page(request):
+    """
+    Display the user's profile page.
+
+    This view retrieves the user's profile based on the logged-in user and
+    renders the profile page template with the user's profile information.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered profile page template with user profile
+        data.
+    """
     user_profile = UserProfile.objects.get(user=request.user)
     return render(
         request,
@@ -30,6 +31,22 @@ def profile_page(request):
 
 @login_required
 def edit_profile(request):
+    """
+    Display and process the edit profile form.
+
+    This view handles both GET and POST requests to display and process the
+    edit profile form. On GET request, it renders the form with the user's
+    current profile data. On POST request, it validates and saves the form
+    data if valid, updating the user's profile.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered edit profile form template.
+        HttpResponseRedirect: Redirects to the profile page on successful
+        update.
+    """
     user_profile = UserProfile.objects.get(user=request.user)
     if request.method == "POST":
         form = EditProfileForm(
@@ -55,6 +72,23 @@ def edit_profile(request):
 
 @login_required
 def delete_profile(request):
+    """
+    Display and process the delete profile confirmation.
+
+    This view handles both GET and POST requests for deleting the user's
+    profile.
+    On GET request, it renders the delete profile confirmation page.
+    On POST request, it deletes the user's profile and redirects to the home
+    page.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered delete profile confirmation template.
+        HttpResponseRedirect: Redirects to the home page on successful
+        deletion.
+    """
     profile = get_object_or_404(UserProfile, user=request.user)
     if request.method == "POST":
         profile.user.delete()
